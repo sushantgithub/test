@@ -38,14 +38,15 @@ let tabCounter = 0;
 export function createTab(url = HOME): Tab {
   tabCounter += 1;
   const id = `tab-${Date.now()}-${tabCounter}`;
+  const blocked = isLikelyFrameBlocked(url);
   return {
     id,
     title: url === HOME ? 'New Tab' : getHostname(url),
     url,
     history: [url],
     historyIndex: 0,
-    loading: url !== HOME,
-    blocked: false,
+    loading: url !== HOME && !blocked,
+    blocked,
   };
 }
 
@@ -74,6 +75,35 @@ export function getHostname(url: string): string {
   }
 }
 
+/** Hosts known to refuse iframe embedding (XFO / CSP). */
+const FRAME_BLOCKED_HOSTS = [
+  'duckduckgo.com',
+  'google.com',
+  'google.co.uk',
+  'bing.com',
+  'yahoo.com',
+  'youtube.com',
+  'twitter.com',
+  'x.com',
+  'facebook.com',
+  'instagram.com',
+  'reddit.com',
+  'github.com',
+  'linkedin.com',
+];
+
+export function isLikelyFrameBlocked(url: string): boolean {
+  if (url === HOME) return false;
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '');
+    return FRAME_BLOCKED_HOSTS.some(
+      (blocked) => host === blocked || host.endsWith(`.${blocked}`),
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function displayUrl(url: string): string {
   return url === HOME ? '' : url;
 }
@@ -88,8 +118,9 @@ export function canGoForward(tab: Tab): boolean {
 
 export function navigateTab(tab: Tab, rawInput: string): Tab {
   const url = normalizeInput(rawInput);
+  const blocked = isLikelyFrameBlocked(url);
   if (url === tab.url) {
-    return { ...tab, loading: url !== HOME, blocked: false };
+    return { ...tab, loading: url !== HOME && !blocked, blocked };
   }
 
   const history = tab.history.slice(0, tab.historyIndex + 1);
@@ -101,8 +132,8 @@ export function navigateTab(tab: Tab, rawInput: string): Tab {
     title: url === HOME ? 'New Tab' : getHostname(url),
     history,
     historyIndex: history.length - 1,
-    loading: url !== HOME,
-    blocked: false,
+    loading: url !== HOME && !blocked,
+    blocked,
   };
 }
 
@@ -110,13 +141,14 @@ export function moveHistory(tab: Tab, direction: -1 | 1): Tab {
   const nextIndex = tab.historyIndex + direction;
   if (nextIndex < 0 || nextIndex >= tab.history.length) return tab;
   const url = tab.history[nextIndex];
+  const blocked = isLikelyFrameBlocked(url);
   return {
     ...tab,
     url,
     title: url === HOME ? 'New Tab' : getHostname(url),
     historyIndex: nextIndex,
-    loading: url !== HOME,
-    blocked: false,
+    loading: url !== HOME && !blocked,
+    blocked,
   };
 }
 

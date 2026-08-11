@@ -20,27 +20,43 @@ export function Viewport({
 }: ViewportProps) {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const [frameKey, setFrameKey] = useState(0);
+  const [showAssist, setShowAssist] = useState(false);
 
   useEffect(() => {
     setFrameKey((k) => k + 1);
+    setShowAssist(false);
   }, [tab.url, reloadToken]);
 
   useEffect(() => {
     if (tab.url === HOME || tab.blocked) return;
 
+    const assistTimer = window.setTimeout(() => setShowAssist(true), 2200);
+
     const timer = window.setTimeout(() => {
       try {
         const doc = frameRef.current?.contentDocument;
-        // Cross-origin frames throw; if we can read and it's empty-ish, treat as blocked
-        if (doc && doc.location.href === 'about:blank') {
+        if (!doc) {
+          onBlocked(tab.id);
+          return;
+        }
+        const href = doc.location.href;
+        if (href === 'about:blank') {
+          onBlocked(tab.id);
+          return;
+        }
+        const text = (doc.body?.innerText ?? '').trim();
+        if (text.length < 8 && (doc.body?.children.length ?? 0) === 0) {
           onBlocked(tab.id);
         }
       } catch {
-        // Cross-origin usually means the page loaded; leave as-is
+        // Cross-origin usually means the page loaded.
       }
-    }, 4500);
+    }, 3500);
 
-    return () => window.clearTimeout(timer);
+    return () => {
+      window.clearTimeout(timer);
+      window.clearTimeout(assistTimer);
+    };
   }, [tab.id, tab.url, tab.blocked, frameKey, onBlocked]);
 
   if (tab.url === HOME) {
@@ -93,8 +109,12 @@ export function Viewport({
         onLoad={() => {
           let title = getHostname(tab.url);
           try {
-            const docTitle = frameRef.current?.contentDocument?.title;
-            if (docTitle) title = docTitle;
+            const doc = frameRef.current?.contentDocument;
+            if (doc?.title) title = doc.title;
+            if (doc && doc.location.href === 'about:blank') {
+              onBlocked(tab.id);
+              return;
+            }
           } catch {
             /* cross-origin */
           }
@@ -102,6 +122,17 @@ export function Viewport({
         }}
         onError={() => onBlocked(tab.id)}
       />
+      {showAssist && (
+        <div className="frame-assist">
+          <span>Page not showing?</span>
+          <a href={tab.url} target="_blank" rel="noopener noreferrer">
+            Open externally
+          </a>
+          <button type="button" onClick={() => onBlocked(tab.id)}>
+            Use fallback view
+          </button>
+        </div>
+      )}
     </div>
   );
 }
