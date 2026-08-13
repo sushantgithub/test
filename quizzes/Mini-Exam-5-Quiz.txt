@@ -1,0 +1,202 @@
+Mini Exam 5 — Practice Quiz
+===========================
+Questions: 10
+
+QUESTION 1  [Difficult]
+------------------------------------------------------------
+A data scientist has been assigned to assess the data needs for a new AI initiative. The AI project manager wants to ensure the team covers all critical aspects of data understanding before moving forward. What should the data scientist do?
+
+  A. Review the project charter to confirm data requirements are aligned.
+  B. Consult the stakeholder register to identify who has access to data sources.
+  C. Evaluate the sources, description, and quality of the available data.
+  D. Analyze the systems, quantity, and description of the available data.
+
+ANSWER: C
+
+Why this is correct:
+The three AI-specific aspects of data understanding are sources, description, and quality. Evaluating data sources identifies where the data comes from and whether it is appropriate for the initiative. Assessing data description provides an understanding of the data's structure and characteristics. Reviewing data quality ensures the data is accurate, complete, and suitable for model development.
+
+Why other options are incorrect:
+  A: Reviewing the project charter is a project management activity that provides business context rather than directly evaluating the characteristics of the data itself.
+  B: Consulting the stakeholder register helps identify governance or access permissions, but it does not evaluate the core properties of the data.
+  D: 'Systems' or 'quantity' do not substitute for 'sources' and 'quality' in the established three AI-specific aspects of data understanding.
+
+
+QUESTION 2  [Expert]
+------------------------------------------------------------
+An AI project manager is leading the kickoff meeting for a credit card chatbot initiative. The business analyst raises concerns about compliance and regulatory requirements and asks who to contact for guidance. What should the AI project manager do?
+
+  A. Direct the business analyst to the project sponsor.
+  B. Direct the business analyst to the AI solution architect.
+  C. Direct the business analyst to the financial industry subject matter expert (SME).
+  D. Direct the business analyst to the quality assurance (QA) or quality control (QC) testers.
+
+ANSWER: C
+
+Why this is correct:
+The AI project manager should direct the business analyst to the financial industry SME, as this role possesses the domain knowledge needed to identify specific compliance and regulatory obligations governing financial services AI initiatives.
+
+Why other options are incorrect:
+  A: While the project sponsor handles overarching business goals and funding, they lack the specialized regulatory domain expertise required here.
+  B: The solution architect focuses on system design and technical architecture rather than regulatory compliance standards.
+  D: QA/QC testers verify technical performance and functional defect management, not high-level industry compliance obligations.
+
+
+QUESTION 3  [Moderate]
+------------------------------------------------------------
+A data engineer is identifying data sources for a new repository. The initiative will support a retail company's customer service chatbot designed to answer product availability and order status questions. What data sources should the data engineer prioritize?
+
+  A. Third-party rating websites and competitor FAQs.
+  B. Employee training records and internal HR documentation.
+  C. Customer service call logs and store inventory data.
+  D. Marketing campaign performance reports.
+
+ANSWER: C
+
+Why this is correct:
+Customer service call logs capture the actual questions customers ask to provide realistic training examples, while store inventory data ensures the chatbot can give real-time, accurate answers regarding product availability.
+
+Why other options are incorrect:
+  A: Third-party ratings and competitor FAQs reflect general industry standards rather than company-specific order and inventory details.
+  B: HR documentation and employee training records do not contain customer interaction queries or live inventory status.
+  D: Marketing reports track promotional performance and interest metrics rather than specific inventory quantities and order tracking data.
+
+
+QUESTION 4  [Expert]
+------------------------------------------------------------
+An AI project manager is leading a student dropout prediction model at a university to identify at risk student populations. The model has met all established performance criteria, but the AI project manager paused the go/no-go decision to confirm operational readiness before approving deployment. What should the AI project manager confirm prior to operationalization?
+
+  A. That reference materials and communication templates explain retention resources.
+  B. That reporting dashboards and summary metrics are available for university leadership.
+  C. That staff has the required access to review compliance procedures and audit logs.
+  D. That advisors have the capacity and preparedness to act on risk alerts consistently and on time.
+
+ANSWER: D
+
+Why this is correct:
+Confirming advisor capacity and preparedness to respond to alerts is the primary readiness check; the value of model predictions depends entirely on whether front-line users are equipped to take timely, effective action.
+
+Why other options are incorrect:
+  A: Reference materials and templates provide secondary operational support rather than ensuring users are practically prepared to act on alerts.
+  B: Leadership reporting dashboards assist with executive oversight but do not ensure end-users execute operational interventions.
+  C: Compliance and audit log access supports governance controls rather than operational readiness in the primary workflow.
+
+
+QUESTION 5  [Moderate]
+------------------------------------------------------------
+An AI project manager is supporting an initiative for a financial services company. The project sponsor wants clarification on how the organization will know if the solution is achieving its intended outcomes. What should the AI project manager do?
+
+  A. Establish measurable business and technical performance indicators.
+  B. Measure success by whether the project meets the original deadline.
+  C. Define success criteria after deployment once initial results are available.
+  D. Measure success using the complexity of the model architecture.
+
+ANSWER: A
+
+Why this is correct:
+Establishing measurable business and technical performance indicators provides an objective framework to verify whether the solution fulfills its intended goals and technical constraints.
+
+Why other options are incorrect:
+  B: Meeting project deadlines measures schedule adherence rather than the quality or business impact of the actual solution.
+  C: Success criteria must be established upfront so the team has clear baselines prior to launching the system.
+  D: Model architectural complexity is a technical design attribute rather than an indicator of real-world business performance.
+
+
+QUESTION 6  [Moderate]
+------------------------------------------------------------
+An organization is preparing to deploy a newly developed AI solution into production. Multiple technical teams are participating in the implementation effort. What should the AI project manager do?
+
+  A. Coordinate deployment activities and validate production performance.
+  B. Delegate implementation activities to the technical teams and monitor remotely.
+  C. Conduct a final round of training for optimal performance in the production environment.
+  D. Schedule a post-deployment review with all stakeholders to assess performance.
+
+ANSWER: A
+
+Why this is correct:
+Active coordination of implementation tasks and validation of live performance ensures a controlled rollout across multiple cross-functional technical teams.
+
+Why other options are incorrect:
+  B: Hands-off remote monitoring removes the project manager from active coordination required during complex multi-team rollouts.
+  C: Model training is a development activity that should be completed prior to the deployment phase.
+  D: A post-deployment review occurs after rollout is complete, whereas coordination is required actively during deployment.
+
+
+QUESTION 7  [Moderate]
+------------------------------------------------------------
+An AI project team at a logistics company is gathering data from multiple operational systems to support a new initiative. During collection, the team notices that the data set has gaps. What should the AI project team do first?
+
+  A. Populate the missing data with default values.
+  B. Identify the incomplete data source.
+  C. Remove the data from the repository.
+  D. Change the criteria used to pull the data.
+
+ANSWER: B
+
+Why this is correct:
+Identifying the specific source causing incomplete data is the necessary first step to determine root causes before taking corrective remediation steps.
+
+Why other options are incorrect:
+  A: Imputing default values takes corrective action prematurely without understanding why or where the gaps originated.
+  C: Deleting records removes potential value and risks introducing bias before diagnosing the data gap source.
+  D: Modifying extraction criteria assumes the pipeline logic is flawed without verifying the origin of missing records.
+
+
+QUESTION 8  [Moderate]
+------------------------------------------------------------
+An AI project manager is overseeing the deployment of an AI solution that routes service requests to support teams. During rollout, several technical and operational gaps remain unresolved. What should the AI project manager do?
+
+  A. Continue the rollout and document any production issues after users begin using the solution.
+  B. Ensure all deployment readiness criteria are met before the rollout proceeds further.
+  C. Ask the model team to retrain the AI model before completing production deployment.
+  D. Transfer ownership to the support team because the solution has reached the deployment phase.
+
+ANSWER: B
+
+Why this is correct:
+Verifying that all readiness criteria are satisfied prior to proceeding prevents premature deployment of a system with known operational or technical gaps.
+
+Why other options are incorrect:
+  A: Proceeding with rollout despite unresolved gaps increases the risk of severe operational disruption for end users.
+  C: Model retraining addresses model performance issues rather than general technical and operational deployment gaps.
+  D: Handing over incomplete systems transfers unresolved project risks onto operational support teams.
+
+
+QUESTION 9  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading the rollout of a new AI solution at a logistics company. End users expressed concern that the solution might significantly impact their current workflows. What should the AI project manager do?
+
+  A. Delay stakeholder engagement until deployment.
+  B. Limit user involvement to testing activities.
+  C. Develop a structured change management plan.
+  D. Focus on model accuracy improvements.
+
+ANSWER: C
+
+Why this is correct:
+Developing a structured change management plan addresses user concerns, facilitates workflow transitions, and increases adoption success across the organization.
+
+Why other options are incorrect:
+  A: Delaying engagement alienates end users and heightens resistance to workflow changes.
+  B: Restricting user contact strictly to testing ignores broad organizational adoption and change management needs.
+  D: Improving technical model accuracy does not resolve human concerns regarding operational process alterations.
+
+
+QUESTION 10  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading a new AI initiative at a manufacturing company. Stakeholders have expressed different expectations about what the solution should deliver and how it should perform. What should the AI project manager do?
+
+  A. Proceed with deployment based on stakeholder's priorities and preferred features.
+  B. Select a deployment platform before stakeholder expectations are reconciled.
+  C. Limit scope discussions to the technical team to avoid conflicting inputs.
+  D. Define project boundaries, deliverables, assumptions, and constraints.
+
+ANSWER: D
+
+Why this is correct:
+Defining clear project boundaries, deliverables, assumptions, and constraints establishes a shared baseline that aligns conflicting stakeholder expectations prior to development.
+
+Why other options are incorrect:
+  A: Proceeding without reconciled expectations creates scope creep and risks building a solution that fails business objectives.
+  B: Choosing technical platforms prior to aligning scope makes assumptions that may not fit agreed deliverables.
+  C: Excluding key business stakeholders from scope discussions leaves conflicting expectations completely unaddressed.

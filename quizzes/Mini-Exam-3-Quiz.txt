@@ -1,0 +1,203 @@
+Mini Exam 3 — Practice Quiz
+===========================
+Questions: 10
+
+QUESTION 1  [Easy]
+------------------------------------------------------------
+An AI project team completes the pre-deployment validation of a loan approval model and detects statistical differences in approval rates across applicant groups. The model has not yet been released to production. What should the AI project manager do first?
+
+  A. Conduct a detailed bias review to identify the source of the disparity.
+  B. Remove the demographic attribute and retrain the AI model.
+  C. Document the disparity in the risk register and proceed to deployment.
+  D. Adjust the model's decision threshold to standardize approval rates.
+
+ANSWER: A
+
+Why this is correct:
+The project manager should first conduct a bias review across the model, data, and algorithm to identify the source of the disparity. Bias must be identified and understood before any mitigation action can be taken effectively.
+
+Why other options are incorrect:
+  B: Removing the demographic attribute and retraining the model applies a mitigation technique before the source of the bias has been identified, which may not resolve the underlying issue.
+  C: Documenting the disparity and proceeding with monitored deployment is incorrect, as known bias issues should be resolved before the model is released to production.
+  D: Adjusting the decision threshold to equalize approval rates applies a technical fix without first understanding the root cause of the disparity across applicant groups.
+
+
+QUESTION 2  [Expert]
+------------------------------------------------------------
+An AI project team at a retail company is drafting an AI solution that aims to reduce labor costs. The team must identify an aligned AI pattern that drives business value. What type of AI solution should the AI project team apply?
+
+  A. Patterns and anomalies solution
+  B. Hyper-personalization solution
+  C. Autonomous systems solution
+  D. Goal-driven systems solution
+
+ANSWER: C
+
+Why this is correct:
+Autonomous systems automate work that would otherwise require people. Autonomous systems are designed to reduce labor costs by minimizing the need for manual intervention. In a retail context, that can mean self-service, automated operations, or machine-led task execution, which directly supports the goal of lowering labor costs.
+
+Why other options are incorrect:
+  A: Patterns and anomalies solution targets reliability improvements, cost reduction through better insights, and risk identification.
+  B: A hyper-personalization solution focuses on improving usage, increasing conversion rates, and enhancing customer satisfaction.
+  D: A goal-driven systems solution targets operational optimization and competitive advantages. While it may contribute to cost reduction broadly, it does not specifically address labor cost reduction through minimizing manual intervention the way autonomous systems do.
+
+
+QUESTION 3  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading the deployment of a fraud detection solution at a bank. Go-live is scheduled, but the customer support and incident management teams have not been prepared to handle escalations and model-related questions. What should the AI project manager do?
+
+  A. Proceed with deployment as scheduled and allow support teams to learn through early operational experience.
+  B. Create handover documentation and provide training to prepare the relevant management teams.
+  C. Assign all post-deployment support responsibilities to the model development team.
+  D. Reduce the number of model alerts at launch to limit the volume of issues support teams must manage.
+
+ANSWER: B
+
+Why this is correct:
+Creating handover documentation and providing training before go-live proceeds ensures operational teams are equipped to respond effectively once the solution is in production, reducing the risk of disruption during the transition.
+
+Why other options are incorrect:
+  A: Proceeding with deployment as scheduled and allowing support teams to learn through early operational experience risks poor incident handling and customer dissatisfaction during a critical launch period.
+  C: Assigning all post-deployment support responsibilities to the model development team avoids preparing the operational teams entirely, which does not establish a sustainable support structure for the long term.
+  D: Reducing the number of model alerts at launch limits visibility into fraud detection activity rather than addressing the underlying readiness gap in the support and incident management teams.
+
+
+QUESTION 4  [Easy]
+------------------------------------------------------------
+An AI model has completed testing and achieved expected performance levels. The AI project team is preparing to release the model to its operational environment. What should the AI project manager do prior to deployment?
+
+  A. Evaluate readiness against established success criteria and operational requirements.
+  B. Review the project budget and resource allocation to confirm funding.
+  C. Increase the training dataset size before reviewing application requirements.
+  D. Schedule a stakeholder meeting to present model performance results and gather feedback.
+
+ANSWER: A
+
+Why this is correct:
+Even when a model has achieved expected performance levels during testing, the AI project manager must evaluate deployment readiness against the established success criteria and operational requirements. This ensures the model is not only technically ready but also meets all organizational and operational standards required for production.
+
+Why other options are incorrect:
+  B: Reviewing the project budget and resource allocation is a project management activity, and scheduling a stakeholder meeting to present performance results is a communication activity. While both may be relevant at other stages of the project, neither evaluates whether the AI solution is operationally ready for deployment.
+  C: Increasing the training dataset size is a model development activity and is premature once the model has already completed testing and achieved the expected performance levels.
+  D: Scheduling a stakeholder meeting to present results does not evaluate operational readiness for production deployment.
+
+
+QUESTION 5  [Moderate]
+------------------------------------------------------------
+A compliance officer is reviewing the data used to train an AI loan assessment system. During the review, the compliance officer discovers that the data sources used for model training do not have verified usage rights or licensing agreements in place. What should the compliance officer do first?
+
+  A. Confirm legal authorization to use the data.
+  B. Assess the quality and completeness of the data.
+  C. Establish model governance controls.
+  D. Verify security controls and thresholds.
+
+ANSWER: A
+
+Why this is correct:
+Before data can be used for model training, the compliance officer must verify that the organization has the legal right to use it. Without confirmed usage rights and licensing agreements, using the data exposes the organization to legal and regulatory risk.
+
+Why other options are incorrect:
+  B: Assessing data quality does not address the legal authorization gap identified in the scenario.
+  C: Establishing model governance controls addresses how the model operates after deployment, not whether the organization has the right to use the training data.
+  D: Verifying security controls does not resolve the lack of verified usage rights or licensing agreements.
+
+
+QUESTION 6  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading an AI initiative at a transportation company. The team has collected data and needs to confirm it can support the planned solution before development proceeds. What should the AI project manager do?
+
+  A. Proceed with model development since data collection has been completed.
+  B. Compare the collected data against the defined requirements.
+  C. Defer the data assessment until after the model has been trained and tested.
+  D. Select a deployment strategy in parallel with data evaluation activities.
+
+ANSWER: B
+
+Why this is correct:
+Comparing the collected data against the defined requirements to confirm it can support the planned solution identifies whether the data is sufficient and representative of what the initiative needs before any further development activity begins.
+
+Why other options are incorrect:
+  A: Proceeding with model development assumes that completing collection is the same as confirming sufficiency, which skips the necessary comparison against requirements.
+  C: Deferring data assessment reverses the correct sequence, allowing investment in development before confirming the data can support the solution.
+  D: Selecting a deployment strategy in parallel is premature since deployment planning depends on first confirming that the data meets requirements.
+
+
+QUESTION 7  [Easy]
+------------------------------------------------------------
+An AI project manager is coordinating an AI initiative at a financial services company. The project requires combining several data sets, each subject to different access and usage requirements. What should the AI project manager do?
+
+  A. Verify access permissions and compliance requirements before integration.
+  B. Combine the data sets and review usage requirements after integration.
+  C. Merge all data sets and grant access to all project participants.
+  D. Limit data combination to the data sets considered least sensitive.
+
+ANSWER: A
+
+Why this is correct:
+Verifying access permissions and compliance requirements before any integration occurs ensures the initiative uses each data set appropriately and complies with the access and usage restrictions that apply to sensitive information.
+
+Why other options are incorrect:
+  B: Combining data sets and reviewing requirements after integration exposes the organization to unauthorized use of restricted data.
+  C: Merging all data sets and granting blanket access exposes sensitive data to unauthorized participants.
+  D: Limiting data combination to least sensitive datasets avoids compliance review entirely rather than confirming actual permissions.
+
+
+QUESTION 8  [Moderate]
+------------------------------------------------------------
+An AI project manager is planning an AI solution to classify incoming warranty claims. The project team has business analysts and application developers, but it is unclear whether the team has the technical expertise, computing resources, or specialized labeling support needed. What should the AI project manager do?
+
+  A. Begin solution design using the current project team and available tools.
+  B. Submit a procurement request to purchase an AI platform.
+  C. Assess required skills, infrastructure, and tools for each phase.
+  D. Assign application developers to build the model after the scope is approved.
+
+ANSWER: C
+
+Why this is correct:
+This response addresses the uncertainty about the team's capabilities directly, giving the project manager a clear picture of staffing, technical, and resourcing gaps before further planning decisions are made.
+
+Why other options are incorrect:
+  A: Beginning solution design assumes the team can execute the work despite unconfirmed capability gaps.
+  B: Purchasing an AI platform commits resources before actual technical needs are understood.
+  C: N/A
+  D: Assigning application developers assumes they have necessary data science capabilities, which has not been confirmed.
+
+
+QUESTION 9  [Expert]
+------------------------------------------------------------
+An AI project manager is reviewing a governance report for a deployed AI tutor. The report indicates a sharp decline in module performance following a recent content update that has not been validated. What should the AI project manager classify this issue as?
+
+  A. Data drift
+  B. Model drift
+  C. Overfitting
+  D. Underfitting
+
+ANSWER: B
+
+Why this is correct:
+Model drift occurs when a model's performance declines because the underlying environment or content it was trained against has changed. In this scenario, the recent content update that has not been validated against the AI tutor is the likely cause of the performance decline.
+
+Why other options are incorrect:
+  A: Data drift refers to a change in the statistical properties of input data received by the model, rather than a change in content or task.
+  C: Overfitting occurs when a model performs well on training data but poorly on unseen data due to learning patterns too specific to training, unrelated to content updates.
+  D: Underfitting occurs when a model is too simple to capture underlying patterns, resulting in poor performance from the outset rather than a sudden decline post-update.
+
+
+QUESTION 10  [Expert]
+------------------------------------------------------------
+A compliance officer at a financial services company is conducting a risk assessment for a new AI initiative. The AI project team flags applicable regulations and internal compliance policies that could impact the project. What AI requirement should the compliance officer address?
+
+  A. Societal requirements
+  B. Transparent requirements
+  C. Responsible AI requirements
+  D. Governed AI requirements
+
+ANSWER: C
+
+Why this is correct:
+Responsible AI requirements address laws, regulations, and internal compliance policies that govern how an AI initiative must operate. When a risk assessment identifies applicable regulations and compliance policies that could impact a project, these fall under the Responsible AI category of the AI requirements framework.
+
+Why other options are incorrect:
+  A: Societal ethical AI requirements focus on bias, fairness, and human values.
+  B: Transparent AI requirements address consent, disclosure, and visibility into how the AI system operates.
+  D: Governed AI requirements cover system auditability, contestability, and model versioning.

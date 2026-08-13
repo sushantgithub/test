@@ -1,0 +1,435 @@
+Support Responsible and Trustworthy AI — Practice Quiz
+======================================================
+Questions: 20
+
+QUESTION 1  [Easy]
+------------------------------------------------------------
+An AI project team is preparing to deploy a customer-facing recommendation solution in multiple markets. During a governance review, the compliance team informs the project manager that new AI-related regulatory requirements may affect how customer data can be used and reported.
+
+What should the project manager do?
+
+  A. Continue with the planned deployment and address any compliance issues after the solution is operational.
+  B. Increase model testing activities to compensate for potential regulatory changes.
+  C. Coordinate with legal and compliance stakeholders to assess and address the new regulatory requirements.
+  D. Reduce the scope of the AI solution until all future regulations become fully established.
+
+ANSWER: C
+
+Why this is correct:
+Since new regulatory requirements may affect the use and reporting of customer data, the AI project manager should work with the appropriate stakeholders to evaluate the requirements and determine the actions needed to maintain compliance.
+
+Why other options are incorrect:
+  A: Continuing with deployment and addressing compliance issues later is incorrect because regulatory impacts should be assessed before deployment decisions are finalized.
+  B: Increasing model testing activities does not determine whether the solution complies with new regulatory obligations.
+  D: Reducing the scope of the AI solution is incorrect because the regulatory impact has not yet been assessed, and there is no indication that a scope reduction is necessary to achieve compliance.
+
+
+QUESTION 2  [Easy]
+------------------------------------------------------------
+An AI project team is developing a hiring support model. During fairness testing, the AI project manager identifies that candidate recommendations are less favorable for one demographic group. The project sponsor wants to reduce the disparity without abandoning the solution.
+
+What should the AI project manager do?
+
+  A. Delay fairness reviews until pilot testing begins.
+  B. Replace the project with a rules-based process.
+  C. Add more performance metrics.
+  D. Apply bias mitigation techniques.
+
+ANSWER: D
+
+Why this is correct:
+The project manager should apply bias mitigation techniques as soon as bias is detected during model development. The sponsor has explicitly endorsed fixing the issue rather than abandoning the solution, so the project manager must guide the team toward a responsible and appropriate response to the bias.
+
+Why other options are incorrect:
+  A: Delaying the fairness review is incorrect because the bias has already been confirmed in development, and deferring it until later increases the risk.
+  B: Replacing the project is incorrect because replacing the solution does not directly address the identified development issue.
+  C: Adding more performance metrics is incorrect because overall accuracy can mask unfair outcomes across groups.
+
+
+QUESTION 3  [Expert]
+------------------------------------------------------------
+An AI project team discovers there is no owner assigned to monitor results or implement corrective actions during project execution.
+
+What Trustworthy AI principle is not being adhered to?
+
+  A. Ethical AI
+  B. Governed AI
+  C. Transparent AI
+  D. Responsible AI
+
+ANSWER: D
+
+Why this is correct:
+Responsible AI requires that humans are assigned to guard against errors, monitor system outputs, and take corrective action when issues arise. The absence of an assigned role to monitor results and respond to unexpected outcomes represents a direct gap in this layer of the Trustworthy AI Framework.
+
+Why other options are incorrect:
+  A, B, C: Ethical AI addresses human values, fairness, and bias avoidance. Transparent AI focuses on visibility into how the AI system operates and how decisions are made. Governed AI covers policies, audits, and risk management controls. None of these layers specifically address the assignment of human accountability for monitoring and corrective action.
+
+
+QUESTION 4  [Easy]
+------------------------------------------------------------
+A bank is developing an AI model to approve personal loans. During testing, the model consistently approves applications from one geographic region at a much higher rate than applicants from other regions.
+
+What should the AI project team do first?
+
+  A. Deploy the model and monitor approval performance after launch.
+  B. Increase the model complexity to improve prediction accuracy.
+  C. Investigate the cause of the disparity and address any underlying data issues.
+  D. Remove geographic information from future applications and continue model development.
+
+ANSWER: C
+
+Why this is correct:
+Investigating the cause of the disparity and addressing any underlying data issues before proceeding ensures the team understands whether the disparity reflects a genuine bias risk before any corrective or deployment decisions are made.
+
+Why other options are incorrect:
+  A: Deploying the model and monitoring approval performance after launch allows a potentially biased model to make real lending decisions before the cause of the disparity has been understood, risking harm to applicants and regulatory exposure.
+  B: Increasing the model complexity to improve prediction accuracy does not address the underlying data imbalance and may make the bias harder to detect and interpret.
+  D: Removing all geographic information from future applications does not eliminate bias if the model has learned to rely on other variables that correlate with geography, and it does not address the data issue already identified in the existing model.
+
+
+QUESTION 5  [Expert]
+------------------------------------------------------------
+An AI project team is developing a content recommendation algorithm. Stakeholders are concerned that the model may reinforce skewed viewpoints by repeatedly recommending one-sided content to users.
+
+What should the AI project team do to mitigate this risk?
+
+  A. Apply regularization techniques to prevent the model from overfitting to training data.
+  B. Rebalance the training data to include diverse and representative content patterns.
+  C. Implement fairness constraints during model training to limit disproportionate outputs.
+  D. Add a disclaimer to the interface informing users that suggestion patterns are repetitive.
+
+ANSWER: B
+
+Why this is correct:
+The project team must rebalance the training data to ensure it includes diverse and representative content patterns. This directly addresses the source of the bias before the model learns from it.
+
+Why other options are incorrect:
+  A: Applying regularization techniques addresses overfitting rather than the data imbalance driving the skewed recommendations.
+  C: Implementing fairness constraints addresses the model training process rather than correcting the data imbalance that is the root cause of the bias concern.
+  D: Adding a disclaimer to the interface acknowledges the issue to users but does not address or reduce the bias in the model itself.
+
+
+QUESTION 6  [Easy]
+------------------------------------------------------------
+A data engineer is configuring access to customer records containing personally identifiable information (PII) for AI model training. The data set includes names, email addresses, and account numbers.
+
+What should the data engineer do?
+
+  A. Anonymize the data after model training is complete.
+  B. Anonymize the data and establish access controls.
+  C. Increase the size of the training dataset before model development.
+  D. Replace all production data with synthetic data.
+
+ANSWER: B
+
+Why this is correct:
+Anonymizing the data and establishing access controls before training begins protects sensitive customer information throughout the training process and ensures the initiative complies with data privacy and security requirements from the outset.
+
+Why other options are incorrect:
+  A: Anonymizing the data after model training is complete protects the data too late, since the sensitive information remains exposed throughout the entire training process.
+  C: Increasing the size of the training data set before model development addresses data volume rather than the privacy and security risk created by the personally identifiable information already present in the customer records.
+  D: Replacing all production data with synthetic data is an extreme and unnecessary measure that does not appropriately address the need to secure the existing customer data being used for this specific initiative.
+
+
+QUESTION 7  [Moderate]
+------------------------------------------------------------
+An AI project manager is overseeing an AI solution that uses customer service records to train a model. During a planning review, the project team confirms the data set includes personally identifiable information (PII), but no access, storage, or use controls have been defined yet.
+
+What should the AI project manager do?
+
+  A. Remove the sensitive records from the training data set.
+  B. Restrict model access to a limited set of internal users only.
+  C. Delay the project until the sponsor approves a privacy policy.
+  D. Establish governance controls before development begins.
+
+ANSWER: D
+
+Why this is correct:
+Establishing data governance controls before development proceeds ensures the sensitive information is protected throughout the AI lifecycle and the initiative complies with data privacy and security requirements from the outset.
+
+Why other options are incorrect:
+  A: Removing the sensitive records from the training data set addresses the data itself rather than establishing the governance framework needed to protect PII throughout the initiative.
+  B: Restricting model access to internal users only addresses one dimension of access control, but does not establish the comprehensive governance controls needed to protect PII across storage and use as well.
+  C: Delaying the project defers the governance responsibility to the sponsor rather than the AI project manager taking the appropriate action to establish controls before development begins.
+
+
+QUESTION 8  [Easy]
+------------------------------------------------------------
+An AI project manager is overseeing the development of a credit scoring model for a bank. A senior stakeholder asks how the model arrived at a rejection decision for a specific application.
+
+What should the AI project manager do?
+
+  A. Share the model's source code with the senior stakeholder for independent review.
+  B. Analyze the overall accuracy metrics against the validation report.
+  C. Use model interpretability tools to explain the factors that contributed to the outcome.
+  D. Refer the stakeholder to the data science team for a technical briefing.
+
+ANSWER: C
+
+Why this is correct:
+The AI project manager should use model interpretability tools to provide a clear and meaningful explanation. This is a core transparency practice that ensures stakeholders can understand and trust the model's decision-making process.
+
+Why other options are incorrect:
+  A: Source code does not provide an accessible explanation of how the model reached a particular outcome.
+  B: Analyzing overall accuracy metrics addresses model performance in general but does not explain how the model arrived at a specific rejection decision.
+  D: Referring the stakeholder to the data science team defers the AI project manager's responsibility to manage transparency and communicate model decisions to stakeholders.
+
+
+QUESTION 9  [Easy]
+------------------------------------------------------------
+An AI project manager is leading an AI-powered customer analytics platform. Midway through the project, a new privacy regulation introduces additional requirements. The sponsor is concerned that addressing these requirements may affect budget and schedule commitments.
+
+What should the AI project manager do?
+
+  A. Proceed with the current plan and address compliance after the initial release.
+  B. Evaluate the impact of the new regulation and adjust the project plan accordingly.
+  C. Pause all project activities until the regulation's full implications are understood.
+  D. Direct the legal team to manage compliance independently of the project timeline.
+
+ANSWER: B
+
+Why this is correct:
+Evaluating the impact of the new regulation and adjusting the project plan accordingly ensures the project remains compliant while giving the sponsor accurate information about how the change affects budget and schedule commitments.
+
+Why other options are incorrect:
+  A: Proceeding with the current plan and addressing compliance after the initial release ignores the new regulatory requirement, exposing the organization to compliance risk.
+  C: Pausing all project activities until the regulation's full implications are understood is an overly cautious response that halts progress unnecessarily when an impact assessment could be conducted without stopping all work.
+  D: Directing the legal team to manage compliance independently of the project timeline removes the AI project manager's responsibility to integrate regulatory changes into the overall project plan, risking misalignment between compliance efforts and project execution.
+
+
+QUESTION 10  [Easy]
+------------------------------------------------------------
+An AI project manager is developing an AI solution to support mortgage approval decisions. Regulators request evidence of how the algorithm and the training data were selected. However, business executives are concerned that providing too much detail could expose proprietary practices.
+
+What should the AI project manager do?
+
+  A. Document only the technical specifications.
+  B. Satisfy regulatory demands while protecting intellectual property.
+  C. Provide regulators full access to training data sources.
+  D. Postpone documentation efforts until after the governance review.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager should satisfy regulatory demands while protecting intellectual property (IP). This balances the need for regulatory transparency with the organization's legitimate interest in protecting its competitive advantage.
+
+Why other options are incorrect:
+  A: Documenting only the technical specifications withholds the model selection rationale that regulators have specifically requested, failing to fully satisfy governance review requirements.
+  C: Providing regulators full access to training data sources unnecessarily exposes intellectual property (IP), which conflicts with legitimate business concerns raised by executives.
+  D: Postponing documentation efforts until after the governance review fails to address the regulator's request in a timely manner and risks noncompliance during the review process.
+
+
+QUESTION 11  [Moderate]
+------------------------------------------------------------
+An AI project team plans to use customer transaction records containing personally identifiable information (PII) to train a fraud detection model. The AI project manager is overseeing the privacy and security plan during the data understanding phase.
+
+What should the AI project manager do before data collection activities begin?
+
+  A. Establish encryption standards, key rotation policies, and access logging for production model artifacts.
+  B. Define data ownership confirmation, secure access controls, and privacy compliance procedures.
+  C. Schedule penetration testing, vulnerability scanning, and patch management for the deployment environment.
+  D. Define accuracy thresholds, precision requirements, and recall targets for the production release.
+
+ANSWER: B
+
+Why this is correct:
+Before data collection begins, the AI project manager overseeing the privacy and security plan should define data ownership confirmation, establish secure access controls for AI training data, and implement privacy compliance procedures. These activities ensure that PII is handled responsibly and in accordance with data protection requirements before any data is collected or processed.
+
+Why other options are incorrect:
+  A: Establishing encryption standards, key rotation policies, and access logging describes security activities associated with production model artifacts, not pre-collection data planning.
+  C: Scheduling penetration testing, vulnerability scanning, and patch management describes deployment security activities that occur after the model is built and ready for release.
+  D: Setting accuracy thresholds, precision requirements, and recall targets describes model performance criteria associated with defining success metrics, not privacy and security planning.
+
+
+QUESTION 12  [Difficult]
+------------------------------------------------------------
+An AI project manager is overseeing the development of a machine learning (ML) model. Throughout the development process, the team maintains records of how model outputs were produced and why specific model choices were made.
+
+What is this record-keeping practice called?
+
+  A. Audit trails
+  B. Data lineage
+  C. Algorithm selection
+  D. Decision log
+
+ANSWER: A
+
+Why this is correct:
+An audit trail is the record-keeping practice of documenting how model outputs were produced and why specific model choices were made throughout the development process. A core AI/ML transparency practice that supports accountability.
+
+Why other options are incorrect:
+  B: Data lineage tracks the origin and movement of data through a system.
+  C: Algorithm selection refers to the process of choosing an appropriate algorithm for a specific use case.
+  D: A decision log captures individual decisions made during a project, but does not specifically refer to the comprehensive record-keeping of model outputs and development choices that defines an audit trail.
+
+
+QUESTION 13  [Expert]
+------------------------------------------------------------
+A project manager is establishing bias mitigation processes for an AI initiative. The compliance team has asked the team to identify which practices should be implemented to address AI bias.
+
+What process falls outside the scope of AI bias mitigation?
+
+  A. Allowing individuals to appeal decisions made by the AI system.
+  B. Assigning human accountability for decisions made by the AI system.
+  C. Monitoring and adjusting AI models and data for drift over time.
+  D. Retiring older AI models when newer versions are released.
+
+ANSWER: D
+
+Why this is correct:
+Retiring older models when newer versions are launched is a model life cycle management practice. While it is a good operational habit, it does not directly address AI bias. A newer model is not inherently less biased than an older one, and model retirement alone does not constitute a bias mitigation process.
+
+Why other options are incorrect:
+  A, B, C: Allowing individuals to appeal AI decisions, assigning human accountability, and monitoring for data and model drift are all recognized practices for identifying, addressing, and mitigating AI bias throughout the model life cycle.
+
+
+QUESTION 14  [Easy]
+------------------------------------------------------------
+A data scientist at a financial services company is preparing historical chat logs to train a large language model (LLM). The logs contain sensitive personally identifiable information (PII) that must be protected before the data can be used.
+
+What should the data scientist do before using the data for model training?
+
+  A. Encrypt the customer chat logs and feed the encrypted files directly into the model.
+  B. Replace the customer chat logs with publicly available data to avoid PII concerns.
+  C. Require all team members to sign non-disclosure agreements before accessing the training data.
+  D. Apply data anonymization techniques to replace sensitive identifiers before model training.
+
+ANSWER: D
+
+Why this is correct:
+Data anonymization techniques such as pseudonymization replace sensitive identifiers with non-identifiable substitutes, protecting customer PII while preserving the data's utility for model training.
+
+Why other options are incorrect:
+  A: Encrypting the data set does not remove PII from the data. The model would still process sensitive identifiers during training.
+  B: Replacing customer chat logs with publicly available data eliminates the relevant training data entirely, undermining the purpose of the initiative.
+  C: Non-disclosure agreements are administrative controls that do not technically protect PII within the data set or prevent sensitive information from being processed during training.
+
+
+QUESTION 15  [Easy]
+------------------------------------------------------------
+A data scientist team is reviewing a training data set for a new AI initiative. The team reports that one customer demographic is significantly overrepresented while several others are minimally represented.
+
+What should the data science team do?
+
+  A. Document the data set composition and proceed with model training.
+  B. Conduct bias testing to determine model balance and fairness.
+  C. Request additional computing resources to accelerate model training.
+  D. Move directly to testing the model's technical performance metrics.
+
+ANSWER: B
+
+Why this is correct:
+Conducting bias and fairness testing to evaluate whether the imbalance produces different outcomes across population groups identifies whether the representation gap translates into unfair or inconsistent model behavior before development proceeds.
+
+Why other options are incorrect:
+  A, D: Proceeding with the current data set and moving directly to testing the model's technical performance metrics advances the project without first evaluating whether the demographic imbalance creates fairness risks.
+  C: Requesting additional computing resources addresses infrastructure capacity rather than the representation and fairness concern identified in the scenario.
+
+
+QUESTION 16  [Difficult]
+------------------------------------------------------------
+An AI project manager has to prepare documentation to support an organization's go/no-go decision for an AI initiative.
+
+What should the AI project manager include in their report?
+
+  A. Model performance benchmarks, technical validation results, and quality assurance (QA).
+  B. An executive summary of stakeholder meeting notes and communication logs.
+  C. Budget estimates and resource allocation plans for the next project phase.
+  D. Decision rationale, supporting evidence, identified risks, and compliance considerations.
+
+ANSWER: D
+
+Why this is correct:
+Accountability documentation for a go/no-go decision must capture why the decision was made, what evidence supported it, what risks were identified, and whether compliance requirements were met. This creates a comprehensive record that supports transparency, traceability, and regulatory review.
+
+Why other options are incorrect:
+  A, B: Model performance benchmarks, technical validation results, quality assurance findings, and an executive summary of stakeholder meeting notes are useful project records but do not constitute the structured accountability documentation required to support a go/no-go decision.
+  C: Budget estimates and resource allocation plans address financial and resource planning rather than the decision rationale and compliance considerations that accountability documentation must capture at a go/no-go decision point.
+
+
+QUESTION 17  [Difficult]
+------------------------------------------------------------
+An AI project manager at a medical research company is leading a diagnostic AI project. The project sponsor has threatened to halt the project after the model produced different diagnostic results for the same case on separate occasions. The AI project manager must identify the root cause of the issue.
+
+What document should the AI project manager review first?
+
+  A. The stakeholder register
+  B. The model version control log
+  C. The risk mitigation plan
+  D. The business requirements document
+
+ANSWER: B
+
+Why this is correct:
+An AI project requires maintaining version control records to support transparency and accountability in AI model development. The model version control log contains a record of all changes made to the model over time, including updates to algorithms, training data, and configurations. Reviewing this log allows the AI project manager to identify what changed that led the model to produce different diagnostic results for the same case.
+
+Why other options are incorrect:
+  A, D: The stakeholder register and the business requirements document are planning and reference documents. Neither contains information about model behavior, changes to the diagnostic system, or the decision records needed to investigate inconsistent outputs.
+  C: The risk mitigation plan outlines responses to identified project risks, but it does not contain the version history or decision records needed to investigate the issue.
+
+
+QUESTION 18  [Easy]
+------------------------------------------------------------
+An AI project manager is leading an initiative for a hospital network. During project execution, a new regulation for AI use in clinical settings is published that affects how the model's outputs may be used by clinical staff.
+
+What should the AI project manager do first?
+
+  A. Continue project execution and address the regulation during the post-deployment compliance review.
+  B. Pause all project activities until legal counsel provides written approval to proceed.
+  C. Update the project risk register to note the new regulation and monitor for further changes.
+  D. Assess the new regulation's impact and coordinate with legal and compliance teams on required adjustments.
+
+ANSWER: D
+
+Why this is correct:
+When a new regulation is published during project execution, the AI project manager must assess its impact on the project and engage the appropriate legal and compliance teams to determine what adjustments are required.
+
+Why other options are incorrect:
+  A: Continuing project execution and deferring compliance to the post-deployment review ignores an active regulatory requirement that may affect how the model is used, creating legal and operational risk.
+  B: Pausing all project activities until written approval is received is an overly reactive response that may cause unnecessary delays.
+  C: Updating the risk register is a useful documentation activity, but it is insufficient on its own, as it does not fulfill the project manager's regulatory monitoring responsibilities.
+
+
+QUESTION 19  [Easy]
+------------------------------------------------------------
+An AI project manager at a global company is overseeing the development of an AI model to screen job applicants. Recruiters express concern that they cannot interpret how the model arrives at its recommendations.
+
+What should the AI project manager implement to address the recruiter's concerns?
+
+  A. Performance dashboards
+  B. Access restrictions
+  C. Explainability tools
+  D. Data augmentation methods
+
+ANSWER: C
+
+Why this is correct:
+Implementing explainability tools helps stakeholders understand the factors driving the model's outputs and addresses the transparency gap that recruiters have identified, supporting their ability to trust and effectively use the model's recommendations.
+
+Why other options are incorrect:
+  A: Performance dashboards display metrics about model accuracy and outcomes, but do not explain how individual rankings or decisions were derived, which is the specific concern recruiters have raised.
+  B: Access restrictions limit who can view or interact with the model, but do not address the underlying need for recruiters to understand how the model's decisions are made.
+  D: Data augmentation methods increase the volume or diversity of training data, which addresses model performance rather than the interpretability and transparency concerns raised by recruiters.
+
+
+QUESTION 20  [Difficult]
+------------------------------------------------------------
+An AI project manager is working with the governance team to ensure an AI initiative adheres to applicable laws, standards, and internal policies. The project sponsor requests the team tracks and communicates adherence to stakeholders.
+
+What should the AI project manager do?
+
+  A. Execute a model governance framework.
+  B. Request the stakeholder refers to the risk register.
+  C. Maintain an audit trail for model development decisions.
+  D. Establish compliance monitoring and periodical reporting.
+
+ANSWER: D
+
+Why this is correct:
+Compliance monitoring and periodic reporting mechanisms provide a structured way to track whether an AI initiative adheres to applicable laws, standards, and internal policies, and to communicate that adherence to stakeholders.
+
+Why other options are incorrect:
+  A: A model governance framework establishes the rules and procedures for managing the AI model life cycle, but does not specifically address the tracking and communication of regulatory and policy adherence.
+  B: A risk register documents identified compliance risks but does not provide an ongoing mechanism for monitoring and reporting adherence to requirements.
+  C: An audit trail records model development decisions and outputs but is focused on accountability and traceability rather than tracking and communicating compliance with laws and standards. An audit trail alone is not enough.

@@ -1,0 +1,438 @@
+Manage AI Model Development and Evaluation — Practice Quiz
+==========================================================
+Questions: 20
+
+QUESTION 1  [Difficult]
+------------------------------------------------------------
+A multinational company is in the data preparation phase for a resource demand forecasting model. The data scientist is under the impression that they have completed the data transformation steps but failed to document the process.
+
+What should the data scientist do?
+
+  A. Initiate model training using the completed transformation outputs.
+  B. Complete documentation before proceeding to the next phase.
+  C. Revert to the raw dataset and restart the transformation process.
+  D. Escalate the documentation gap to the data governance committee.
+
+ANSWER: B
+
+Why this is correct:
+Documenting data transformation steps is a required practice in data preparation that is missing from the scenario. Without it the transformation process cannot be reproduced or audited, which undermines the integrity of the model development process.
+
+Why other options are incorrect:
+  A: Initiating model training before documentation is complete skips a critical step that ensures the data preparation process is traceable and repeatable.
+  C: Reverting to the raw dataset and restarting the transformation process is unnecessary, as only the documentation is missing.
+  D: The documentation gap is within the data scientist's responsibility to address directly before escalation is warranted.
+
+
+QUESTION 2  [Difficult]
+------------------------------------------------------------
+A project team has successfully completed model evaluation and awaits the project manager's go/no-go decision. The model meets several technical targets, but some operational requirements and deployment dependencies remain unclear.
+
+What should the project manager do?
+
+  A. Conduct a comprehensive readiness assessment before operationalization.
+  B. Approve deployment since the model has met its technical performance targets.
+  C. Delay deployment until all dependencies are resolved by the technical team.
+  D. Escalate the unresolved dependencies to the sponsor and proceed with deployment.
+
+ANSWER: A
+
+Why this is correct:
+The AI project manager must conduct a comprehensive readiness assessment before approving operationalization. Meeting technical targets alone is not sufficient to confirm the model is ready for production when operational and dependency gaps have not been resolved.
+
+Why other options are incorrect:
+  B: Approving deployment proceeds without confirming that the operational readiness requirements and deployment dependencies have been addressed, which introduces avoidable risk into the operationalization process.
+  C: Delaying deployment until all dependencies are resolved by the technical team defers accountability rather than the AI project manager conducting the readiness assessment needed to make an informed go/no-go decision.
+  D: Escalating the unresolved dependencies to the sponsor bypasses the readiness assessment entirely and advances operationalization despite known gaps that have not been evaluated or resolved.
+
+
+QUESTION 3  [Difficult]
+------------------------------------------------------------
+A data scientist is preparing training data for an AI model. The dataset contains numerical features with significantly different value ranges across variables.
+
+What should the data scientist apply to address this issue?
+
+  A. Data normalization
+  B. Data augmentation
+  C. Feature engineering
+  D. Data anonymization
+
+ANSWER: A
+
+Why this is correct:
+When numerical features have significantly different value ranges, data normalization scales them to a consistent range so the model can learn effectively across all variables. Without normalization, features with larger ranges can disproportionately influence the model's learning process.
+
+Why other options are incorrect:
+  B, C: Data augmentation increases the amount of training data, and feature engineering creates new variables from existing data. Neither addresses the problem of inconsistent numerical ranges across the data.
+  D: Data anonymization is used to protect sensitive information. It does not resolve differences in numerical scales or improve model performance related to inconsistent value ranges.
+
+
+QUESTION 4  [Expert]
+------------------------------------------------------------
+An AI project manager is selecting a modeling approach for an initiative where the training data has no predefined labels or categories.
+
+What type of algorithm should the AI project manager select?
+
+  A. Decision tree
+  B. Naive Bayes
+  C. Gaussian mixture model
+  D. Linear regression
+
+ANSWER: C
+
+Why this is correct:
+A Gaussian mixture model is appropriate because it is an unsupervised learning technique that works with unlabeled data. It identifies natural groupings by modeling the dataset as a combination of probability distributions, which allows it to detect hidden patterns or clusters without needing known outcome labels. That makes it the best fit for a scenario where the goal is to analyze unlabeled data and discover underlying segments or structure.
+
+Why other options are incorrect:
+  A: Decision trees are supervised learning algorithms that require labeled training data. They learn patterns by associating input features with known outcome categories, so they cannot be applied appropriately when no labeled examples exist.
+  B: Naive Bayes is also a supervised learning algorithm and depends on labeled historical data to estimate the probability of each predefined class. Without labeled data, it has no basis for learning those class relationships.
+  D: Linear regression is a supervised learning technique used to predict continuous numerical values from labeled data. Because it requires known target outcomes during training, it is not suitable for a scenario where the dataset is unlabeled.
+
+
+QUESTION 5  [Moderate]
+------------------------------------------------------------
+A project manager is leading an AI project for a manufacturing company to predict equipment failures. During the final data readiness review, the team discovers that most of the available data was collected from newer equipment. However, the older equipment experiences the highest failure rates.
+
+What should the AI project manager do next?
+
+  A. Apply additional preprocessing to the newer equipment data so the dataset is more consistent.
+  B. Assess whether the available data represents the equipment population and evaluate potential bias.
+  C. Begin model training and address concerns if model performance declines.
+  D. Rush data quality control activities and proceed with model development.
+
+ANSWER: B
+
+Why this is correct:
+The project manager must assess whether the dataset adequately represents the full equipment population before proceeding. This step identifies potential bias in the model's ability to predict failures for older equipment, which is critical given that this is the population of greatest concern.
+
+Why other options are incorrect:
+  A: Preprocessing the overrepresented data more does not compensate for the lack of data on older equipment.
+  C: Beginning model training and addressing representativeness concerns if performance declines is a reactive approach.
+  D: Data quality control activities should never be rushed, as it may potentially introduce additional risks relating to data quality.
+
+
+QUESTION 6  [Moderate]
+------------------------------------------------------------
+An AI project team has trained a new version of a customer churn prediction model. The data science team observes a four percent improvement in F1-score over the previous version but cannot determine the specific source of the improvement results.
+
+What component is missing from the team's development process?
+
+  A. Peer review and unit testing requirements before model code is merged.
+  B. Higher acceptance thresholds for model performance metrics before promotion.
+  C. Version control for model code, training data, and the training environment.
+  D. Automated retraining and drift monitoring cycles for the production model.
+
+ANSWER: C
+
+Why this is correct:
+When a team cannot determine whether a performance improvement results from code changes or dataset changes, the root cause is a lack of version control. Establishing version control for model code, training data, and the training environment ensures that each component is tracked independently, making it possible to attribute performance changes to their correct source.
+
+Why other options are incorrect:
+  A: Peer review and unit testing requirements improve code quality and catch defects but do not address the inability to trace performance changes to specific components.
+  B: Higher acceptance thresholds for performance metrics raise the bar for model promotion but do not resolve the attribution problem caused by untracked changes across components.
+  D: Automated retraining and drift monitoring address production model maintenance.
+
+
+QUESTION 7  [Expert]
+------------------------------------------------------------
+An AI project manager is leading a readmission prediction initiative at a healthcare organization. Before data preparation begins, the data scientist discovers duplicate records, conflicting codes, and inconsistent timestamp formats in the protected health information (PHI) data set.
+
+What should the AI project manager do?
+
+  A. Determine the data quality issues are sufficient to warrant a no-go decision.
+  B. Begin feature engineering immediately and resolve the quality issues during that phase.
+  C. Proceed as planned since data preparation is intended to address quality issues.
+  D. Delay data preparation until after the first model performance baseline is established.
+
+ANSWER: C
+
+Why this is correct:
+The data preparation phase is specifically designed to address cleaning, standardization, and formatting concerns, and the presence of these issues does not warrant stopping or delaying the initiative before preparation has begun.
+
+Why other options are incorrect:
+  A: Determining that the data quality issues are sufficient to warrant a no-go decision escalates the finding prematurely before the data preparation phase has had the opportunity to address the identified issues through its established cleaning and preprocessing workflows.
+  B: Beginning feature engineering immediately bypasses the data preparation activities needed to resolve the quality issues before features are derived, which could compromise the reliability of the features produced.
+  D: Delaying data preparation until after the first model performance baseline is established reverses the correct sequence since data must be cleaned and prepared before model training can begin.
+
+
+QUESTION 8  [Moderate]
+------------------------------------------------------------
+An AI project manager at a retail company is preparing the go/no-go decision for deploying a prediction model. The model has met its performance benchmarks, but two required pre-deployment reviews have not been completed.
+
+What should the AI project manager do?
+
+  A. Approve the deployment based on the model's performance benchmarks.
+  B. Delay the decision until all pre-deployment reviews are completed.
+  C. Request the project team to re-run validation tests before proceeding.
+  D. Submit the deployment request and complete the reviews in parallel.
+
+ANSWER: B
+
+Why this is correct:
+A go/no-go decision requires that all pre-deployment requirements be satisfied before approval. Meeting benchmarks is not sufficient to approve deployment when required reviews remain incomplete.
+
+Why other options are incorrect:
+  A: Approving deployment based on performance benchmarks alone is not correct because strong model performance by itself does not satisfy all pre-deployment requirements. Moving forward before the required reviews are complete creates unnecessary risk.
+  D: Submitting the deployment request while completing reviews in parallel is also incorrect because it allows deployment activities to proceed before all approval conditions have been met. Pre-deployment reviews must be completed first to ensure the solution is ready and properly authorized.
+  C: Requesting the team to re-run validation tests is not the right next step because the issue is not model performance. The decision is being blocked by incomplete reviews, so repeating validation does not address the actual problem.
+
+
+QUESTION 9  [Difficult]
+------------------------------------------------------------
+An AI project manager is overseeing an equipment failure prediction initiative. The model performs well on training data but performance declines when tested on operational data from different facilities. The project sponsor wants to deploy the solution to meet a strategic deadline.
+
+What should the AI project manager do?
+
+  A. Approve deployment and monitor performance after launch.
+  B. Compare performance against the original baseline before proceeding.
+  C. Retrain the model using only the most recent operational data.
+  D. Limit testing to the facilities where the model performed well.
+
+ANSWER: B
+
+Why this is correct:
+Comparing the model's current performance against the original baseline before proceeding helps determine the extent and cause of the performance gap, providing the evidence needed to make an informed decision despite the sponsor's pressure to meet the deadline.
+
+Why other options are incorrect:
+  A: Approving deployment to maintain the project schedule advances the project despite a known performance gap that has not yet been understood or addressed.
+  C: Retraining the model using only the most recent operational data skips the comparison and investigation needed to understand why the performance gap exists before taking corrective action.
+  D: Limiting testing to the facilities where the model performed well avoids confronting the performance gap rather than investigating its cause across all relevant operational conditions.
+
+
+QUESTION 10  [Moderate]
+------------------------------------------------------------
+An AI project manager is overseeing the testing of a credit risk model. During review, the project team cannot confirm which model version produced the latest validation results, and parameter changes have not been consistently recorded.
+
+What should the AI project manager do first?
+
+  A. Proceed with the version that produced the highest validation score.
+  B. Begin user training to avoid delays to the deployment schedule.
+  C. Establish configuration practices so model versions are controlled and traceable.
+  D. Pause testing and request that the data science team restart the full validation process.
+
+ANSWER: C
+
+Why this is correct:
+Establishing configuration practices ensure model versions and changes are controlled and traceable. Without this foundation, the team cannot reliably reproduce results, audit decisions, or confirm the integrity of any validation outputs.
+
+Why other options are incorrect:
+  A: Proceeding with the version that produced the highest validation score advances testing without resolving the traceability gap, making it impossible to confirm how that result was produced or reproduce it reliably.
+  B: Beginning user training addresses a later phase activity before the fundamental quality control issue with model versioning has been resolved.
+  D: Establishing configuration practices first allows the team to resume testing with proper controls in place rather than discarding all prior work.
+
+
+QUESTION 11  [Moderate]
+------------------------------------------------------------
+A data scientist is overseeing the development and testing of an AI machine learning (ML) model. The AI project manager wants the data scientist to track how the model is performing throughout this process.
+
+What should the data scientist monitor?
+
+  A. Configuration management
+  B. Model testing protocols
+  C. Model performance metrics
+  D. Technical validation
+
+ANSWER: C
+
+Why this is correct:
+Model performance metrics are the measures used to evaluate how well an AI model is performing during development and testing. They provide objective evidence about whether the model is meeting expected quality thresholds, such as accuracy, precision, recall, error rate, or other criteria relevant to the use case. By monitoring these metrics throughout development and testing, the team can detect issues early, assess whether the model is improving, and confirm whether it meets the defined acceptance criteria before deployment.
+
+Why other options are incorrect:
+  A, D: Configuration management and technical validation reports do not directly measure model performance. Configuration management focuses on controlling versions, settings, and changes to model components or environments, while technical validation reports document the results of formal verification activities. Both are important for governance and quality assurance, but neither serves as the primary mechanism for tracking how well the model is performing during development and testing.
+  B: Model testing protocols define how the model will be tested, not how its performance is measured. Testing protocols establish the procedures, scenarios, and methods the team should follow, but they do not provide the actual results or indicators of model quality.
+
+
+QUESTION 12  [Difficult]
+------------------------------------------------------------
+A data science team has completed adjustments on a data set for an AI initiative. The AI project manager has to make a go/no-go decision before conducting data preparation.
+
+What should the AI project manager confirm?
+
+  A. The findings and quality assessments of the data set.
+  B. The data flow and access permissions of the data set.
+  C. The testing scenarios and final outputs.
+  D. The identified gaps and the mitigation steps.
+
+ANSWER: A
+
+Why this is correct:
+Before approving a go/no-go decision the AI project manager should confirm that the findings and final quality assessments have been documented. This provides the evidence needed to verify the data set meets the required standards before the team proceeds to the next phase.
+
+Why other options are incorrect:
+  B: The data flow and access permissions for the data set address governance and security concerns rather than the quality evidence needed to support a go/no-go decision on data preparation.
+  C: The testing scenarios and outputs without further analysis provide raw information without the evaluative conclusions needed to confirm whether the data set is ready.
+  D: The identified gaps and the mitigation steps describes a narrower documentation focus on issue resolution rather than the comprehensive testing findings and quality assessment needed to support the overall go/no-go decision.
+
+
+QUESTION 13  [Difficult]
+------------------------------------------------------------
+An AI project team has received an initial dataset to train a clinical diagnosis support model. The AI project manager must make a go/no-go decision before data preparation begins.
+
+What should the AI project manager assess first?
+
+  A. Data completeness, accuracy, and reliability of diagnostic labels.
+  B. Dataset freshness and currency relative to current clinical practice.
+  C. Record volume, feature count, and storage format compatibility.
+  D. Dataset accessibility and access permissions for the data science team.
+
+ANSWER: A
+
+Why this is correct:
+For a clinical diagnosis support model, the completeness, accuracy, and reliability of diagnostic labels are the most critical factors in determining whether the data is ready for model development. Without accurate and complete labels, the model cannot learn to make reliable diagnostic predictions, making this the foundational assessment for a go/no-go decision.
+
+Why other options are incorrect:
+  B, C: Dataset freshness and record volume address data currency and size, respectively. While relevant to data readiness, neither is as critical as label quality for a clinical diagnosis model where incorrect labels directly impact patient safety.
+  D: Dataset accessibility and access permissions address data governance concerns that are important but secondary to confirming the data is of sufficient quality to support model development.
+
+
+QUESTION 14  [Moderate]
+------------------------------------------------------------
+An AI project manager is overseeing the development of a prediction model for a public transit agency. The data science team recommends a highly accurate ensemble model, but the operations managers are concerned about the complexity of the model when making real-time decisions during service disruptions.
+
+What should the AI project manager do?
+
+  A. Approve the ensemble model since it's the highest-performing technique.
+  B. Evaluate the available techniques against performance, interpretability, and operational requirements.
+  C. Delay model selection until the full deployment schedule is confirmed.
+  D. Request the team implements the model with the shortest training time to accelerate field testing.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager should evaluate the available techniques against performance, interpretability, and operational requirements to account for the explainability needs of the people who will rely on the model during service disruptions.
+
+Why other options are incorrect:
+  A: Approving the highest-performing technique prioritizes accuracy without considering the interpretability and operational requirements that the operations team has identified as essential for real-time decision-making.
+  C: Delaying model selection defers a critical technical decision without addressing the trade-off between accuracy and interpretability that must be resolved before development can proceed.
+  D: Requesting the model with the shortest training time prioritizes speed over the evaluation needed to confirm the selected technique meets both performance and operational requirements.
+
+
+QUESTION 15  [Difficult]
+------------------------------------------------------------
+A data science team is conducting a data assessment for a retail initiative. The team uncovers missing values, inconsistent product definitions, and conflicting records across systems. Correcting these issues will require additional budget and schedule adjustments. However, the AI project sponsor wants to avoid delays.
+
+What should the AI project manager do?
+
+  A. Proceed with data preparation activities as scheduled.
+  B. Make a no-go decision based on the data quality findings.
+  C. Address the issues affecting the smallest number of records.
+  D. Select a modeling approach that requires less data preparation.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager should make a no-go decision based on the poor data quality and gaps. This decision to pause and adjust the project data ensures the quality of the data is improved, avoiding potential risks in the data preparation phase.
+
+Why other options are incorrect:
+  A: Proceeding with data preparation activities is not the right next step because it moves the project forward before the team has fully assessed whether the data quality issues are serious enough to affect the reliability of the forecasting solution.
+  C: Addressing only the issues that affect the smallest number of records is also incorrect because the number of records alone does not determine the significance of a data quality issue. Even a smaller issue may materially affect forecast accuracy if it involves critical fields or patterns.
+  D: Selecting a modeling approach that requires less data preparation is not appropriate because it avoids the underlying data quality problem rather than resolving it. The team must first confirm whether the available data is fit to support a reliable forecasting solution.
+
+
+QUESTION 16  [Expert]
+------------------------------------------------------------
+A data scientist is preparing data for an AI model development initiative. Before model development begins, the data scientist must confirm whether the available data is sufficient for the selected modeling approach.
+
+What should the data scientist assess?
+
+  A. The data sources selected for inclusion in the model training pipeline.
+  B. The preprocessing steps applied to improve data quality before training.
+  C. The accuracy and consistency of values across the available dataset.
+  D. The volume of available data relative to the model's requirements.
+
+ANSWER: D
+
+Why this is correct:
+The data scientist must assess whether the amount of available data is sufficient for the selected modeling approach. Different models require different volumes of data to learn effectively, and if the dataset is too small, the model may not perform reliably or generalize well. For that reason, evaluating whether the available data volume matches the needs of the chosen model is a critical step before moving further into development.
+
+Why other options are incorrect:
+  A: The data sources selected for inclusion focus on where the data comes from, not whether there is enough of it to support the modeling approach. Source selection is important for relevance and coverage, but it does not by itself determine whether the dataset is large enough for the model to produce dependable results.
+  B: Processing concerns how the data is cleaned, transformed, or prepared for use. These steps can improve usability and consistency, but they do not answer the key question of whether the total volume of data is sufficient for the selected model.
+  C: The accuracy and consistency of values are data quality dimensions, not measures of data sufficiency. A dataset may be accurate and consistent but still be too small to support the model effectively.
+
+
+QUESTION 17  [Easy]
+------------------------------------------------------------
+An AI project team for a manufacturing company has to predict equipment failures and reduce unplanned downtime. A data scientist has developed several candidate models. However, each model performs differently when evaluated against different subsets of the data.
+
+What should the AI project team do next?
+
+  A. Continue training all models until they produce similar performance results.
+  B. Compare model performance across multiple data segments.
+  C. Deploy the model that requires the fewest computational resources.
+  D. Select the model that achieved the highest performance during initial training.
+
+ANSWER: B
+
+Why this is correct:
+The project manager should ensure the team compares performance across multiple segments before selecting a model. This validation step helps confirm that a model's performance is consistent and reliable rather than dependent on one particular subset of data.
+
+Why other options are incorrect:
+  A: Variation in performance across subsets provides useful information for model selection and does not need to be eliminated through additional training.
+  C: Moving to deployment is premature before model selection has occurred.
+  D: Selecting the model that achieved the highest performance during initial training relies on a single evaluation result, which does not account for the performance variation.
+
+
+QUESTION 18  [Expert]
+------------------------------------------------------------
+An AI project team is preparing a model for formal evaluation after several development cycles. Upon review, a data scientist finds that changes have not been consistently recorded, rendering performance results unreliable for comparison across model variations.
+
+What should the AI project team do?
+
+  A. Establish model testing protocols and quality assurance (QA) procedures.
+  B. Monitor model performance metrics during development and testing.
+  C. Coordinate peer reviews and technical validation of model designs.
+  D. Implement configuration management for model versions and parameters.
+
+ANSWER: D
+
+Why this is correct:
+Implementing configuration management for model versions and parameters ensures all changes are tracked, documented, and traceable, providing the consistent record needed to compare results and support formal evaluation.
+
+Why other options are incorrect:
+  A, C: Establishing model testing protocols, quality assurance (QA) procedures, and coordinating peer reviews and technical validation address how the model is reviewed and tested but do not resolve the underlying gap in version and parameter tracking that is preventing reliable comparisons.
+  B: Monitoring model performance metrics during development addresses ongoing performance tracking but does not establish the configuration management needed to ensure changes are consistently recorded and comparable across versions.
+
+
+QUESTION 19  [Easy]
+------------------------------------------------------------
+An AI project manager is overseeing a customer churn prediction initiative at a telecommunications company. The model achieves strong results during initial training, but the team has not yet confirmed whether performance holds across different customer segments and time periods.
+
+What should the AI project manager do?
+
+  A. Approve deployment based on the initial training results.
+  B. Conduct cross-validation testing across different segments and time periods.
+  C. Retrain the model using only the most recent customer data.
+  D. Limit testing to the customer segment with the strongest initial results.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager must conduct cross-validation testing before any deployment decision is made. This ensures the model's performance is reliable across the full range of conditions it will encounter in production, not just the conditions reflected in the initial training results.
+
+Why other options are incorrect:
+  A: Approving deployment based on the initial training results risks deploying a model that has not been confirmed to generalize beyond the specific conditions of its initial training.
+  C: Retraining the model using only the most recent customer data does not address the need to validate performance across different segments and time periods, and may introduce new gaps if other segments are excluded.
+  D: Limiting testing to the customer segment with the strongest initial results avoids confirming whether the model performs reliably across the full customer population, leaving unknown risks in other segments.
+
+
+QUESTION 20  [Easy]
+------------------------------------------------------------
+An AI project manager is overseeing a fraud detection initiative for an insurance company. The data science team has proposed several algorithms and stakeholders cannot reach consensus on which approach to select.
+
+What should the AI project manager do?
+
+  A. Select the algorithm with the highest complexity.
+  B. Let the data science team make their decision independently.
+  C. Select the algorithm with the lowest implementation cost.
+  D. Evaluate the algorithms' implementation trade-offs.
+
+ANSWER: D
+
+Why this is correct:
+The AI project manager must evaluate the implementation trade-offs between algorithm accuracy, explainability, and value to make an educated algorithm selection/recommendation.
+
+Why other options are incorrect:
+  A: Selecting the algorithm with the highest complexity is not the right approach because greater complexity does not necessarily produce the best outcome. Choosing an algorithm based on complexity alone ignores important business, operational, and governance considerations.
+  C: Selecting the algorithm with the lowest implementation cost is also incorrect because cost is only one factor in the decision. Focusing only on cost can lead to a choice that does not adequately support the project's objectives, risk requirements, or governance expectations.
+  B: Letting the data science team make the decision independently is not appropriate because the algorithm choice should reflect more than technical judgment alone. The AI project manager is responsible for ensuring the decision also aligns with organizational goals, stakeholder needs, and governance requirements.
