@@ -1,0 +1,202 @@
+Mini Exam 2 — Practice Quiz
+===========================
+Questions: 10
+
+QUESTION 1  [Easy]
+------------------------------------------------------------
+An AI project team is preparing a data set for an initiative at a retail company. The team has identified several data quality issues that must be addressed before the development phase. What should the AI project team do?
+
+  A. Conduct data cleaning and preprocessing activities.
+  B. Increase model complexity to compensate for the data issues.
+  C. Proceed directly to model training using the data set.
+  D. Rely on stakeholder input to determine data usability.
+
+ANSWER: A
+
+Why this is correct:
+Conducting data cleaning and preprocessing activities before the data set is used for model training ensures the data meets the quality standards needed to support reliable model development.
+
+Why other options are incorrect:
+  B: Increasing model complexity does not resolve underlying data flaws and can degrade performance.
+  C: Proceeding directly to training carries known quality issues into production.
+  D: Relying solely on stakeholder input replaces technical assessment with subjective opinion.
+
+
+QUESTION 2  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading an AI initiative to predict equipment failure across several plants at a manufacturing company. The team must determine how frequently sensor readings should be collected and over what time span historical data should be gathered. What should the AI project manager define?
+
+  A. The stakeholder communication plan for the initiative.
+  B. The temporal and granularity requirements for the data.
+  C. The model evaluation metrics for the initiative.
+  D. The deployment infrastructure requirements.
+
+ANSWER: B
+
+Why this is correct:
+Defining temporal and granularity requirements ensures data collection reflects appropriate time intervals and historical depth needed for effective predictive maintenance.
+
+Why other options are incorrect:
+  A: Communication plans handle reporting rather than data frequency.
+  C: Evaluation metrics measure model outputs after data collection.
+  D: Infrastructure requirements focus on production deployment environments, which comes later.
+
+
+QUESTION 3  [Easy]
+------------------------------------------------------------
+A global bank uses an AI anti-money-laundering model across several regions. During a regulatory review, the team discovers that local changes to model thresholds and versions were made without being recorded centrally. What was missing from the AI project team's approach?
+
+  A. A regional autonomy policy allowing local teams to optimize model settings independently.
+  B. A governance process for documenting and approving model changes across regions.
+  C. A faster release cycle allowing compliance teams to compare model variants in production.
+  D. A requirement that each region maintain separate support and change management teams.
+
+ANSWER: B
+
+Why this is correct:
+A centralized governance process for documenting and approving model changes ensures compliance, traceability, and accountability across all operating regions.
+
+Why other options are incorrect:
+  A: Autonomy policies exacerbate undocumented modifications.
+  C: Accelerated release cycles introduce untracked variants without oversight.
+  D: Decentralized support teams further fragment governance rather than establishing unified central control.
+
+
+QUESTION 4  [Difficult]
+------------------------------------------------------------
+An AI project manager is drafting a high-level architecture for an AI-enabled mentoring platform. The platform will match mentors and mentees, support goal setting, and track progress against objectives. What should the AI project manager include in the architecture draft?
+
+  A. The wireframes and navigation flows for the user interfaces.
+  B. The major system components and how they interact.
+  C. The specific development tasks and how they are sequenced.
+  D. The data privacy policies and how they govern participant access.
+
+ANSWER: B
+
+Why this is correct:
+High-level architecture focuses on defining core system modules, subsystems, and the interaction channels between them before detailed technical or operational design starts.
+
+Why other options are incorrect:
+  A: Wireframes represent UI/UX design artifacts.
+  C: Sequenced development tasks belong in project execution schedules.
+  D: Data privacy policies belong under project governance and compliance frames.
+
+
+QUESTION 5  [Moderate]
+------------------------------------------------------------
+An AI project team deployed a credit risk scoring model into production six months ago. A regulatory audit has been scheduled. The AI project manager must ensure the documentation required for the audit is complete and readily available. What should the AI project manager do?
+
+  A. Review version-controlled records of model iterations, datasets, and stakeholder approvals from the repository.
+  B. Request the data scientists recreate the development documentation from team memory, interviews, and informal notes.
+  C. Submit current production performance metrics and operational logs from the live model environment.
+  D. Engage external auditors to reconstruct decision history through stakeholder interviews and workshops.
+
+ANSWER: A
+
+Why this is correct:
+Verifiable, version-controlled repository records provide auditable evidence of lineage, model performance, and regulatory approval checkpoints.
+
+Why other options are incorrect:
+  B: Recreating documentation after the fact creates compliance vulnerabilities and lacks credibility.
+  C: Providing only active production logs misses historical development decisions and dataset provenance required by regulatory standards.
+  D: Reconstructing history through workshops lacks formal documentation rigor.
+
+
+QUESTION 6  [Difficult]
+------------------------------------------------------------
+An AI project manager conducted a retrospective after piloting an AI tutoring assistant for an online class. Instructors reported that some learners used the tutor to obtain direct answers to graded assignments, raising academic integrity concerns. What lesson learned should the AI project manager document?
+
+  A. Academic integrity should be considered during future implementations.
+  B. The development team failed to anticipate how learners would misuse the tutor.
+  C. Academic integrity boundaries must be built into AI tutor behavior from the outset.
+  D. The model should be fine tuned to provide less specific responses.
+
+ANSWER: C
+
+Why this is correct:
+Proactively incorporating domain guardrails into fundamental system behavior prevents academic integrity breaches prior to deployment.
+
+Why other options are incorrect:
+  A: Vague statements fail to offer actionable direction for future builds.
+  B: Assigning blame avoids constructive process improvement.
+  D: Applying narrow technical tuning misses structural safeguards needed in design phases.
+
+
+QUESTION 7  [Easy]
+------------------------------------------------------------
+A project manager is leading the final rollout of an AI claims automation system. The project sponsor has requested skipping governance controls to accelerate deployment, and engineers have proposed adding them after the launch. What should the project manager do?
+
+  A. Proceed with deployment and schedule a stakeholder review after the launch.
+  B. Limit management access to governance controls to avoid further delays.
+  C. Delegate governance to the engineering team to complete after deployment.
+  D. Enforce version documentation and audit trail setup before deployment.
+
+ANSWER: D
+
+Why this is correct:
+Governance baseline requirements must be established prior to release to protect organizational compliance, risk profile, and system traceability.
+
+Why other options are incorrect:
+  A: Deferring governance steps until post-launch introduces severe legal and risk exposure.
+  B: Restricting management access compromises oversight rather than establishing structure.
+  C: Delegating governance to engineering post-launch bypasses necessary launch controls.
+
+
+QUESTION 8  [Moderate]
+------------------------------------------------------------
+An AI project manager is overseeing data preparation for an AI diagnostic tool. The project team has discovered image formatting inconsistencies that will delay the project by one iteration. What should the AI project manager do to inform leadership?
+
+  A. Send a report containing raw data logs and statistical anomaly records.
+  B. Provide a status update that summarizes the issues, their impact on the timeline, and next steps.
+  C. Delay stakeholder communication until the team has fully resolved the issue.
+  D. Notify leadership that the dataset is unstable and request immediate intervention to resolve the issues.
+
+ANSWER: B
+
+Why this is correct:
+Effective status reporting translates technical metrics into clear business impacts, timelines, and planned action items for decision-makers.
+
+Why other options are incorrect:
+  A: Sending raw technical logs overloads business leaders with irrelevant details.
+  C: Hiding risks delays mitigation actions.
+  D: Overstating simple formatting delays creates unnecessary organizational panic.
+
+
+QUESTION 9  [Moderate]
+------------------------------------------------------------
+An AI initiative is progressing into the model development phase. The project sponsor has asked the AI team to identify potential security threats before any work begins. What should the AI team prioritize during data preparation?
+
+  A. The computational resource requirements for model training.
+  B. The stakeholder communication plan for the initiative.
+  C. The data volume and quality available for model development.
+  D. The cybersecurity vulnerabilities in the proposed AI system.
+
+ANSWER: D
+
+Why this is correct:
+Identifying system security vulnerabilities upfront ensures threat models and safeguards are integrated directly into preparation pipelines.
+
+Why other options are incorrect:
+  A: Compute sizing addresses execution feasibility rather than risk posture.
+  B: Communication plans focus on stakeholder management rather than security threats.
+  C: Data volume and quality address execution feasibility rather than security risk posture.
+
+
+QUESTION 10  [Easy]
+------------------------------------------------------------
+An AI project manager at an education company wants senior executive approval for an AI teaching copilot. The project sponsor has asked to support the executive business case presentation with appropriate evidence. What should the AI project manager gather?
+
+  A. Financial data and projected benefits.
+  B. Technical specifications and system architecture diagrams.
+  C. User interface mockups and navigation flows.
+  D. Detailed model training logs and algorithm documentation.
+
+ANSWER: A
+
+Why this is correct:
+Executive approvals rely primarily on investment value, financial returns, strategic alignment, and clear business benefits.
+
+Why other options are incorrect:
+  B: Technical architecture diagrams target technical execution teams rather than executive decision-makers.
+  C: UI designs target product design teams rather than executive decision-makers evaluating business value.
+  D: Deep technical training logs target data science teams.

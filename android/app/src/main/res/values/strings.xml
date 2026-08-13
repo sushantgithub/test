@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CPMAI Mocks</string>
+    <string name="leave_exam_title">Leave exam?</string>
+    <string name="leave_exam_message">Your answers and remaining time will be lost if you leave now.</string>
+    <string name="leave">Leave</string>
+    <string name="stay">Stay</string>
+</resources>

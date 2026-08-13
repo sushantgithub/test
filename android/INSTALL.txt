@@ -1,0 +1,13 @@
+Install CPMAI Mocks on your phone
+================================
+
+1. Copy CPMAI-Mocks.apk to your Android phone (Downloads folder is fine).
+2. Open the file. If Android blocks it, tap Settings and allow install from this source.
+3. Open the app "CPMAI Mocks".
+4. Choose Mock 1 or Mock 2. Each exam is 135 questions and 160 minutes.
+
+Notes
+- Works offline. No account or internet is required.
+- The screen stays on during the exam.
+- Back during an exam asks before leaving (progress is not saved if you leave).
+- Minimum Android 7.0.

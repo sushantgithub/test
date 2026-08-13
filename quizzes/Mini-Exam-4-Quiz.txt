@@ -1,0 +1,202 @@
+Mini Exam 4 — Practice Quiz
+===========================
+Questions: 10
+
+QUESTION 1  [Moderate]
+------------------------------------------------------------
+An AI project manager is coordinating an AI initiative to predict service appointment no-shows across several locations. The available data includes only recent records from two locations, while the solution requires historical patterns across all locations and customer segments. What should the AI project manager do?
+
+  A. Compare the available data against the defined requirements to determine sufficiency.
+  B. Begin model training with the available records and review limitations during validation.
+  C. Limit the AI solution to the two locations that already have recent records.
+  D. Request an external data provider before reviewing the available internal data.
+
+ANSWER: A
+
+Why this is correct:
+Comparing the available data against the defined requirements to determine whether it is sufficient is an assessment that identifies the extent of the gap and informs whether the initiative can proceed, needs additional data collection, or requires a revised scope.
+
+Why other options are incorrect:
+  B: Starting model training with the available records would move forward before confirming that the data meets defined requirements, creating the risk of a model that does not represent the full intended population.
+  C: Limiting the solution to the two locations with recent records prematurely reduces scope without performing the gap assessment first.
+  D: Requesting an external data provider before reviewing available internal data skips the necessary assessment step to determine what gaps actually exist.
+
+
+QUESTION 2  [Difficult]
+------------------------------------------------------------
+A data scientist is working to improve the performance of an underperforming AI model. After reviewing the model, the data scientist suggests the AI project team focus on cleaning and refining rather than modifying the algorithm. What approach does the data scientist recommend?
+
+  A. An infrastructure-centric approach
+  B. A data-centric approach
+  C. An algorithm-centric approach
+  D. A model-centric approach
+
+ANSWER: B
+
+Why this is correct:
+A data-centric approach focuses on improving the quality of the data rather than changing the algorithm. In this scenario, performance improves through data cleaning and refinement alone, showing that data quality is the key driver.
+
+Why other options are incorrect:
+  A: An infrastructure-centric approach focuses on the computational environment, such as processing capacity or platforms, which is separate from data quality.
+  C: An algorithm-centric approach focuses on changing the algorithm or tuning how it is applied rather than improving the data.
+  D: A model-centric approach emphasizes modifying the model structure or configuration, which does not align with gains from data cleaning.
+
+
+QUESTION 3  [Moderate]
+------------------------------------------------------------
+A project manager is preparing an AI initiative to prioritize service tickets so urgent requests are routed faster. Sponsors agree on the general objective, but the team has not defined the key performance indicators (KPIs) that will measure the project's success. What should the AI project manager do?
+
+  A. Select an algorithm based on the data scientist's preferred model performance metric.
+  B. Prepare the deployment dashboard after users begin working with the solution.
+  C. Establish the evaluation criteria for model performance, business impact, and user adoption.
+  D. Estimate the project budget using expected productivity savings from the solution.
+
+ANSWER: C
+
+Why this is correct:
+Clear evaluation criteria give the project manager a measurable definition of success across the dimensions sponsors have not yet addressed, ensuring the initiative can be properly evaluated after deployment.
+
+Why other options are incorrect:
+  A: Selecting an algorithm based on a single preferred metric narrows the focus to one technical dimension before broader success criteria are established.
+  B: Preparing the deployment dashboard after users begin working delays success definition until after rollout, when it should be defined upfront.
+  D: Estimating the budget using expected productivity savings shifts focus to financial planning without defining how project success is measured.
+
+
+QUESTION 4  [Expert]
+------------------------------------------------------------
+Three months after operationalization, leadership requests the AI project manager provide evidence. They need reassurance that the AI solution is delivering the expected business value and operational performance. What should the AI project manager do?
+
+  A. Monitor key performance indicators (KPIs) through dashboards and reporting mechanisms.
+  B. Schedule a stakeholder meeting to discuss the solution's performance based on team observations.
+  C. Request the data engineering team to run a new data quality assessment on the production data.
+  D. Review the original success criteria defined during planning and compare them to current outputs.
+
+ANSWER: A
+
+Why this is correct:
+Monitoring KPIs and model performance through dashboards and reporting mechanisms provides continuous, quantifiable evidence needed to demonstrate that the solution delivers expected business value.
+
+Why other options are incorrect:
+  B: Scheduling a meeting based on team observations relies on qualitative opinions rather than objective, current performance metrics.
+  C: Requesting a data quality assessment addresses data readiness rather than proving business value and operational performance.
+  D: Reviewing original criteria against outputs is a point-in-time historical comparison rather than continuous active monitoring of live operational performance.
+
+
+QUESTION 5  [Moderate]
+------------------------------------------------------------
+A project manager is preparing an AI initiative to automate the classification of supplier invoices. Stakeholders are requesting fraud detection, payment approval, vendor scoring, and contract analysis. However, the budget and data only support invoice classification during the first release. What should the project manager do?
+
+  A. Include all requested capabilities in the first release to meet stakeholder expectations.
+  B. Define the project's boundaries, deliverables, and assumptions aligned with the business objective.
+  C. Ask the technical team to select the model architecture before confirming the project deliverables.
+  D. Start development with invoice classification and add the remaining features during testing.
+
+ANSWER: B
+
+Why this is correct:
+Establishing a clear, documented scope before development begins bridges the gap between stakeholder requests and what the budget and available data can realistically support.
+
+Why other options are incorrect:
+  A: Including all requested features disregards identified budget and data constraints, leading to project failure or overrun.
+  C: Selecting model architecture before confirming deliverables puts technical decisions ahead of scope definition.
+  D: Adding features informally during testing leads to scope creep rather than controlled, baseline scope management.
+
+
+QUESTION 6  [Moderate]
+------------------------------------------------------------
+An AI project manager is coordinating an AI initiative to flag unusual warranty claims. The team plans to combine customer claim records, payment history, and third-party device data. However, the legal and governance requirements for merging this data have not been reviewed yet. What should the AI project manager do?
+
+  A. Remove direct identifiers from the data and send the combined file to the modeling team.
+  B. Request additional historical claim records to increase the volume of the training data set.
+  C. Verify with the legal and compliance team that the data is approved before integration begins.
+  D. Select a model approach that limits user access to prediction results after deployment.
+
+ANSWER: C
+
+Why this is correct:
+Verifying with legal and compliance before integration ensures the initiative complies with usage rights, privacy obligations, and data governance policies before datasets are merged.
+
+Why other options are incorrect:
+  A: Removing direct identifiers without legal review assumes data merging is permitted, exposing the organization to compliance risks.
+  B: Requesting additional historical records proceeds with data activities before resolving legal and governance requirements.
+  D: Limiting output access addresses post-deployment permissions rather than pre-integration data usage rights.
+
+
+QUESTION 7  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading an initiative to recommend inventory reorder quantities. The pilot team reports that users are concerned about losing authority over ordering decisions. The AI solution has not been mapped to the current workflow. What should the AI project manager do?
+
+  A. Move forward with deployment based on technical testing, vendor approval, and budget sign-off.
+  B. Assess adoption barriers, process impacts, and integration risks.
+  C. Ask the data science team to involve the users to train the model.
+  D. Replace the current purchasing workflow with the AI output process during rollout.
+
+ANSWER: B
+
+Why this is correct:
+Addressing user concerns in a structured way gives the AI project manager a complete view of people, process, and integration risks that must be resolved prior to rollout.
+
+Why other options are incorrect:
+  A: Deploying based solely on technical/financial sign-off ignores critical user adoption and workflow integration issues raised by the pilot team.
+  C: Asking data scientists to involve users in training addresses model development but skips broader workflow and organizational adoption barriers.
+  D: Forcing a new process during rollout without assessing impact increases resistance and operational risk.
+
+
+QUESTION 8  [Easy]
+------------------------------------------------------------
+An AI project manager is leading the development of a chatbot to handle customer billing inquiries. The project sponsor wants to know how the model was selected. What should the AI project manager do?
+
+  A. Explain that the users determined which AI model to implement.
+  B. Advise that a dedicated AI subject matter expert (SME) chose the model.
+  C. Explain that the project team selected an AI tool that was successful in a similar project.
+  D. Advise that AI tools were analyzed using model selection criteria and decision rationale.
+
+ANSWER: D
+
+Why this is correct:
+Explaining that selection was based on documented criteria and decision rationale demonstrates transparency and governance, ensuring stakeholders trust how the model was chosen.
+
+Why other options are incorrect:
+  A: Claiming users chose the model describes an informal process lacking structured technical and business evaluation criteria.
+  B: Relying solely on an SME's personal decision lacks documented selection criteria and transparent decision rationale.
+  C: Selecting a tool merely because it worked in a previous project skips formal evaluation tailored to current project requirements.
+
+
+QUESTION 9  [Moderate]
+------------------------------------------------------------
+An AI project is approaching closure, and responsibility for ongoing support will be transferred from the project team to an operational support team. What should the AI project manager do?
+
+  A. Coordinate knowledge transfer and establish ongoing support procedures.
+  B. Transition the solution to the operational support team and close the project.
+  C. Schedule a project closure meeting with relevant stakeholders to present deliverables.
+  D. Conduct a performance review with the operational support team before knowledge transfer.
+
+ANSWER: A
+
+Why this is correct:
+Coordinating knowledge transfer and establishing ongoing support procedures ensures the operational team is fully equipped to maintain and troubleshoot the AI solution post-closure.
+
+Why other options are incorrect:
+  B: Handing over the system and closing the project without knowledge transfer leaves the support team unprepared to manage the model.
+  C: Scheduling a closure meeting presents deliverables but does not operationalize support or equip the maintenance team.
+  D: Conducting a performance review of the support team before knowledge transfer is premature and outside the primary operationalization objective.
+
+
+QUESTION 10  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading a predictive analytics initiative at a healthcare organization. The team has identified that the current technical environment cannot support the planned model training workload. What should the AI project manager do?
+
+  A. Assess and provision computing resources to support development activities.
+  B. Reduce the scope of model validation activities to save processing time.
+  C. Postpone infrastructure planning until the deployment phase begins.
+  D. Collect additional data sources before addressing infrastructure needs.
+
+ANSWER: A
+
+Why this is correct:
+Assessing and provisioning the necessary compute resources before training begins prevents delays, failures, and budget overruns resulting from infrastructure gaps.
+
+Why other options are incorrect:
+  B: Reducing model validation scope compromises model quality and safety rather than solving infrastructure limitations.
+  C: Postponing infrastructure planning allows model training to proceed on inadequate systems, guaranteeing bottlenecks.
+  D: Collecting more data increases processing workloads, compounding the underlying resource shortage.

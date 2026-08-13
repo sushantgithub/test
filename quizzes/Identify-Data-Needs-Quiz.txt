@@ -1,0 +1,430 @@
+Identify Data Needs — Practice Quiz
+===================================
+Questions: 20
+
+QUESTION 1  [Easy]
+------------------------------------------------------------
+A data engineer is configuring sensitive training data for an AI initiative. The AI project manager has asked the engineer to ensure only authorized personnel can retrieve the data.
+
+What should the data engineer implement?
+
+  A. Data quality check procedures
+  B. Version control systems
+  C. Access controls and user permissions
+  D. Encryption protocols
+
+ANSWER: C
+
+Why this is correct:
+When sensitive training data is involved, implementing access controls and user permissions ensures that only authorized personnel can access the data. This is a foundational data privacy and compliance practice that protects sensitive information throughout the AI development lifecycle.
+
+Why other options are incorrect:
+  A, B: Data quality checks and version control systems address data accuracy and change tracking, respectively. Neither restricts who can access the data, which is the core requirement identified in the scenario.
+  D: Encryption protocols protect data during transfer and storage, but do not control who is authorized to access it. Access controls and encryption are complementary practices, but only access controls directly address the authorization requirement described in the scenario.
+
+
+QUESTION 2  [Moderate]
+------------------------------------------------------------
+A data scientist is preparing a dataset for an AI initiative. Before model development begins, the AI project manager wants the project team to have a deeper understanding of the dataset's characteristics.
+
+What activity should the data scientist conduct?
+
+  A. Exploratory data analysis
+  B. Privacy impact assessment
+  C. Feasibility assessment
+  D. Bias detection audit
+
+ANSWER: A
+
+Why this is correct:
+Exploratory data analysis is the process of examining a dataset to understand its characteristics, structure, and patterns before model development begins. Conducting this analysis ensures the team has a thorough understanding of the data.
+
+Why other options are incorrect:
+  B, D: A privacy impact assessment and a bias detection audit address compliance and fairness concerns respectively. Neither is designed to develop a general understanding of dataset characteristics.
+  C: A feasibility assessment evaluates whether the project is viable and is conducted earlier in the project lifecycle, not during data preparation.
+
+
+QUESTION 3  [Expert]
+------------------------------------------------------------
+An AI project manager is leading an initiative where data is spread across multiple digital storage environments. The project team needs to identify where the relevant data is stored before selection begins.
+
+What should the AI project manager do first?
+
+  A. Assess the available cloud storage and distributed repositories.
+  B. Select the machine learning (ML) model suited to the business problem.
+  C. Clean and deduplicate the source records before confirming storage locations.
+  D. Engage the data governance team to establish data usage policies.
+
+ANSWER: A
+
+Why this is correct:
+When data is spread across multiple digital storage environments, the project manager must first assess the available cloud storage and distributed repositories to identify where the relevant data resides. This foundational step ensures the team knows where to access the data before selection begins.
+
+Why other options are incorrect:
+  B: Selecting a ML model is premature before the data sources have been identified and assessed.
+  C: Cleaning and deduplicating source records addresses data quality rather than identifying where the data is stored.
+  D: Engaging the data governance team to establish usage policies is a compliance activity that follows data source identification.
+
+
+QUESTION 4  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading an initiative to improve loan approval recommendations. The project sponsor must make a funding decision soon and needs to understand the performance metrics.
+
+What should the AI project manager do?
+
+  A. Present model accuracy metrics and defer business interpretation to the leadership.
+  B. Recommend collecting additional customer data before addressing the performance concerns.
+  C. Escalate the segment performance concern to the data science team before responding to leadership.
+  D. Translate the data findings to business-relevant language that connects model behavior to objectives.
+
+ANSWER: D
+
+Why this is correct:
+The project manager's responsibility is to communicate data findings in terms that are meaningful to a business audience. Translating technical concepts into business-relevant language that connects model behavior to objectives enables the sponsor to make an informed funding decision without requiring additional analysis time.
+
+Why other options are incorrect:
+  A: Presenting accuracy metrics and deferring business interpretation places the communication burden on leadership rather than fulfilling the project manager's responsibility to translate technical findings for a non-technical audience.
+  B, C: Recommending additional data collection and escalating the concern to the data science team both defer action at a time when a funding decision requires an immediate and informed response from the project manager.
+
+
+QUESTION 5  [Moderate]
+------------------------------------------------------------
+A data engineer at a financial services company is configuring the AI workspace for a new initiative. During setup, the project manager emphasizes that the infrastructure must comply with organizational governance and security requirements.
+
+What should the data engineer do first?
+
+  A. Provision computing resources and model training.
+  B. Implement data processing rules and policies.
+  C. Configure data storage and backup systems.
+  D. Set up collaboration tools and version controls.
+
+ANSWER: B
+
+Why this is correct:
+Implementing data processing rules and governance policies ensures the infrastructure operates within defined organizational boundaries before any data processing or model development begins.
+
+Why other options are incorrect:
+  A, C, D: Provisioning computing resources, configuring data storage and backup systems, and setting up collaboration tools and version control systems are all valid workspace setup activities. However, none of these directly address the governance and compliance requirements emphasized by the project manager in the scenario.
+
+
+QUESTION 6  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading a player churn prediction initiative at a gaming company. The data science team confirms that the data needed for the initiative exists across internal databases, a cloud warehouse, and a third-party analytics platform.
+
+What should the AI project manager do next?
+
+  A. Begin model training using whichever data source is easiest to access.
+  B. Coordinate the extraction and transfer of the required data into the development environment.
+  C. Consolidate all available data sources into a single repository once the development begins.
+  D. Wait until model selection is finalized before collecting the required data.
+
+ANSWER: B
+
+Why this is correct:
+Coordinating the extraction and transfer of that data into the development environment ensures all identified data sources are consolidated in a single location where the team can begin preparation and modeling activities.
+
+Why other options are incorrect:
+  A: Beginning model training using the easiest data to access proceeds without a structured approach to gathering the identified data, risking incomplete or misaligned data sets for model development.
+  C, D: Waiting until model selection is finalized before collecting data and consolidating all available data after development begins reverses the correct sequence, since data collection and preparation must occur before a model can be trained and evaluated.
+
+
+QUESTION 7  [Easy]
+------------------------------------------------------------
+An AI project manager is designing the data collection process for a credit card fraud detection solution. The solution must analyze transactions and flag suspicious activity before they materialize.
+
+What should the AI project manager implement?
+
+  A. A nightly batch process to collect and analyze transaction records from the previous day.
+  B. A weekly data transfer to consolidate transaction logs from regional processing centers.
+  C. A monthly data collection process aligned to the financial reporting cycle.
+  D. A real-time data ingestion pipeline to support continuous transaction monitoring.
+
+ANSWER: D
+
+Why this is correct:
+When a fraud detection solution must analyze transactions and flag suspicious activity before they are completed, the AI project manager must implement a real-time data ingestion pipeline. This would allow the solution to detect and respond to fraudulent activity as it occurs.
+
+Why other options are incorrect:
+  A, B: A nightly batch process and a weekly data transfer introduce time delays between when transactions occur and when they are analyzed, making them unsuitable for a solution that must respond to suspicious activity in real time.
+  C: A monthly data collection process addresses reporting and compliance needs rather than the continuous transaction monitoring required for fraud detection.
+
+
+QUESTION 8  [Expert]
+------------------------------------------------------------
+A data engineer is preparing to use customer transaction data for an AI initiative. The project manager wants to understand the potential implications before the data is used.
+
+What assessment should the data engineer conduct?
+
+  A. A data quality assessment.
+  B. A privacy impact assessment.
+  C. A data feasibility assessment.
+  D. A security audit assessment.
+
+ANSWER: B
+
+Why this is correct:
+A privacy impact assessment evaluates the potential risks to data subjects associated with the collection, processing, and use of personal data. Conducting this assessment before the data is used ensures that privacy risks are identified and addressed in accordance with data protection requirements.
+
+Why other options are incorrect:
+  A, C: A data quality assessment and a data feasibility assessment address data readiness and sufficiency, not privacy risks to data subjects.
+  D: A security audit evaluates vulnerabilities in infrastructure and systems. While security and privacy are related, a security audit does not specifically assess the impact of data usage on data subjects.
+
+
+QUESTION 9  [Expert]
+------------------------------------------------------------
+An AI project team is reviewing available data for a fraud detection initiative. The team finds that older transaction records are stored in a legacy format that the proposed AI model cannot process.
+
+What should the AI project team do?
+
+  A. Proceed with model training using only the available transaction records.
+  B. Request the data engineering team reformats all legacy records before any work continues.
+  C. Compare the available data against defined requirements and assess if the gap affects viability.
+  D. Escalate the data gap to the project sponsor and request a budget decision.
+
+ANSWER: C
+
+Why this is correct:
+Comparing the available data against defined requirements and assessing the impact of the gap on model viability provides the information needed to make an informed decision about how to proceed.
+
+Why other options are incorrect:
+  A, B: Proceeding with model training or requesting the data engineering team to reformat legacy records both act on the gap without first assessing its impact. The team cannot make an informed decision about the right course of action until the gap has been evaluated against the defined requirements.
+  D: Escalating to the project sponsor is premature before the team has completed its assessment.
+
+
+QUESTION 10  [Easy]
+------------------------------------------------------------
+An AI project manager is leading a customer churn prediction initiative at a telecommunications company. The team has identified more than twenty possible data sources, but gathering all of them would significantly increase costs and require additional privacy reviews.
+
+What should the AI project manager do?
+
+  A. Gather all available data sources regardless of cost or privacy implications.
+  B. Collect the data sources that directly support the defined project objectives.
+  C. Limit the data selection process to prioritize only cost-effective sources.
+  D. Begin training with the data sources currently available and add more later.
+
+ANSWER: B
+
+Why this is correct:
+Collecting only the data sources that directly support the defined project objectives ensures data is purposeful and aligned with the initiative's scope rather than driven by the assumption that more data automatically produces better results.
+
+Why other options are incorrect:
+  A: Gathering all available data sources regardless of cost or privacy implications ignores the financial and governance constraints identified and does not differentiate between data that supports the objective and data that does not.
+  C: Limiting the data selection process to prioritize only cost-effective sources focuses only on the financial implications rather than driven by the business objectives.
+  D: Beginning model training with currently available data proceeds without a deliberate data collection strategy, risking gaps or misalignment between the data and the initiative's objectives.
+
+
+QUESTION 11  [Easy]
+------------------------------------------------------------
+An AI project manager is leading a retail forecasting initiative. The data science team has completed initial data collection. However, the data set relies on sales and inventory records that are updated daily.
+
+What should the AI project manager do?
+
+  A. Collect a larger initial data set to reduce the need for frequent updates.
+  B. Establish procedures to refresh and update the data set as new records become available.
+  C. Proceed with model development and update the data set if performance declines.
+  D. Delegate data refresh responsibilities to the data engineering team without defining a process.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager must establish procedures to keep the data set current. Without a defined refresh process, the data set will become outdated, compromising the reliability of the forecasting model over time.
+
+Why other options are incorrect:
+  A: Collecting a larger initial data set does not address the need for ongoing updates since the value of a forecasting model depends on current data, not just data volume.
+  C: Proceeding with model development and updating only if performance declines defers the refresh process until after problems arise rather than establishing the procedures needed to prevent them.
+  D: Delegating refresh responsibilities without defining a process transfers the task without the structure needed to ensure it is performed consistently and correctly.
+
+
+QUESTION 12  [Moderate]
+------------------------------------------------------------
+An AI project team is preparing the inventory data set for a demand forecasting model. The team cannot understand the underlying data as most of the fields are undocumented. The AI project manager must identify a resource or subject matter expert (SME) to resolve this.
+
+Who should the AI project manager engage?
+
+  A. AI governance SME
+  B. Data stewards
+  C. Data SME
+  D. AI solution architect
+
+ANSWER: C
+
+Why this is correct:
+When a project needs people who understand what the data represents, how it is used, and how it should be interpreted in context, data SMEs are the right resource to engage. They have deep knowledge of specific data domains and understand the business meaning, origin, and practical use of the data within the organization.
+
+Why other options are incorrect:
+  D: An AI solution architect is primarily responsible for designing the technical solution and system architecture. That role is centered on how the AI system will be built and integrated, not on explaining the business meaning and context of the data.
+  B: Data stewards are responsible for supporting data governance, maintaining definitions, and helping uphold data quality standards. While they play an important role in managing data properly, they are not primarily responsible for providing the business interpretation of the data.
+  A: AI governance subject matter experts focus on oversight, compliance, and responsible AI practices. Their role is to help ensure governance requirements are met, not to serve as the primary source for understanding what the data means in the business context.
+
+
+QUESTION 13  [Moderate]
+------------------------------------------------------------
+An AI project manager is leading a customer purchasing behavior prediction initiative for a global retailer. Relevant data exists across multiple platforms, business units, and regions, but no inventory of sources, owners, or locations has been completed yet.
+
+What should the AI project manager do first?
+
+  A. Select an AI technique that supports predictive analytics.
+  B. Map the relevant data sources, owners, and storage locations.
+  C. Consolidate data sources, owners, and locations into one repository.
+  D. Begin collecting historical data for model training.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager should first identify the relevant data sources, where the data resides, and who owns or controls access to it. This is a foundational step because it establishes what data is available and accessible before the team begins collecting, consolidating, or using it for AI work.
+
+Why other options are incorrect:
+  A: Selecting an AI technique for predictive analytics is premature because it commits the team to a technical approach before confirming what data is actually available to support that approach.
+  C: Consolidating all available data into a single repository is also not the right first step. Moving data before identifying its sources, owners, and locations can lead to incomplete data capture or the use of data that has not been properly authorized.
+  D: Beginning to collect historical data for model training is similarly premature. Data collection should follow a clear understanding of what data exists, where it is located, and who controls it; otherwise, the team risks gathering incomplete, inconsistent, or unauthorized data.
+
+
+QUESTION 14  [Easy]
+------------------------------------------------------------
+A healthcare AI initiative will use patient records to train a predictive diagnosis model. Before the data extraction begins, the AI project manager must review the data sharing agreements with the hospital network.
+
+What should the AI project manager do first?
+
+  A. Determine if the data volume is sufficient for model training.
+  B. Confirm data ownership and document access permissions.
+  C. Assess the compatibility of the data schema with the machine learning (ML) framework.
+  D. Ensure that the data storage infrastructure meets the project's capacity requirements.
+
+ANSWER: B
+
+Why this is correct:
+The AI project manager must confirm who owns the data and what access permissions are in place. This ensures the team has the authority to access and use the patient records before any extraction activity takes place.
+
+Why other options are incorrect:
+  A, C: Confirming data volume and assessing data schema compatibility are activities that address data readiness and technical fit, which are relevant at a later stage after ownership and access have been established.
+  D: Ensuring the data storage infrastructure meets capacity requirements is a workspace and infrastructure concern that does not need to be resolved before data ownership and access permissions are confirmed.
+
+
+QUESTION 15  [Expert]
+------------------------------------------------------------
+An AI project manager at a healthcare organization is preparing a status briefing for the project sponsor as model testing is about to begin. Their goal is to ensure the sponsor understands the data governance approach.
+
+What should the AI project manager include in the briefing?
+
+  A. Justifications as to why the project should move forward regardless of the data quality.
+  B. A summary of the data assessment, the current data readiness, and a recommendation.
+  C. The rationale for why the tool was selected, the projected output, and a recommendation.
+  D. Detailed documentation of the steps taken to validate the data and model.
+
+ANSWER: B
+
+Why this is correct:
+Summarizing the data assessment findings, communicating the current state of data readiness, and providing a clear recommendation translates technical findings into business-relevant information that allows the sponsor to make an informed decision about how to proceed.
+
+Why other options are incorrect:
+  A: Detailed reasons why the project should move forward, even though the output was not accurate, misrepresent the purpose of a status briefing by advocating for continuation rather than providing an objective summary of findings and a recommendation based on the evidence.
+  C: The rationale for why the tool was selected and the projected output focuses on earlier project decisions and forward-looking projections rather than the current data readiness status that the sponsor needs to understand.
+  D: Detailed documentation of the steps taken to validate the data and model provides technical process detail that is not appropriately framed in the business-relevant language a sponsor needs for a status briefing.
+
+
+QUESTION 16  [Moderate]
+------------------------------------------------------------
+An AI project manager requests the project team classifies the available data before determining storage and processing needs. The available data includes images, videos, and text files.
+
+What type of data should the project team identify?
+
+  A. Structured data
+  B. Unstructured data
+  C. Semi-structured data
+  D. Metadata
+
+ANSWER: B
+
+Why this is correct:
+Images, videos, and text files do not follow a predefined schema or consistent format, making them unstructured data. This type of data is highly variable and requires specialized processing techniques before it can be used for AI model training.
+
+Why other options are incorrect:
+  A: Structured data is organized according to a fixed schema and consistent format, such as data in relational database tables. If the scenario involves information that does not follow a rigid schema, structured data would not be the best choice.
+  C: Semi-structured data contains some organizational elements, such as tags, labels, or markers, but does not conform to a fully rigid schema. If the scenario is referring to data that is fully organized in predefined fields, semi-structured data would not be correct.
+  D: Metadata is not a primary data type like structured or semi-structured data. It is data that describes other data, such as source, format, creator, or timestamp information, so it would be incorrect if the question is asking about the actual form of the data itself.
+
+
+QUESTION 17  [Difficult]
+------------------------------------------------------------
+An AI project manager is assembling a team for a new AI initiative. The project requires individuals who can connect the team with data governance resources and ensure data policies are followed throughout the project.
+
+What role should the AI project manager engage?
+
+  A. Data owner
+  B. Data steward
+  C. Data scientist
+  D. Data engineer
+
+ANSWER: B
+
+Why this is correct:
+Data stewards are the appropriate role to engage when a project needs support in applying data governance practices and connecting the team with the right governance resources. They help ensure data policies, standards, and definitions are followed throughout the project and serve as a link between project teams and the organization's broader data governance function.
+
+Why other options are incorrect:
+  A: A data owner is accountable for specific data assets and related decisions, but that role is not primarily responsible for connecting project teams with governance resources or guiding day-to-day adherence to data policies.
+  C, D: A data scientist is focused on analyzing data and developing models, while a data engineer is focused on building and maintaining data pipelines and infrastructure. Although both roles work closely with data, neither is primarily responsible for governance coordination or policy enforcement.
+
+
+QUESTION 18  [Moderate]
+------------------------------------------------------------
+An AI project manager is overseeing the development of a fraud detection solution. The data science team is working independently on local machines with inconsistent configurations, causing delays and coordination challenges.
+
+What should the AI project manager do?
+
+  A. Procure the approved data sources for model training.
+  B. Establish a secure development environment and provide the resources needed.
+  C. Select the modeling technique before the environment is configured.
+  D. Begin model training using the current local configuration until resources are approved.
+
+ANSWER: B
+
+Why this is correct:
+Establishing a secure development environment and providing the resources needed to support consistent and controlled development activities resolves the coordination challenges and delays caused by inconsistent local setups before development continues.
+
+Why other options are incorrect:
+  A: Procuring approved data sources addresses data availability rather than the infrastructure and tooling gap, causing delays in the development environment.
+  C: Selecting the modeling technique before the development environment reverses the correct sequence since the team needs a properly provisioned environment before technical modeling decisions can be effectively implemented.
+  D: Beginning model training using the current local configuration proceeds despite known inconsistencies that could compromise the reliability and reproducibility of development activities.
+
+
+QUESTION 19  [Easy]
+------------------------------------------------------------
+An AI project manager is leading a customer churn prediction initiative. During data exploration, a data analyst discovers that several fields have inconsistent definitions across business units and cannot be interpreted for modeling.
+
+What should the AI project manager do?
+
+  A. Remove all fields with unclear business definitions from the data set.
+  B. Ask the data analyst to make reasonable assumptions about the fields.
+  C. Engage subject matter experts (SMEs) who understand the context and meaning of the data.
+  D. Begin model training using the fields that are fully documented and understood completely.
+
+ANSWER: C
+
+Why this is correct:
+Engaging SMEs who understand the context and meaning of the data ensures the team has authoritative guidance on how the fields should be interpreted before any modeling decisions are made.
+
+Why other options are incorrect:
+  A, D: Removing all fields with unclear business definitions or beginning model training using only fully documented fields reduces the available data without first attempting to resolve the uncertainty, potentially excluding fields that are important to model performance once their meaning is understood.
+  B: Asking analysts to make reasonable assumptions independently introduces subjective interpretations that may vary across the team and are not grounded in authoritative domain knowledge, which could compromise the reliability of the modeling data.
+
+
+QUESTION 20  [Moderate]
+------------------------------------------------------------
+A data science team is testing a self-supervised learning model. The team needs to determine whether the training data or model configuration requires re-evaluation.
+
+What would be an indicator for re-evaluation?
+
+  A. An error rate that increased slightly from the previous test cycle but remained within the documented threshold.
+  B. Confidence scores that were lower for one demographic but remained inside the limits of acceptable variance.
+  C. Confidence scores that were evenly distributed across all segments and on target.
+  D. An error rate for one demographic segment that exceeded the documented threshold.
+
+ANSWER: D
+
+Why this is correct:
+When the error rate for a specific demographic segment exceeds the documented threshold, that indicates that the training data or model configuration may contain bias or gaps affecting that segment specifically. This signals that re-evaluation is needed to determine the root cause and ensure the model performs fairly and reliably across all populations.
+
+Why other options are incorrect:
+  A: An error rate that increased slightly but remained within the documented threshold does not represent a breach of the established standard, even though the trend may warrant continued monitoring.
+  B: Confidence scores that were lower for one segment but remained within acceptable variance reflect a result still considered within tolerance, not a confirmed indicator requiring re-evaluation.
+  C: Confidence scores that are evenly distributed across all demographic segments and on target suggest consistent performance across populations, which does not indicate a need for re-evaluation.

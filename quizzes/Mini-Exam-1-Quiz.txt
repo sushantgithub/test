@@ -1,0 +1,202 @@
+Mini Exam 1 — Practice Quiz
+===========================
+Questions: 10
+
+QUESTION 1  [Easy]
+------------------------------------------------------------
+An AI project manager is overseeing the rollout of an AI solution that will help staff automate business processes. Some users are resistant to adopting the new tools. What should the AI project manager do to improve adoption?
+
+  A. Communicate the technical specifications of the solution to help users understand how it works.
+  B. Restrict access to the legacy system to encourage users to engage with the new solution.
+  C. Escalate the resistance to the project sponsor and request additional budget for incentives.
+  D. Provide onboarding support and practical guidance to help users engage with the solution.
+
+ANSWER: D
+
+Why this is correct:
+Providing onboarding support and practical guidance directly addresses the adoption barrier — it builds confidence and reduces resistance by giving users hands-on support to engage with the new solution.
+
+Why other options are incorrect:
+  A: Technical specifications explain how it works from an engineering perspective, not the hands-on support users need to build confidence and reduce resistance.
+  B: Forcing adoption by cutting off the legacy system increases friction without resolving the underlying resistance — likely making things worse.
+  C: Escalating to the sponsor defers the challenge and doesn't tackle the root cause of user resistance.
+
+
+QUESTION 2  [Difficult]
+------------------------------------------------------------
+An AI project manager is defining the success criteria for a classification model. Stakeholders specify that the model's sensitivity must be at least 95%. What does this requirement indicate?
+
+  A. The model will incorrectly flag up to 5% of negative cases as positive.
+  B. The model will correctly detect at least 95% of true positive cases.
+  C. At least 95% of the model's flagged cases will be confirmed as positive.
+  D. At least 95% of the model's negative predictions are true negative cases.
+
+ANSWER: B
+
+Why this is correct:
+Sensitivity = True Positive Rate. It measures what fraction of actual positives the model correctly catches. 95% sensitivity means the model correctly identifies at least 95% of all real positive cases, minimising false negatives.
+
+Why other options are incorrect:
+  A: Incorrectly flagging negative cases as positive describes the False Positive Rate — a completely different metric from sensitivity.
+  C: 'Of all flagged cases, 95% are truly positive' describes Precision, not Sensitivity. Precision measures the quality of positive predictions, not the coverage of actual positives.
+  D: Correctly dismissing 95% of true negative cases describes Specificity, which measures the model's ability to identify negatives — not positives.
+
+
+QUESTION 3  [Expert]
+------------------------------------------------------------
+A learning company launched an AI tutor to support students enrolled in an online course. The AI project team documented the solution's contingency plan. What should the AI project team do next?
+
+  A. Review the plan against current system features and workflows.
+  B. Test and validate the plan under realistic operating conditions.
+  C. Update the plan to reflect known risks.
+  D. Share the plan with relevant teams across operations.
+
+ANSWER: B
+
+Why this is correct:
+Documentation alone doesn't prove a plan works. Testing under realistic conditions validates whether the procedures actually function before a real incident occurs — turning a plan on paper into a plan that actually works in practice.
+
+Why other options are incorrect:
+  A: Reviewing against current features is a useful maintenance step, but it doesn't confirm whether the plan actually works when a real incident strikes.
+  C: Updating for known risks improves the plan's content, but still doesn't validate that the documented procedures function correctly under real-world conditions.
+  D: Sharing promotes awareness, but distributing an untested plan before validation gives teams a false sense of readiness.
+
+
+QUESTION 4  [Expert]
+------------------------------------------------------------
+An AI project manager discovers that employees' personally identifiable information (PII) is being recorded in system log files during a quality control check. What should the AI project manager do?
+
+  A. Proceed with the current approach because the log files are not exposed to external users.
+  B. Escalate the issue to the sponsor and wait for direction before taking any corrective action.
+  C. Stop logging personal employee data and implement controls to protect sensitive information in the log files.
+  D. Assess if the logged employee data creates significant privacy risk and apply protection measures as needed.
+
+ANSWER: C
+
+Why this is correct:
+PII in log files demands immediate action — stop the logging and implement controls. Privacy obligations don't hinge on whether files are externally visible. The PM has the authority and responsibility to act without waiting for sponsor approval.
+
+Why other options are incorrect:
+  A: Internal access does not remove privacy liability. PII in log files is a compliance concern regardless of who can currently see those files.
+  B: Waiting for sponsor direction unnecessarily delays a response to a confirmed, known privacy risk the PM is fully empowered to address immediately.
+  D: When PII is already confirmed in the logs, conducting a threshold risk assessment is an unnecessary detour — confirmed PII requires immediate action, not a conditional one.
+
+
+QUESTION 5  [Expert]
+------------------------------------------------------------
+An AI project manager is overseeing the development of an automated grading assistant. The project team standardised score scales to prepare historical data for training. The project sponsor wants to confirm the transformation work can be repeated. What should the AI project manager do?
+
+  A. Compare the documented transformation logic against what the team actually implemented.
+  B. Review the transformation code with a second team member to confirm accuracy.
+  C. Execute the transformation pipeline again on the source data and confirm the outputs match.
+  D. Test the transformation process on a new sample of data to confirm it generalises well.
+
+ANSWER: C
+
+Why this is correct:
+Reproducibility means: same inputs → same outputs, every time. The only way to empirically prove it is to re-run the pipeline on the same source data and verify that the results are identical. That's the direct test of repeatability.
+
+Why other options are incorrect:
+  A: Comparing documented logic to the implementation checks design correctness, not whether the pipeline produces consistent repeated outputs from the same data.
+  B: A peer code review catches errors and validates accuracy, but it does not prove the process generates the same results every time it runs.
+  D: Testing on a new data sample evaluates generalisation or robustness — a separate, different goal from reproducibility, which requires the same input.
+
+
+QUESTION 6  [Expert]
+------------------------------------------------------------
+A data science team reports that historical candidate records from recruitment are missing rubric scores, assessor comments, and contextual metadata. What should the AI project manager communicate to non-technical leadership?
+
+  A. Missing data fields can result in reduced signal quality, increased noise, and bias risk.
+  B. Incomplete evidence can undermine confidence in the fairness of the process.
+  C. Resolving record gaps can delay model preparation and affect the planned timeline.
+  D. Inputs from multiple sources can lead to handoff issues and inconsistencies in operational execution.
+
+ANSWER: B
+
+Why this is correct:
+Leadership needs business language, not technical jargon. Framing missing data as a fairness risk connects directly to outcomes leadership cares about — candidate trust, potential legal exposure, and organisational credibility in the recruitment process.
+
+Why other options are incorrect:
+  A: 'Signal quality', 'noise', and 'bias risk' are technical terms that don't land meaningfully for a non-technical executive audience and won't drive the right response.
+  C: Timeline impact is a valid concern, but it focuses on schedule rather than the substantive business ethics and fairness risk that leadership needs to understand and act on.
+  D: Handoff and operational consistency issues are process concerns, not the business-level fairness risk that should be driving leadership's decision-making.
+
+
+QUESTION 7  [Difficult]
+------------------------------------------------------------
+A data science team combined data from multiple systems for a student at-risk prediction model, but discovered inconsistent enrollment status labelling across sources. What should the data science team do next?
+
+  A. Validate the completeness of historical student records and extend the data set.
+  B. Review the range of academic advising variables and add more predictor fields.
+  C. Refine the model design assumptions and begin feature engineering of the data set.
+  D. Confirm that student status indicators are accurate and consistent across all source systems.
+
+ANSWER: D
+
+Why this is correct:
+Enrollment status is the target variable the model is predicting. If labels are inconsistent across systems, the model learns from corrupted ground truth. Everything else must wait until this fundamental data quality issue is fully resolved.
+
+Why other options are incorrect:
+  A: Extending the dataset before fixing label inconsistency only scales the problem — you're adding more records with the same corrupted labels.
+  B: Adding more predictor fields is premature when the outcome variable — enrollment status — is itself unreliable and inconsistent.
+  C: Feature engineering on a dataset with a broken target variable produces a model built on a flawed foundation — garbage in, garbage out.
+
+
+QUESTION 8  [Expert]
+------------------------------------------------------------
+An AI project manager at an e-learning company identifies that learners struggle to get timely personalised help, reducing progress and completion rates. The company is considering an AI tutor. What should the AI project manager do first?
+
+  A. Compare chatbot vendors and select the platform with the strongest personalisation features.
+  B. Analyse historical data and begin configuration based on common content questions.
+  C. Estimate the return on investment (ROI) based on gains from similar organisational initiatives.
+  D. Evaluate the team's overall readiness to implement and sustain an AI solution.
+
+ANSWER: D
+
+Why this is correct:
+Before committing to any technical direction, you must assess readiness — governance, data infrastructure, technology, and change management. Without this, you risk investing significant resources in a solution the organisation cannot effectively deploy or sustain.
+
+Why other options are incorrect:
+  A: Vendor selection and platform comparison commit to a technical direction before knowing whether the organisation is actually ready to support and sustain it.
+  B: Analysing historical data and beginning configuration assumes readiness has already been confirmed — but it hasn't.
+  C: ROI estimates benchmarked against similar initiatives at other organisations don't reflect this organisation's specific context, readiness, or viability.
+
+
+QUESTION 9  [Easy]
+------------------------------------------------------------
+An AI project manager responsible for an AI-powered analytics dashboard in production for six months sees a gradual decline in prediction accuracy on the monitoring dashboard. What should the AI project manager do?
+
+  A. Escalate the accuracy decline to the project sponsor and request approval to retire the model.
+  B. Initiate model retraining and conduct a performance review to comply with governance procedures.
+  C. Instruct the data engineering team to retrain the model on a clean set of training data.
+  D. Suspend the model from production until the accuracy decline has been investigated.
+
+ANSWER: B
+
+Why this is correct:
+A gradual accuracy decline calls for a structured, governed response — not a panic reaction. Initiating retraining alongside a formal performance review follows governance procedures, ensuring the issue is addressed in a controlled, documented, and accountable way.
+
+Why other options are incorrect:
+  A: Requesting model retirement is a premature overreaction to a gradual decline that hasn't yet been fully assessed through the proper governance process.
+  C: Directly instructing engineering to retrain bypasses the required governance steps and performance review that should accompany and authorise this action.
+  D: Suspending the model is also an overreaction to a gradual decline — governance procedures should guide the response proportionately, not a panic shutdown.
+
+
+QUESTION 10  [Expert]
+------------------------------------------------------------
+An AI project team is building a patient pre-screening model for a healthcare organisation. The model draws on a database of illnesses, symptoms, and case studies from multiple sources. The AI project manager must identify a subject matter expert to manage the flow of data. What data SME should the AI project manager engage?
+
+  A. A data architect
+  B. A data scientist
+  C. A data engineer
+  D. A business analyst
+
+ANSWER: C
+
+Why this is correct:
+A data engineer builds and manages the pipelines that move, transform, and integrate data from multiple sources — exactly what's needed here. They own the flow of data between systems, not the design of storage or the analysis of its contents.
+
+Why other options are incorrect:
+  A: A data architect designs the overall data structure, schemas, and storage systems — not the ongoing movement and integration of data between sources.
+  B: A data scientist analyses data and builds models — they consume what comes through the data pipeline rather than managing the pipeline itself.
+  D: A business analyst gathers and translates business requirements into specifications — not technical data flow management between systems.
