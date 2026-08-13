@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>90 Original CPMAI Items — Practice Quiz</title>
+  <style>
+    :root {
+      --bg: #0f1c24;
+      --bg-elevated: #162832;
+      --surface: #1c3340;
+      --surface-2: #234052;
+      --border: #2f5366;
+      --text: #e8f1f5;
+      --text-muted: #9bb4c2;
+      --accent: #2aa889;
+      --accent-soft: rgba(42, 168, 137, 0.16);
+      --correct: #2aa889;
+      --correct-bg: rgba(42, 168, 137, 0.12);
+      --incorrect: #e07a5f;
+      --incorrect-bg: rgba(224, 122, 95, 0.12);
+      --easy: #3d9b6e;
+      --moderate: #c9a227;
+      --difficult: #d97706;
+      --expert: #c45c6a;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+      --radius: 14px;
+      --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(42, 168, 137, 0.18), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(47, 83, 102, 0.45), transparent 50%),
+        linear-gradient(180deg, #0c171d 0%, var(--bg) 40%, #122029 100%);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: min(860px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header.app-header {
+      margin-bottom: 1.75rem;
+      animation: rise 0.55s ease both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--text-muted);
+      max-width: 42rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1.5rem 0 1.25rem;
+      animation: rise 0.55s ease 0.08s both;
+    }
+
+    .progress-panel {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: var(--surface);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #238f74, var(--accent));
+      border-radius: inherit;
+      transition: width 0.35s ease;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .filter-btn, .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .filter-btn:hover, .btn:hover {
+      background: var(--surface-2);
+      border-color: #3f6a80;
+    }
+
+    .filter-btn.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: #b8f0df;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #06241c;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: #34c09c;
+      border-color: #34c09c;
+    }
+
+    .btn-primary:disabled,
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-ghost {
+      background: transparent;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(28, 51, 64, 0.95), rgba(22, 40, 50, 0.98));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.35rem 1.4rem 1.5rem;
+      animation: rise 0.5s ease both;
+    }
+
+    .q-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .q-id {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .badge::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .badge-easy { color: #8fe0b5; background: rgba(61, 155, 110, 0.15); border-color: rgba(61, 155, 110, 0.35); }
+    .badge-moderate { color: #f0d56a; background: rgba(201, 162, 39, 0.14); border-color: rgba(201, 162, 39, 0.35); }
+    .badge-difficult { color: #ffc078; background: rgba(217, 119, 6, 0.14); border-color: rgba(217, 119, 6, 0.35); }
+    .badge-expert { color: #f2a4af; background: rgba(196, 92, 106, 0.16); border-color: rgba(196, 92, 106, 0.4); }
+
+    .difficulty-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 0.15rem;
+    }
+
+    .question-text {
+      font-size: 1.08rem;
+      font-weight: 500;
+      white-space: pre-line;
+      margin: 0 0 1.2rem;
+    }
+
+    .options {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .option {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(15, 28, 36, 0.45);
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .option:hover:not(:disabled) {
+      border-color: #4a7a92;
+      background: rgba(35, 64, 82, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .option.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .option.correct-choice {
+      border-color: var(--correct);
+      background: var(--correct-bg);
+    }
+
+    .option.incorrect-choice {
+      border-color: var(--incorrect);
+      background: var(--incorrect-bg);
+    }
+
+    .option:disabled {
+      cursor: default;
+    }
+
+    .opt-key {
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .option.selected .opt-key,
+    .option.correct-choice .opt-key {
+      background: rgba(42, 168, 137, 0.25);
+      border-color: var(--accent);
+    }
+
+    .option.incorrect-choice .opt-key {
+      background: rgba(224, 122, 95, 0.25);
+      border-color: var(--incorrect);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+
+    .feedback {
+      margin-top: 1.35rem;
+      display: none;
+      animation: rise 0.4s ease both;
+    }
+
+    .feedback.visible { display: block; }
+
+    .result-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 10px;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .result-banner.ok {
+      background: var(--correct-bg);
+      color: #8fe0b5;
+      border: 1px solid rgba(42, 168, 137, 0.35);
+    }
+
+    .result-banner.bad {
+      background: var(--incorrect-bg);
+      color: #f2b4a3;
+      border: 1px solid rgba(224, 122, 95, 0.35);
+    }
+
+    .expl-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .expl-block {
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border);
+      background: rgba(15, 28, 36, 0.4);
+    }
+
+    .expl-block.correct-expl {
+      border-color: rgba(42, 168, 137, 0.4);
+      background: rgba(42, 168, 137, 0.08);
+    }
+
+    .expl-block.incorrect-expl {
+      border-color: rgba(224, 122, 95, 0.35);
+      background: rgba(224, 122, 95, 0.07);
+    }
+
+    .expl-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0 0 0.55rem;
+    }
+
+    .expl-title.correct { color: #8fe0b5; }
+    .expl-title.incorrect { color: #f2b4a3; }
+
+    .expl-block p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .wrong-item {
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid rgba(224, 122, 95, 0.2);
+    }
+
+    .wrong-item:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .wrong-opts {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #f2b4a3;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    .start-card, .results-card {
+      text-align: left;
+    }
+
+    .start-card h2, .results-card h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1.45rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .stat {
+      background: rgba(15, 28, 36, 0.45);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem;
+    }
+
+    .stat-value {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .review-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.7rem 0.85rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(15, 28, 36, 0.35);
+      font-size: 0.9rem;
+    }
+
+    .review-item button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer.note {
+      margin-top: 1.75rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 1.25rem, 860px); padding-top: 1.25rem; }
+      .card { padding: 1.1rem; }
+      .actions { flex-direction: column; }
+      .actions .btn { width: 100%; }
+    }
+  
+    .badge-domain {
+      color: #b8f0df;
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      text-transform: none;
+      letter-spacing: 0.01em;
+    }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="app-header">
+      <div class="eyebrow">PMI CPMAI Practice Quiz</div>
+      <h1>90 Original CPMAI-Style Questions</h1>
+      <p class="subtitle">
+        Untimed practice quiz in the original format. Check each answer as you go.
+        Explanations show <strong>why the correct option is right</strong> and
+        <strong>why the other options are wrong</strong>. No exam timer.
+      </p>
+    </header>
+
+    <section id="start-screen" class="screen active">
+      <div class="card start-card">
+        <h2>Ready to practice?</h2>
+        <p class="subtitle" style="margin:0">
+          90 original items (not from your 270-question bank). Filter by domain or take all 90. Untimed.
+        </p>
+        <div class="actions">
+          <button class="btn btn-primary" id="start-all">Start all 90 questions</button>
+          <button class="btn btn-ghost" id="start-filtered">Start with current filter</button>
+        </div>
+        <div class="toolbar" style="margin-bottom:0">
+          <div class="filters" id="start-filters" aria-label="Domain filters"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="screen">
+      <div class="toolbar">
+        <div class="progress-panel">
+          <div class="progress-meta">
+            <span id="progress-text">Question 1 of 90</span>
+            <span id="score-text">Score: 0</span>
+          </div>
+          <div class="progress-bar" aria-hidden="true">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+      <article class="card" id="question-card">
+        <div class="q-top">
+          <div class="q-id" id="q-id">Question 1</div>
+          <div>
+            <span class="difficulty-label">Domain:</span>
+            <span class="badge badge-domain" id="domain-badge"></span>
+          </div>
+        </div>
+        <p class="question-text" id="question-text"></p>
+        <div class="options" id="options" role="radiogroup" aria-label="Answer choices"></div>
+        <div class="actions">
+          <button class="btn btn-primary" id="submit-btn" disabled>Check answer</button>
+          <button class="btn btn-ghost" id="next-btn" hidden>Next question</button>
+          <button class="btn btn-ghost" id="quit-btn">Exit quiz</button>
+        </div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section id="results-screen" class="screen">
+      <div class="card results-card">
+        <h2>Quiz complete</h2>
+        <p class="subtitle" id="results-summary" style="margin:0"></p>
+        <div class="stats" id="results-stats"></div>
+        <div class="actions">
+          <button class="btn btn-primary" id="retry-btn">Try again</button>
+          <button class="btn btn-ghost" id="review-missed-btn">Review missed only</button>
+          <button class="btn btn-ghost" id="home-btn">Back to start</button>
+        </div>
+        <div class="review-list" id="review-list"></div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const QUESTIONS = [{"id": 1, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A hospital wants an AI tool that 'makes operations better.' Executives cannot agree whether the pain point is bed turnover, staffing, or coding denials.\n\nWhat should the AI project manager do first?", "options": {"A": "Select a computer vision vendor that other hospitals have used for bed tracking.", "B": "Facilitate stakeholder interviews to define the problem, personas, and success outcomes.", "C": "Commission a proof of concept on all three pain points in parallel.", "D": "Request a data lake refresh so modeling can start while the problem is clarified."}, "correctExplanation": "AI work starts with a validated problem and personas. Interviews convert a vague request into a specific need before vendors, POCs, or data work begin.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Vendor selection and parallel POCs lock in solutions before the organization agrees on the problem to solve."}, {"options": ["D"], "text": "Refreshing data infrastructure does not define the business problem and can waste effort on the wrong use case."}]}, {"id": 2, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A bank proposes an NLP model to classify complaints. Analysts already route complaints with a rules engine that meets service-level agreements.\n\nWhat should the AI project manager do when evaluating initial feasibility?", "options": {"A": "Approve the NLP model because natural language tasks are inherently AI problems.", "B": "Compare the AI approach with the existing rules-based alternative against cost, risk, and performance.", "C": "Replace the rules engine immediately to avoid maintaining two systems.", "D": "Skip feasibility and move to model selection because complaint text is available."}, "correctExplanation": "Feasibility includes whether AI is the right approach versus traditional alternatives. A working rules engine may be sufficient.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Assuming NLP is required or replacing a working system skips the AI-versus-traditional comparison."}, {"options": ["D"], "text": "Data availability alone does not establish that an AI solution is warranted."}]}, {"id": 3, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A manufacturer wants a vision model for defect detection on a line that currently has no labeled defect photos and no GPU capacity on site.\n\nWhat should the AI project manager emphasize in the feasibility assessment?", "options": {"A": "That computer vision is mature, so labeling and infrastructure can be solved after kickoff.", "B": "Data availability, labeling effort, and compute constraints that could block a viable solution.", "C": "The brand value of being first in the industry to deploy visual inspection.", "D": "Selecting a transformer architecture before estimating labeling cost."}, "correctExplanation": "Initial AI feasibility must test data availability/quality and computational constraints, not just algorithmic fashion.", "incorrectExplanations": [{"options": ["A", "D"], "text": "Deferring labeling and infrastructure or choosing architecture first ignores the blockers that determine viability."}, {"options": ["C"], "text": "Competitive branding is not a substitute for technical and data feasibility."}]}, {"id": 4, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "An insurer's generative assistant will draft claim letters. Legal warns that incorrect denials could trigger regulatory penalties.\n\nWhat should the AI project manager do as part of risk assessment?", "options": {"A": "Treat the assistant as low risk because a human can optionally read the draft.", "B": "Identify safety, ethics, and compliance failure modes and define mitigations such as mandatory human review for denials.", "C": "Delay risk assessment until after the model exceeds accuracy targets.", "D": "Limit the assessment to cybersecurity of the model endpoint."}, "correctExplanation": "Risk assessment for AI must cover safety, ethics, and regulatory failure modes, with mitigations designed before build.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Optional review and post-accuracy timing leave high-impact failure modes unmanaged during design."}, {"options": ["D"], "text": "Security matters, but it is not the only risk class for a regulated decisioning assistant."}]}, {"id": 5, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "A", "question": "A telecom sponsor asks the AI project manager to 'include whatever the data science team thinks is cool' in the first release.\n\nWhat should the AI project manager do when developing the scope statement?", "options": {"A": "Document in-scope deliverables, out-of-scope items, assumptions, and constraints aligned to business objectives.", "B": "Leave scope flexible so the team can follow experimental results.", "C": "Define scope as 'an AI platform' without listing features.", "D": "Copy the vendor's full product catalog into the scope to avoid missing capabilities."}, "correctExplanation": "An AI scope statement must set boundaries, deliverables, assumptions, and constraints tied to objectives—not an open research charter.", "incorrectExplanations": [{"options": ["B", "C"], "text": "Flexible or platform-only scope invites uncontrolled experimentation and unclear success."}, {"options": ["D"], "text": "A vendor catalog is not a business-aligned scope and inflates the initiative."}]}, {"id": 6, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "A", "question": "Finance asks whether a forecasting model is worth funding. Benefits are described as 'better decisions' with no quantified impact.\n\nWhat should the AI project manager do to determine ROI?", "options": {"A": "Estimate benefits, total cost of ownership, risks, and assumptions, then present a cost-benefit case.", "B": "Use the data science team's enthusiasm as qualitative ROI.", "C": "Count only cloud training cost and ignore monitoring and retraining.", "D": "Defer ROI until after a year in production."}, "correctExplanation": "ROI needs expected benefits, TCO (including operations), risks, and explicit assumptions—not vibes or partial costs.", "incorrectExplanations": [{"options": ["B"], "text": "Enthusiasm is not financial justification."}, {"options": ["C", "D"], "text": "Ignoring operating cost or delaying any ROI view leaves leadership without a decision-quality case."}]}, {"id": 7, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A retail recommender will launch inside a checkout flow that cashiers already find crowded. Store managers predict staff will ignore the new panel.\n\nWhat should the AI project manager do to manage adoption risk?", "options": {"A": "Train the model on more SKUs so recommendations feel smarter.", "B": "Identify workflow friction, plan change management and training, and integrate the tool into existing cashier steps.", "C": "Mandate that cashiers cannot complete checkout unless they tap a recommendation.", "D": "Move the panel to a back-office portal used once a week."}, "correctExplanation": "Adoption risk is reduced by fitting the solution to workflows, training users, and removing friction—not by model tweaks or coercion.", "incorrectExplanations": [{"options": ["A"], "text": "More training data does not fix a workflow that users will ignore."}, {"options": ["C", "D"], "text": "Forcing clicks or hiding the tool in a rarely used portal either increases resistance or kills value."}]}, {"id": 8, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "A", "question": "A city wants an AI solution for traffic signal timing. Stakeholders have agreed on congestion reduction as the outcome.\n\nWhat should the AI project manager include when drafting the AI solution?", "options": {"A": "A high-level architecture, data flows, candidate model types, integration points, and operational considerations.", "B": "Only a list of open-source libraries the team prefers.", "C": "A final production model weight file.", "D": "A marketing website for residents."}, "correctExplanation": "Drafting the AI solution means outlining architecture, data flow, model approach, integrations, and operations—not finished artifacts or unrelated comms.", "incorrectExplanations": [{"options": ["B", "C"], "text": "Libraries or trained weights are too narrow or too late for a solution draft."}, {"options": ["D"], "text": "A public website is not the solution design needed to guide build."}]}, {"id": 9, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "Executives want to know if a claims triage model is successful. The team reports F1 score weekly and nothing else.\n\nWhat should the AI project manager do when defining success criteria?", "options": {"A": "Keep F1 as the only KPI because it is an industry-standard metric.", "B": "Define business impact, technical performance, and adoption measures aligned to organizational objectives.", "C": "Use employee morale as the primary success metric.", "D": "Wait until deployment to invent metrics from production anecdotes."}, "correctExplanation": "Success criteria should include business, technical, and user/adoption measures set before build, not a single model metric.", "incorrectExplanations": [{"options": ["A", "C"], "text": "F1-only or morale-only views miss the balanced KPI set leadership needs."}, {"options": ["D"], "text": "Inventing metrics after go-live prevents objective evaluation."}]}, {"id": 10, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A logistics firm needs GPU capacity and NLP talent it does not have internally for a six-month document extraction initiative.\n\nWhat should the AI project manager do when identifying project resources?", "options": {"A": "Assume existing IT staff can learn NLP after hours without changing the plan.", "B": "Assess skills, infrastructure, and gaps, then plan contractors, hardware, or procurement to close them.", "C": "Cancel the project because all AI talent must be full-time employees.", "D": "Buy the most expensive GPU cluster before confirming model approach."}, "correctExplanation": "Resource identification includes people, hardware, and contractors, with explicit gap-closing plans.", "incorrectExplanations": [{"options": ["A", "D"], "text": "Hoping staff self-train or buying maximum hardware before the approach is known misallocates resources."}, {"options": ["C"], "text": "Contractors and platforms are valid ways to fill specialized AI gaps."}]}, {"id": 11, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A sponsor wants a chatbot 'like the competitor's' without describing customer jobs-to-be-done.\n\nWhat should the AI project manager do to identify the problem to be solved?", "options": {"A": "Clone the competitor's intents and launch.", "B": "Map customer personas, pain points, and use cases, then validate the problem statement with SMEs.", "C": "Start scraping competitor transcripts for training data.", "D": "Declare the problem as 'we need generative AI' and proceed."}, "correctExplanation": "Problem identification requires personas, pain points, and validated use cases—not copying a competitor.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Cloning or scraping a competitor skips your customers' actual needs and adds legal/data risk."}, {"options": ["D"], "text": "Naming a technology is not a problem statement."}]}, {"id": 12, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A proposed fraud model could freeze accounts incorrectly during holidays, harming customers and call-center load.\n\nWhat should be captured in the risk assessment?", "options": {"A": "Only the probability that the model beats a random baseline.", "B": "Safety and customer-harm failure modes, operational surge risk, and mitigations such as thresholds and appeal paths.", "C": "A statement that fraud models are inherently acceptable risk.", "D": "The color scheme of the analyst dashboard."}, "correctExplanation": "Risk assessment must include safety/ethics impacts and operational consequences with mitigations, not just accuracy.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Baseline beating or blanket acceptance ignores customer harm and operations."}, {"options": ["D"], "text": "UI cosmetics are not the risk content required here."}]}, {"id": 13, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A business case lists benefits from 'AI transformation' but omits retraining, labeling, and monitoring costs.\n\nWhat should the AI project manager do to support business case creation?", "options": {"A": "Leave costs out so the case is more likely to be approved.", "B": "Work with finance to include full TCO, projected benefits, and a clear narrative of value and assumptions.", "C": "Replace financials with a demo video.", "D": "Submit the data science notebook as the business case."}, "correctExplanation": "Supporting the business case means complete costs and benefits with a leadership-ready narrative, not hiding TCO.", "incorrectExplanations": [{"options": ["A"], "text": "Omitting costs produces a misleading case."}, {"options": ["C", "D"], "text": "Demos and notebooks do not replace financial justification."}]}, {"id": 14, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "A", "question": "Users must log into a separate portal to get AI demand forecasts they currently pull from Excel on their main desktop.\n\nWhat adoption barrier should the AI project manager address first?", "options": {"A": "Lack of integration with existing systems and workflows.", "B": "Insufficient number of hidden layers in the model.", "C": "The executive sponsor's communication style.", "D": "The choice of cloud region."}, "correctExplanation": "Forcing users out of their primary workflow is a classic integration/adoption barrier.", "incorrectExplanations": [{"options": ["B"], "text": "Model depth does not explain portal friction."}, {"options": ["C", "D"], "text": "Sponsor style and cloud region are not the barrier described."}]}, {"id": 15, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A utility wants predictive maintenance but cannot state how much unplanned downtime costs per hour.\n\nWhat should the AI project manager do when determining ROI?", "options": {"A": "Invent a round number so the spreadsheet looks complete.", "B": "Gather operational cost data and benefit assumptions with the business, including uncertainty.", "C": "Ignore benefits and fund the project as research.", "D": "Use a competitor's press release as the benefit estimate."}, "correctExplanation": "ROI requires sourced benefit and cost inputs, with assumptions stated—not fabricated or borrowed figures.", "incorrectExplanations": [{"options": ["A", "D"], "text": "Made-up or competitor figures are not a defensible case."}, {"options": ["C"], "text": "Calling it research dodges the funding question rather than answering it."}]}, {"id": 16, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "Stakeholders propose both a recommendation engine and a simple scheduled report for the same inventory issue.\n\nWhat should the AI project manager do during feasibility?", "options": {"A": "Always choose the recommendation engine because it is AI.", "B": "Evaluate whether a simpler non-AI approach meets the need before committing to ML.", "C": "Build both in the first sprint.", "D": "Let the vendor decide because they sell both products."}, "correctExplanation": "Feasibility includes comparing AI with simpler alternatives when the problem may not need learning or personalization.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Defaulting to ML or dual-building wastes resources."}, {"options": ["D"], "text": "Vendor preference is not an independent feasibility judgment."}]}, {"id": 17, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A public agency AI project has unclear deliverables: a model, an API, user training, and a policy playbook are all mentioned verbally.\n\nWhat should the AI project manager put in the scope statement?", "options": {"A": "Only the model file, because software is the real deliverable.", "B": "Agreed deliverables and explicit out-of-scope items so training and policy work are not accidental.", "C": "Every idea mentioned in any meeting, to be safe.", "D": "No written scope, to preserve agility."}, "correctExplanation": "Scope must list deliverables and exclusions so verbal extras do not become unmanaged work.", "incorrectExplanations": [{"options": ["A"], "text": "Omitting enablement deliverables that were intended creates later conflict."}, {"options": ["C", "D"], "text": "Kitchen-sink or unwritten scope both fail to control the initiative."}]}, {"id": 18, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "A", "question": "A clinic's AI intake bot may mishandle emergency language. Clinicians want a hard stop to call 911 guidance.\n\nWhat should the AI project manager do in solution drafting and risk planning?", "options": {"A": "Document safety constraints, escalation paths, and out-of-scope emergency diagnosis in the solution design.", "B": "Rely on the model's general helpfulness without hard constraints.", "C": "Hide emergency disclaimers to keep the conversation short.", "D": "Train the bot on social media first-aid threads only."}, "correctExplanation": "High-safety use cases need explicit constraints, escalations, and scope limits in the solution design.", "incorrectExplanations": [{"options": ["B", "C"], "text": "Unconstrained helpfulness or hidden disclaimers increase harm risk."}, {"options": ["D"], "text": "Social media first-aid content is not a controlled safety design."}]}, {"id": 19, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "Leadership wants 'AI KPIs' but lists only number of models deployed.\n\nWhat should the AI project manager recommend as success criteria?", "options": {"A": "Count of models in production, regardless of outcomes.", "B": "Outcome metrics such as cycle-time reduction, quality, cost, and responsible-use indicators tied to objectives.", "C": "Lines of Python committed per week.", "D": "Number of parameters in the largest model."}, "correctExplanation": "Success criteria should measure business outcomes and responsible performance, not vanity counts of models or code.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Model count, commits, and parameter size do not show whether the initiative created value."}]}, {"id": 20, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A construction firm wants AI schedule risk prediction. Planners distrust black-box outputs and currently use Gantt software.\n\nWhat should the AI project manager do regarding adoption?", "options": {"A": "Force planners to disable Gantt tools on day one.", "B": "Plan explainability, workflow integration, and training so predictions appear in the tools planners already use.", "C": "Ship the model via email CSV only, to minimize IT work.", "D": "Avoid talking to planners until after go-live to prevent negativity."}, "correctExplanation": "Adoption in expert workflows needs integration, training, and sufficient transparency.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Forced cutover or email CSVs create friction and distrust."}, {"options": ["D"], "text": "Excluding users until go-live is a predictable adoption failure."}]}, {"id": 21, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "An AI project manager is asked to staff a computer vision program. The organization has analysts but no annotation leads or MLOps engineers.\n\nWhat should the AI project manager do?", "options": {"A": "Start training anyway and hope roles emerge.", "B": "Identify required roles, internal gaps, and contractor or hiring needs before committing to dates.", "C": "Assign annotation to the receptionist because it is clerical.", "D": "Use only AutoML so no specialized roles are required."}, "correctExplanation": "Resource planning must name specialized AI roles and close gaps deliberately.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Hoping or misassigning critical skills creates quality and schedule risk."}, {"options": ["D"], "text": "AutoML does not remove the need for data, evaluation, and operations skills."}]}, {"id": 22, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A media company wants an AI highlight generator. Legal has not confirmed sports-clip licensing for training or output.\n\nWhat should the AI project manager do in feasibility and risk work?", "options": {"A": "Proceed with scraping broadcasts because highlights are short.", "B": "Assess legal rights, licensing constraints, and reputational risk before collecting or generating content.", "C": "Treat licensing as an operations task after launch.", "D": "Ask engineers to watermark outputs instead of checking rights."}, "correctExplanation": "Feasibility and risk include legal rights to data and generated content, especially in media.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Scraping, deferring, or watermarking does not establish the right to use or produce the content."}]}, {"id": 23, "domain": "Identify Business Needs and Solutions", "domainShort": "Business Needs", "correct": "B", "question": "A sponsor demands a go-live date before problem definition, data assessment, or resource planning are done.\n\nWhat should the AI project manager do next?", "options": {"A": "Publish the date and compress all discovery into a weekend.", "B": "Explain that scope, feasibility, and resources must be established before a credible schedule can be committed.", "C": "Agree to the date and hide discovery as 'sprint zero coding'.", "D": "Outsource the date commitment to the vendor's sales team."}, "correctExplanation": "A demanding deadline does not replace discovery. Credible dates follow problem, feasibility, and resource clarity.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Fake dates and hidden discovery create delivery and trust failures."}, {"options": ["D"], "text": "Sales commitments are not a substitute for project planning."}]}, {"id": 24, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A team is building a churn model. Business wants to predict 90-day churn, but available data only flags cancellations at month-end with no reason codes.\n\nWhat should the AI project manager do when defining required data?", "options": {"A": "Start training on month-end flags and hope the label is close enough.", "B": "Specify label definition, time windows, granularity, volume, and quality criteria mapped to the use case.", "C": "Collect every customer event in the company 'just in case'.", "D": "Define data needs as 'a CSV from marketing'."}, "correctExplanation": "Required data must specify types, labels, time windows, volume, and quality tied to the objective.", "incorrectExplanations": [{"options": ["A"], "text": "Training on a mismatched label encodes the wrong problem."}, {"options": ["C", "D"], "text": "Boilerplate dumps or vague file requests are not requirements."}]}, {"id": 25, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Data scientists cannot interpret hospital procedure codes used in a readmission model.\n\nWhat should the AI project manager do?", "options": {"A": "Guess mappings from public blogs.", "B": "Identify and engage clinical data SMEs and data stewards who understand meaning and context.", "C": "Drop all code fields to simplify the table.", "D": "Ask the CEO to explain each code in the steering meeting."}, "correctExplanation": "Data SMEs and stewards provide meaning, context, and governance knowledge the modeling team lacks.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Guessing or dropping domain fields destroys signal and safety."}, {"options": ["D"], "text": "Executives are rarely the operational data experts needed."}]}, {"id": 26, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "A", "question": "An agriculture firm thinks soil-sensor data lives 'somewhere in ops.' No inventory exists.\n\nWhat should the AI project manager do to identify data sources and locations?", "options": {"A": "Map internal systems, historians, vendors, and ownership/access for relevant sources.", "B": "Buy a national weather API and skip internal sensors.", "C": "Wait until the model is chosen, then look for data.", "D": "Use synthetic soil data only, to go faster."}, "correctExplanation": "Source identification inventories systems, external providers, ownership, and access—not a guess or a skip.", "incorrectExplanations": [{"options": ["B", "D"], "text": "External or synthetic-only shortcuts may ignore the actual on-farm signal required."}, {"options": ["C"], "text": "Model-first sequencing inverts CPMAI data-before-model logic."}]}, {"id": 27, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A bank's AI team is storing production customer tables on personal laptops to 'move faster'.\n\nWhat should the AI project manager do when coordinating workspace and infrastructure?", "options": {"A": "Praise the hustle and continue.", "B": "Provision a secure, governed workspace with appropriate storage, access control, and collaboration tools.", "C": "Allow laptops if they are encrypted, with no other controls.", "D": "Move copies to a public Git repository for backup."}, "correctExplanation": "AI workspaces must be secure, governed, and fit for sensitive data—not ad hoc laptop copies.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Speed or encryption-alone does not meet banking data control expectations."}, {"options": ["D"], "text": "Public repositories are a severe data exposure."}]}, {"id": 28, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A data pull for a credit model is missing two of five agreed source systems and has not been validated for completeness.\n\nWhat should the AI project manager do while gathering data?", "options": {"A": "Train on the three systems and note the rest as future work without telling stakeholders.", "B": "Complete agreed extraction, validate completeness and accuracy, and record gaps before proceeding.", "C": "Duplicate rows to simulate the missing systems.", "D": "Change the business objective to match the incomplete extract."}, "correctExplanation": "Gathering data includes executing the agreed extract and validating completeness, not silently shrinking the problem.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Hidden gaps and fake rows corrupt training and trust."}, {"options": ["D"], "text": "Changing the objective to fit a bad extract inverts the requirement."}]}, {"id": 29, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Marketing wants to use purchased email lists that forbid AI training in the contract.\n\nWhat should the AI project manager do when checking privacy, compliance, and access?", "options": {"A": "Use the lists anyway if they are useful.", "B": "Verify usage rights and licensing; exclude data that cannot legally be used for training.", "C": "Hash the emails and assume the clause no longer applies.", "D": "Store the lists in a 'temporary' bucket with no access logs."}, "correctExplanation": "Usage rights and licenses are part of data compliance. Forbidden training uses must be excluded.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Usefulness or hashing does not override contract terms."}, {"options": ["D"], "text": "Hiding data without logs worsens accountability."}]}, {"id": 30, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Exploratory review shows 40% missing income fields, shifted product codes after a 2023 system cutover, and heavy oversampling of one region.\n\nWhat should the AI project manager do in data evaluation?", "options": {"A": "Ignore EDA because models can learn around messiness.", "B": "Assess quality dimensions, bias/gaps, freshness, and structure, then report implications for modeling.", "C": "Fill all missing income with the global mean and proceed silently.", "D": "Delete the cutover year without analysis."}, "correctExplanation": "Data evaluation covers accuracy, completeness, bias, freshness, and schema—and communicates findings.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Ignoring issues, silent mean-fill, or unanalyzed deletion hides risk from decision makers."}]}, {"id": 31, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A demand model needs two years of clean weekly demand. Available history is four months of noisy promotions-only data.\n\nWhat should the AI project manager do when determining if data meets solution needs?", "options": {"A": "Declare data ready because some numbers exist.", "B": "Compare available data to requirements, identify gaps, and make a go/no-go recommendation on data readiness.", "C": "Promise leadership the model will 'figure it out' with regularization.", "D": "Start hyperparameter search to compensate."}, "correctExplanation": "Go/no-go on data readiness is a core CPMAI control when volume, history, or quality is insufficient.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Hand-waving readiness or jumping to tuning does not create missing history."}]}, {"id": 32, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Executives ask why the fraud project is paused. The team talks about 'class imbalance, PSI, and schema drift.'\n\nWhat should the AI project manager do to convey data understanding to leadership?", "options": {"A": "Repeat the same technical terms more slowly.", "B": "Translate findings into business language: sparse fraud examples, changing customer mix, and unreliable fields, plus recommended actions.", "C": "Send the raw Jupyter notebook to the board.", "D": "Say data is 'fine' to protect the timeline."}, "correctExplanation": "Leadership communication must convert data issues into business impact and actions.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Jargon and notebooks do not enable executive decisions."}, {"options": ["D"], "text": "Hiding unreadiness is a governance failure."}]}, {"id": 33, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A computer vision project needs images of rare defects. The line produces few defects by design.\n\nWhat should the AI project manager specify in data requirements?", "options": {"A": "Only 'lots of images' with no sampling strategy.", "B": "Volume, rare-event sampling or capture plans, labeling standards, and acceptance criteria for defect classes.", "C": "Screenshots from marketing brochures as the primary training set.", "D": "A single photo of a perfect product."}, "correctExplanation": "Rare-event problems need explicit sampling, labeling standards, and quality bars—not vague volume.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Unspecified volume, brochure shots, or one good image cannot train defect detection."}]}, {"id": 34, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Multiple teams claim ownership of the customer-360 table and contradict each other on field meaning.\n\nWhat should the AI project manager do?", "options": {"A": "Pick the definition that maximizes model accuracy in a weekend test.", "B": "Engage data stewards and SMEs to resolve ownership, definitions, and access before training.", "C": "Create a shadow table with unofficial names.", "D": "Drop customer-360 because disagreement is inconvenient."}, "correctExplanation": "Conflicting meaning is a data-SME and stewardship issue that must be resolved before modeling.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Accuracy hacking or shadow tables encode the wrong business meaning."}, {"options": ["D"], "text": "Abandoning a core source without governance is not the first move."}]}, {"id": 35, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A healthcare AI workspace has no backup, no version control, and shared passwords.\n\nWhat should the AI project manager require?", "options": {"A": "Shared passwords for 'team spirit'.", "B": "Secure environment configuration including access control, backup, and versioning consistent with governance.", "C": "USB drives as the official backup method.", "D": "Disabling logs to save storage."}, "correctExplanation": "Workspace coordination includes security, backup, and collaboration/version control under governance.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Shared passwords, USB backups, and no logs violate healthcare control expectations."}]}, {"id": 36, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "During collection, a feed silently switched from daily to weekly grain.\n\nWhat should the AI project manager ensure as part of gathering and evaluation?", "options": {"A": "Nothing; grain changes are cosmetic.", "B": "Validate completeness, grain, and accuracy of collected data and document the change's impact.", "C": "Upsample weekly rows to daily with linear interpolation without review.", "D": "Average everything to monthly to hide the issue."}, "correctExplanation": "Collection validation must catch grain/completeness breaks that invalidate time-series assumptions.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Ignoring or silently interpolating/aggregating conceals a structural data defect."}]}, {"id": 37, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A vendor dataset used for training may include personal data of EU residents, but no RoPA or transfer assessment exists.\n\nWhat should the AI project manager do?", "options": {"A": "Proceed if the vendor's logo looks trustworthy.", "B": "Verify privacy compliance, lawful basis/usage rights, and access controls before use.", "C": "Move the file to a US region to avoid GDPR.", "D": "Ask engineers to strip names only and keep full addresses."}, "correctExplanation": "Privacy, compliance, and access checks are mandatory before using potentially regulated personal data.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Vendor branding or region-hopping does not create lawful use."}, {"options": ["D"], "text": "Partial redaction of names while keeping addresses is not a proper privacy design."}]}, {"id": 38, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "EDA shows the target label was redefined halfway through the historical period.\n\nWhat should the AI project manager do?", "options": {"A": "Train anyway; the model will average the definitions.", "B": "Treat label inconsistency as a data-quality blocker until definitions are aligned or periods are separated with documentation.", "C": "Flip coins to relabel the first half.", "D": "Hide the change in an appendix no one reads."}, "correctExplanation": "Inconsistent targets are a go/no-go data-quality issue because the model would learn mixed truths.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Averaging, random relabeling, or hiding the break all produce invalid models."}]}, {"id": 39, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "A", "question": "Leadership asks if the team can start modeling next week. Data readiness is amber: key join keys are 12% unmatched.\n\nWhat should the AI project manager communicate?", "options": {"A": "A clear readiness status, business impact of unmatched keys, and a recommendation to fix joins before training.", "B": "Only a thumbs-up emoji in chat.", "C": "That unmatched keys improve regularization.", "D": "That leadership should not worry about data."}, "correctExplanation": "Conveying data understanding means status, impact, and recommendation in business terms.", "incorrectExplanations": [{"options": ["B", "D"], "text": "Casual or dismissive updates block informed go/no-go decisions."}, {"options": ["C"], "text": "Unmatched keys are quality defects, not a regularization feature."}]}, {"id": 40, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A computer-vision labeling vendor delivers bounding boxes with no inter-annotator agreement metrics.\n\nWhat should the AI project manager do?", "options": {"A": "Accept the labels to protect the vendor relationship.", "B": "Require quality standards and evaluation of label consistency before treating the data as training-ready.", "C": "Have interns relabel 1% without a rubric.", "D": "Skip labels and use unsupervised learning only, without revisiting the use case."}, "correctExplanation": "Label quality is part of data evaluation and readiness, especially for supervised vision.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Relationship-driven acceptance or rubric-free spot checks are not quality control."}, {"options": ["D"], "text": "Changing learning paradigm to avoid labels may invalidate the original solution."}]}, {"id": 41, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "The project needs streaming features, but the organization only has a nightly warehouse batch.\n\nWhat should the AI project manager do when defining required data and infrastructure?", "options": {"A": "Ignore latency and train on nightly data while promising real-time decisions.", "B": "Specify freshness/latency requirements and assess whether infrastructure can meet them, or reset the solution pattern.", "C": "Cache yesterday's scores and call it real time.", "D": "Ask the model to predict faster instead of fixing data timing."}, "correctExplanation": "Temporal and freshness requirements must match the use case; infrastructure gaps force a pattern change or a new data plan.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Promising real time on batch data misleads stakeholders."}, {"options": ["D"], "text": "Model speed does not create fresher features."}]}, {"id": 42, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Two source CRMs assign different customer IDs to the same person.\n\nWhat should the data team do next under the project manager's oversight?", "options": {"A": "Train two models and average scores at random.", "B": "Resolve identity matching and consistency across sources before feature assembly.", "C": "Concatenate IDs with a hyphen and hope joins work.", "D": "Delete the larger CRM to simplify."}, "correctExplanation": "Inconsistent identifiers are a data-quality/integration issue that must be fixed before modeling.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Averaging or hyphen hacks encode broken identity."}, {"options": ["D"], "text": "Dropping a major source is not the first responsible fix."}]}, {"id": 43, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A government dataset is public but its terms prohibit building identification models of individuals.\n\nWhat should the AI project manager do?", "options": {"A": "Proceed because public equals unrestricted.", "B": "Honor usage terms and exclude prohibited modeling purposes.", "C": "Fine-tune a face model 'for research' on the same files.", "D": "Share the dataset with a startup partner privately."}, "correctExplanation": "Public availability does not override license or purpose restrictions.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Ignoring terms, prohibited identification, or unauthorized sharing are compliance failures."}]}, {"id": 44, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "After evaluation, data meets volume but not representativeness for rural customers who are 30% of the business.\n\nWhat should the AI project manager recommend?", "options": {"A": "Go live and 'monitor fairness later'.", "B": "Treat representativeness as a readiness gap and plan additional collection or a narrowed scope with leadership approval.", "C": "Upsample the few rural rows until they look like 30%.", "D": "Exclude rural customers from reports so metrics look even."}, "correctExplanation": "Representativeness is part of determining whether data meets solution needs; gaps need collection or explicit scope change.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Deferred fairness, naive upsampling, or hiding a segment does not create representative data."}]}, {"id": 45, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "A data steward says the AI team may read a table but not copy it to an experimental cluster.\n\nWhat should the AI project manager do?", "options": {"A": "Copy it anyway after hours.", "B": "Respect access permissions and provision an approved workspace/path for legitimate processing.", "C": "Email the table to personal accounts for convenience.", "D": "Screenshot thousands of rows into slides."}, "correctExplanation": "Access control is part of privacy/compliance. Work happens in approved environments.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Shadow copies and personal/email/screenshot exfiltration violate access rules."}]}, {"id": 46, "domain": "Identify Data Needs", "domainShort": "Data Needs", "correct": "B", "question": "Leadership wants a one-slide view of data readiness across quality, privacy, and coverage.\n\nWhat should the AI project manager provide?", "options": {"A": "A 60-page data dictionary only.", "B": "An executive summary with visual status, risks, and recommendations in business language.", "C": "Raw SQL query logs.", "D": "No update until the model ships."}, "correctExplanation": "Conveying data understanding to leadership means concise, visual, decision-ready status—not raw artifacts.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Dictionaries and SQL logs are supporting detail, not the leadership artifact."}, {"options": ["D"], "text": "Silence until ship date removes the go/no-go control."}]}, {"id": 47, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "A team defaults to a deep neural net for a 3,000-row tabular credit dataset with a need for explanations to underwriters.\n\nWhat should the AI project manager do when overseeing technique selection?", "options": {"A": "Approve the deep net because deep learning is state of the art.", "B": "Guide a trade-off among performance, complexity, and interpretability, including simpler supervised options.", "C": "Require reinforcement learning to make the problem more modern.", "D": "Forbid any model that is not a transformer."}, "correctExplanation": "Technique selection must weigh use-case fit, data scale, and interpretability—not fashion.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Defaulting to deep, RL, or transformers ignores tabular scale and explanation needs."}]}, {"id": 48, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Two data scientists train models with undocumented library versions and overwrite the same folder named 'final_v2'.\n\nWhat should the AI project manager require for QA/QC?", "options": {"A": "More overwrite speed to reduce clutter.", "B": "Configuration management, versioning of code/parameters, and documented testing protocols.", "C": "Deleting older experiments so only one file remains.", "D": "Evaluating models only by whoever shouts highest accuracy in chat."}, "correctExplanation": "QA/QC includes configuration management, versioning, and test protocols so results are reproducible.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Overwrites, deletions, and informal accuracy claims are the opposite of control."}]}, {"id": 49, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Training jobs keep dying when they hit quota, and nobody can reconstruct which data snapshot produced last week's metrics.\n\nWhat should the AI project manager do while managing training?", "options": {"A": "Tell scientists to train on laptops.", "B": "Plan resources, track experiments and data versions, and oversee validation/selection processes.", "C": "Disable experiment tracking to save time.", "D": "Run one epoch only so jobs finish."}, "correctExplanation": "Managing training includes resources, experiment tracking, data versioning, and disciplined selection.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Laptops, no tracking, or arbitrary epoch caps do not create a managed training process."}]}, {"id": 50, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "A", "question": "Raw sensor traces have different units and timestamps. Scientists want to jump to model fitting.\n\nWhat should the AI project manager ensure in data preparation?", "options": {"A": "That cleaning, alignment, normalization, and documented, reproducible transformations happen before fitting.", "B": "That each scientist applies personal undocumented scaling.", "C": "That outliers are always deleted automatically.", "D": "That preparation is skipped if GPUs are idle."}, "correctExplanation": "Preparation must be consistent, reproducible, and documented—units and time alignment included.", "incorrectExplanations": [{"options": ["B", "D"], "text": "Personal undocumented steps or skipping prep destroy comparability."}, {"options": ["C"], "text": "Blind outlier deletion can remove true rare events the model must learn."}]}, {"id": 51, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "A go/no-go checkpoint for starting training still shows target leakage from a post-event field.\n\nWhat should the AI project manager do?", "options": {"A": "Start training to 'see if leakage matters'.", "B": "Stop and remediate data quality/leakage before authorizing training.", "C": "Leave the leaking field in as a helpful feature.", "D": "Ask marketing to rename the field so it sounds safe."}, "correctExplanation": "Verifying data quality before preparation/training includes blocking on leakage.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Training through leakage or renaming a field does not remove contamination."}]}, {"id": 52, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "A model beats a baseline in a notebook but has no robustness tests, no runbook, and fails on a shifted week of data.\n\nWhat should the AI project manager do at operationalization go/no-go?", "options": {"A": "Approve because notebook accuracy is high.", "B": "Withhold approval until performance, robustness, documentation, and operational readiness meet criteria.", "C": "Approve if the demo is visually impressive.", "D": "Approve on the condition that ops 'figures it out live'."}, "correctExplanation": "Operationalization readiness is more than a notebook metric: robustness, docs, and ops procedures are required.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Notebook scores, demos, or hoping ops improvises are not a go decision."}]}, {"id": 53, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Stakeholders want maximum accuracy; compliance wants a glass-box model for credit decisions.\n\nWhat should the AI project manager do?", "options": {"A": "Ignore compliance because accuracy is the product.", "B": "Document selection criteria and choose an approach that meets performance and interpretability constraints.", "C": "Train both in secret and only show the accurate one.", "D": "Let a vendor pick, then claim the choice was objective."}, "correctExplanation": "Algorithm selection includes documented trade-offs against business and compliance constraints.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Hiding the constraint or the model is a governance failure."}, {"options": ["D"], "text": "Outsourcing the rationale still requires documented, defensible criteria."}]}, {"id": 54, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Hyperparameter search is running without a held-out test set; scientists tune until the validation score looks perfect.\n\nWhat should the AI project manager require?", "options": {"A": "Continue until validation accuracy is 100%.", "B": "Proper train/validation/test discipline and documented selection to avoid overfitting the selection process.", "C": "Tune on production traffic directly.", "D": "Use the same 50 rows for train, val, and test to be consistent."}, "correctExplanation": "Training management includes honest validation and a locked test set.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Endless validation hacking, production tuning, or tiny reused splits invalidate evaluation."}]}, {"id": 55, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Feature engineering uses a spreadsheet macro that only one analyst can run on a desktop.\n\nWhat should the AI project manager do?", "options": {"A": "Accept it as tribal knowledge.", "B": "Move transformations into a reproducible, documented pipeline others can execute.", "C": "Screenshot the spreadsheet as documentation.", "D": "Password-protect the macro and consider it controlled."}, "correctExplanation": "Preparation must be reproducible and documented, not person-dependent macros.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Tribal knowledge, screenshots, and passwords are not pipeline reproducibility."}]}, {"id": 56, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Peer review finds that accuracy was reported on the training set only.\n\nWhat should the AI project manager do in QA/QC?", "options": {"A": "Publish the number because it is larger.", "B": "Enforce evaluation protocols on appropriate held-out or cross-validated results before any go/no-go.", "C": "Average train and test scores to compromise.", "D": "Switch metrics until a flattering number appears."}, "correctExplanation": "QA/QC requires honest performance measurement, not training-set vanity metrics.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Publishing, blending, or shopping metrics misrepresents model quality."}]}, {"id": 57, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "A ranking model is accurate overall but fails on a new product category that will be 25% of next quarter's catalog.\n\nWhat should the AI project manager consider before operationalization?", "options": {"A": "Overall accuracy is enough.", "B": "Robustness and generalization to the upcoming category mix, and whether success criteria are still met.", "C": "That marketing can avoid the new category.", "D": "Retraining only after customers complain in production."}, "correctExplanation": "Readiness includes generalization to the conditions the business will actually face.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Overall averages, avoiding the business plan, or waiting for complaints are not a go review."}]}, {"id": 58, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "Scientists propose generating synthetic minority defects with a GAN but cannot show that synthetic labels match reality.\n\nWhat should the AI project manager require?", "options": {"A": "Unlimited synthetic data because more is always better.", "B": "Validation that synthetic data is fit for purpose, documented, and does not encode artifacts as truth.", "C": "Replacing all real data with GAN output to reduce privacy worry without review.", "D": "Skipping documentation of synthetic generation."}, "correctExplanation": "Synthetic data is a preparation technique that still needs validation and documentation.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Unchecked volume, full replacement, or no documentation creates hidden bias and irreproducibility."}]}, {"id": 59, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "A classification threshold was chosen to maximize accuracy on an imbalanced fraud set, causing almost no alerts.\n\nWhat should the AI project manager do?", "options": {"A": "Celebrate high accuracy.", "B": "Align metrics and thresholds with business costs of misses versus false alerts, and re-evaluate.", "C": "Lower the threshold randomly each day.", "D": "Remove the fraud team from threshold discussions."}, "correctExplanation": "QA and evaluation must use metrics and thresholds that match operational cost, not default accuracy on imbalance.", "incorrectExplanations": [{"options": ["A"], "text": "Accuracy can hide a no-alert model."}, {"options": ["C", "D"], "text": "Random thresholds and excluding operators are not controlled evaluation."}]}, {"id": 60, "domain": "Manage AI Model Development and Evaluation", "domainShort": "Model Development", "correct": "B", "question": "The intended algorithm family requires labeled outcomes, but labels will not exist for six months.\n\nWhat should the AI project manager do regarding technique selection?", "options": {"A": "Insist on supervised learning and wait silently.", "B": "Reassess learning paradigm against available labels, or change the problem framing with stakeholders.", "C": "Invent labels from employee hunches at scale without disclosure.", "D": "Use the unlabeled file as if it were labeled."}, "correctExplanation": "Technique choice depends on label availability; otherwise the problem or approach must change.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Silent waiting, fake labels, or pretending unlabeled data is labeled are not valid selections."}]}, {"id": 61, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "A model is ready, but there is no rollback plan, no owner for the endpoint, and no validation checklist.\n\nWhat should the AI project manager do when managing the deployment plan?", "options": {"A": "Deploy on Friday night to 'get it over with'.", "B": "Create a deployment strategy with infrastructure, integration, rollback, and validation criteria.", "C": "Let engineers SSH into production ad hoc.", "D": "Skip planning because cloud deploys are reversible by nature."}, "correctExplanation": "Deployment planning includes strategy, resources, integration, rollback, and validation.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Friday dumps, ad hoc SSH, and assuming reversibility are not a plan."}]}, {"id": 62, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "During go-live, the model API works in staging but returns errors for a subset of production users.\n\nWhat should the AI project manager do while managing deployment?", "options": {"A": "Announce success based on staging.", "B": "Coordinate issue resolution, validate production behavior, and only then confirm deployment.", "C": "Disable monitoring so errors stop appearing.", "D": "Blame users for sending 'bad JSON'."}, "correctExplanation": "Deployment management includes production validation and issue resolution, not staging theater.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Staging-only success and hiding errors are false go-lives."}, {"options": ["D"], "text": "Even if some payloads fail, the team must diagnose and fix the production path."}]}, {"id": 63, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "A credit model has been in production two months. Nobody owns retraining, versioning, or approval of changes.\n\nWhat should the AI project manager establish?", "options": {"A": "Ad hoc scientist access to overwrite the production file.", "B": "Model lifecycle governance: versioning, change control, monitoring, and retraining process.", "C": "A rule that models never change after launch.", "D": "Weekly untracked 'tweaks' in production notebooks."}, "correctExplanation": "Governance covers lifecycle, versions, change control, monitoring, and retraining.", "incorrectExplanations": [{"options": ["A", "D"], "text": "Uncontrolled overwrites and tweaks are the failure mode."}, {"options": ["C"], "text": "Never changing ignores drift; governance manages change, it does not ban it."}]}, {"id": 64, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "Business KPI 'loan conversion' is up, but model precision on high-risk segments is falling.\n\nWhat should the AI project manager do when overseeing metrics?", "options": {"A": "Report only conversion because it is the sponsor metric.", "B": "Track both business KPIs and model-performance metrics with alerts when thresholds breach.", "C": "Stop technical monitoring after 30 days.", "D": "Average all segments so the drop disappears."}, "correctExplanation": "Operational metrics include business and model health, with alerting—not a single vanity KPI.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Hiding technical decay or averaging away segments misses risk."}]}, {"id": 65, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "The project is closing. Teams disagree about what worked in data labeling and what failed in change management.\n\nWhat should the AI project manager do?", "options": {"A": "Skip lessons learned to close on time.", "B": "Capture outcomes, lessons, and knowledge for future AI initiatives and operations.", "C": "Record only successes for the newsletter.", "D": "Store undocumented opinions in private chats."}, "correctExplanation": "Closing includes outcomes, lessons learned, and transferable knowledge—successes and failures.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Skipping, sanitizing, or privatizing lessons wastes the investment."}]}, {"id": 66, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "The project team is disbanding next week. Production support has not been named.\n\nWhat should the AI project manager do in the transition plan?", "options": {"A": "Leave a wiki page titled 'good luck'.", "B": "Plan handover, name operational roles, transfer knowledge, and define maintenance procedures.", "C": "Keep the intern as unofficial owner forever.", "D": "Shut off logging to reduce support tickets."}, "correctExplanation": "Transition requires named owners, knowledge transfer, and maintenance procedures.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Hope, unofficial interns, and dark logging are not a handover."}]}, {"id": 67, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "The contingency document exists but has never been exercised. A model outage would stop warehouse picking.\n\nWhat should the AI project manager do?", "options": {"A": "Assume a document equals readiness.", "B": "Test and validate incident, rollback, and continuity procedures under realistic conditions.", "C": "Add more adjectives to the document.", "D": "Rely on the cloud vendor's marketing SLA slide."}, "correctExplanation": "Contingency oversight includes testing procedures, not paperwork alone.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Unread or untested documents fail in incidents."}, {"options": ["D"], "text": "A vendor slide is not an exercised business continuity plan."}]}, {"id": 68, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "A team wants to release a new model version by replacing files on the server with no record of what changed.\n\nWhat should model governance require?", "options": {"A": "File replacement as the standard process.", "B": "Versioned releases, change control, and an auditable path to roll back.", "C": "Emailing pickle files to the on-call phone.", "D": "Using production as the only test environment."}, "correctExplanation": "Governance requires versioning, change control, and rollback—not sneaker-net file swaps.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Unrecorded swaps, email artifacts, and prod-as-test violate control."}]}, {"id": 69, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "Shadow-mode scores look good, but users will see the model for the first time at full cutover tomorrow.\n\nWhat should the AI project manager consider in deployment?", "options": {"A": "Full cutover is always fastest, so proceed.", "B": "A controlled rollout (canary/phased) with production validation and rollback if user workflows fail.", "C": "Turning off the legacy process with no overlap.", "D": "Skipping user communication to avoid anxiety."}, "correctExplanation": "Deployment should validate in production conditions with a rollback path; shadow success is not user-flow success.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Big-bang cutover without overlap is high operational risk."}, {"options": ["D"], "text": "Silence increases adoption and incident risk."}]}, {"id": 70, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "Drift alerts fire nightly but nobody is on-call and the dashboard is a personal notebook.\n\nWhat should the AI project manager do?", "options": {"A": "Mute the alerts.", "B": "Implement owned monitoring, thresholds, and operational response as part of metrics and governance.", "C": "Check the notebook once a quarter.", "D": "Let customers detect drift first."}, "correctExplanation": "Metrics oversight means operational monitoring with owners and response, not personal notebooks.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Muting, quarterly glances, or customer-as-monitor are not control."}]}, {"id": 71, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "After six months, the champion model is stale. A challenger beats it offline.\n\nWhat should governance of operationalization include?", "options": {"A": "Replace champion immediately in all markets with no online test.", "B": "Use a controlled champion-challenger process with monitoring and approval.", "C": "Never replace champion models.", "D": "Average champion and challenger scores without tracking versions."}, "correctExplanation": "Lifecycle management uses controlled comparison, monitoring, and change approval.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Blind swap, never updating, or unversioned blends are poor governance."}]}, {"id": 72, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "A", "question": "Support staff do not know how to revert yesterday's model after a bad release.\n\nWhat should the transition and contingency plans include?", "options": {"A": "A tested rollback procedure and trained operational owners.", "B": "A reminder that 'cloud is agile'.", "C": "Re-training from scratch during the outage as the only path.", "D": "Waiting for the original project team to be rehired."}, "correctExplanation": "Handover and contingency must make rollback executable by the people who will run the system.", "incorrectExplanations": [{"options": ["B", "C", "D"], "text": "Slogans, from-scratch retraining mid-outage, or missing owners are not rollback."}]}, {"id": 73, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "A deployment checklist exists but integration testing with the billing system was skipped.\n\nWhat should the AI project manager do?", "options": {"A": "Deploy and patch billing later if invoices break.", "B": "Complete integration validation against the checklist before go-live.", "C": "Mark the checklist item N/A to stay on schedule.", "D": "Ask finance to reconcile errors manually forever."}, "correctExplanation": "Deployment planning and execution include integration validation, not skipping it for the date.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Schedule-driven skips and manual forever-fixes export defects to the business."}]}, {"id": 74, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "Lessons learned mention that labeling guidelines changed three times without versioning.\n\nWhat should the AI project manager ensure is transferred to operations?", "options": {"A": "Nothing; labeling is a past project task.", "B": "Versioned data/label processes if retraining will continue in operations.", "C": "A motivational poster.", "D": "Only the final model binary."}, "correctExplanation": "Knowledge transfer for AI must include how data and labels will be kept consistent for future retraining.", "incorrectExplanations": [{"options": ["A", "D"], "text": "Handing over only a binary leaves operations unable to maintain quality."}, {"options": ["C"], "text": "Posters are not operating procedures."}]}, {"id": 75, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "B", "question": "An executive wants a live model demo on the public stage using production customer data.\n\nWhat should the AI project manager do?", "options": {"A": "Agree, because demos drive adoption.", "B": "Refuse unsafe use of production personal data and offer a privacy-safe demo dataset.", "C": "Blur faces but show account numbers.", "D": "Stream the production dashboard to social media with a disclaimer."}, "correctExplanation": "Operational and responsible-use controls still apply at demo time; production PII is not a prop.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Adoption pressure and partial masking do not authorize public exposure of customer data."}]}, {"id": 76, "domain": "Operationalize AI Solution", "domainShort": "Operationalize", "correct": "A", "question": "Picking robots idle when the vision model times out. There is no fallback to manual scan.\n\nWhat should the contingency plan include?", "options": {"A": "A defined degraded mode and human fallback with tested procedures.", "B": "A hope that timeouts are rare.", "C": "Rebooting the entire warehouse network first, every time.", "D": "No plan, to encourage the model to 'try harder'."}, "correctExplanation": "Contingency for operational AI includes degraded modes and exercised fallbacks.", "incorrectExplanations": [{"options": ["B", "C", "D"], "text": "Hope, over-broad reboots, and no plan are not continuity."}]}, {"id": 77, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "Logs from an HR screening model include candidate names, national IDs, and interview notes in plain text.\n\nWhat should the AI project manager do when overseeing the privacy and security plan?", "options": {"A": "Keep logging everything for 'debuggability'.", "B": "Stop capturing unnecessary PII, apply encryption and access control, and set retention/governance for remaining data.", "C": "Share logs with a Slack channel for transparency.", "D": "Store logs forever in case of lawsuits."}, "correctExplanation": "Privacy/security plans minimize PII in logs and enforce encryption, access, and retention.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Maximal logging, chat sharing, and indefinite retention increase exposure."}]}, {"id": 78, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A vendor cannot explain why certain loan applications are declined by their hosted model.\n\nWhat should the AI project manager do regarding transparency?", "options": {"A": "Accept 'it's a neural net' as sufficient.", "B": "Establish explainability requirements, document data/model choices, and maintain decision audit trails.", "C": "Hide the model from compliance to avoid questions.", "D": "Provide a generic blog post instead of model-specific rationale."}, "correctExplanation": "Transparency includes documented selection, data lineage, explainability suited to stakeholders, and audit trails.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Hand-waving, hiding, or generic marketing copy is not transparency management."}]}, {"id": 79, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A hiring model trained mostly on past senior male hires scores women and career-changers systematically lower.\n\nWhat should the AI project manager do for bias checks?", "options": {"A": "Ship anyway if overall accuracy is high.", "B": "Analyze representation, test fairness across groups, review outputs, and apply mitigation before use.", "C": "Remove the gender field and assume bias is gone.", "D": "Ask the model to add 10 points to all women as a hidden hack."}, "correctExplanation": "Bias work is systematic: data, metrics, output review, and mitigation—not a single field drop or covert hack.", "incorrectExplanations": [{"options": ["A"], "text": "Overall accuracy can mask disparate impact."}, {"options": ["C", "D"], "text": "Dropping a proxy-incomplete field or secret score hacks are not proper fairness control."}]}, {"id": 80, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A new sector AI rule will take effect before the planned launch. The team has not read it.\n\nWhat should the AI project manager do for regulatory monitoring?", "options": {"A": "Launch first and retrofit if fined.", "B": "Track the requirement, engage legal/compliance, and adjust the plan and controls before launch.", "C": "Assume general GDPR knowledge covers every sector rule.", "D": "Assign the intern to 'watch Twitter for regs'."}, "correctExplanation": "Compliance monitoring is active: track rules, coordinate with legal, implement controls, document.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Launch-first, over-generalizing, or informal social tracking is not a compliance process."}]}, {"id": 81, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "Auditors ask who approved training data snapshots and why a model version was selected.\n\nWhat should already exist?", "options": {"A": "Informal chat messages only.", "B": "Accountability records: versions, approvals, go/no-go decisions, and chain of custody for data and models.", "C": "A slide that says 'we take ethics seriously'.", "D": "Deleted notebooks to reduce clutter."}, "correctExplanation": "Accountability documentation and audit trails must reconstruct decisions and artifacts.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Chats, slogans, and deleted work cannot satisfy an audit."}]}, {"id": 82, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A chatbot will be trained on support tickets that include passwords customers typed by mistake.\n\nWhat should the privacy plan require?", "options": {"A": "Train on raw tickets for authenticity.", "B": "Redact secrets/PII, restrict access, and document handling throughout the lifecycle.", "C": "Fine-tune on tickets then publish the model weights publicly.", "D": "Keep passwords because they might be features."}, "correctExplanation": "PII and secrets in training data require redaction, access control, and documented handling.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Raw secrets, public weights, and password-as-feature are severe failures."}]}, {"id": 83, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "Stakeholders want a one-line reason code for every automated insurance decision.\n\nWhat should the AI project manager do?", "options": {"A": "Refuse all explainability as technically impossible.", "B": "Set explainability requirements that match the decision's impact and audience, and implement suitable methods.", "C": "Provide a random proverb as the reason code.", "D": "Show SHAP plots only to customers with no interpretation help."}, "correctExplanation": "Explainability is a managed requirement scaled to risk and audience—not a refusal or a gimmick.", "incorrectExplanations": [{"options": ["A", "C"], "text": "Blanket refusal or nonsense reasons fail transparency."}, {"options": ["D"], "text": "Raw plots without audience fit are not stakeholder communication."}]}, {"id": 84, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "Fairness tests were run once on launch data two years ago. The user population has changed.\n\nWhat should the AI project manager do?", "options": {"A": "Rely on the original report indefinitely.", "B": "Treat bias monitoring as ongoing, with periodic tests as data and populations shift.", "C": "Run fairness tests only when a journalist calls.", "D": "Disable testing because it slows releases."}, "correctExplanation": "Bias checks are not one-time; monitoring continues as data and context drift.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "One-time, reactive, or disabled testing leaves new harm undetected."}]}, {"id": 85, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A model change went to production without recording who approved it or which data snapshot was used.\n\nWhat is the primary accountability gap?", "options": {"A": "Insufficient color contrast on the dashboard.", "B": "Missing audit trail for model/data versions and approval decisions.", "C": "Too many unit tests.", "D": "Using a boring repository name."}, "correctExplanation": "Accountability requires version control and recorded approvals for models and data.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "UI contrast, extra tests, and naming are not the audit-trail gap described."}]}, {"id": 86, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A credit model uses ZIP code. Fairness review shows strong proxy effects for race.\n\nWhat should the AI project manager do?", "options": {"A": "Keep ZIP because it was not named race.", "B": "Treat proxy bias as in-scope, analyze impact, and mitigate or remove the feature with documented rationale.", "C": "Hash ZIP codes and consider the issue solved.", "D": "Add more ZIP-related features to 'balance' the model."}, "correctExplanation": "Bias checks include proxies, not only explicit sensitive attributes.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Literalism, hashing, or adding more geographic signal does not fix proxy discrimination."}]}, {"id": 87, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "Security review finds training data in an open bucket and no encryption at rest.\n\nWhat should the privacy and security plan require immediately?", "options": {"A": "A blog post about zero trust.", "B": "Access controls, encryption, and closure of public exposure, plus a review of what leaked.", "C": "Moving the same open bucket to another region.", "D": "Waiting for the next annual pentest."}, "correctExplanation": "Exposed training data requires immediate access control, encryption, and incident review.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Messaging, region moves, and annual waits do not stop an open bucket."}]}, {"id": 88, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A public-sector benefits model will deny aid automatically. Citizens must be able to contest decisions.\n\nWhat should be designed in?", "options": {"A": "A closed model with no appeal, to reduce workload.", "B": "Accountability: recorded decision rationale, human review path, and auditable logs.", "C": "A CAPTCHA as the appeal process.", "D": "Deleting logs after 24 hours for privacy theater."}, "correctExplanation": "High-impact automated decisions need contestability, recorded rationale, and audit logs.", "incorrectExplanations": [{"options": ["A", "C"], "text": "No appeal or CAPTCHA-as-appeal denies due process."}, {"options": ["D"], "text": "Ultra-short log deletion fights accountability, not just privacy."}]}, {"id": 89, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "A third-party LLM will process internal incident reports. The vendor trains on customer prompts by default.\n\nWhat should the AI project manager do?", "options": {"A": "Accept defaults to get a discount.", "B": "Negotiate/disable training on prompts, review data handling, and ensure contractual privacy/security controls.", "C": "Paste incident reports including names to test the model.", "D": "Assume SOC2 logos mean the vendor will not train on your data."}, "correctExplanation": "Vendor processing of sensitive data requires contractual and technical privacy controls, including opting out of training.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Discounts, live PII tests, and logo assumptions are not a privacy plan."}]}, {"id": 90, "domain": "Support Responsible and Trustworthy AI", "domainShort": "Responsible AI", "correct": "B", "question": "During bias testing, a small demographic group has too few samples for a stable fairness metric.\n\nWhat should the AI project manager do?", "options": {"A": "Ignore the group because the metric is noisy.", "B": "Treat small-n as a data representation risk, report uncertainty, and seek more data or constrained deployment.", "C": "Duplicate the few rows until the p-value looks good.", "D": "Exclude the group from the product silently."}, "correctExplanation": "Sparse groups are a representation problem. Report uncertainty and mitigate; do not fake stats or silently exclude.", "incorrectExplanations": [{"options": ["A", "C", "D"], "text": "Ignoring, duplicating, or silent exclusion are unethical or invalid."}]}];
+    const DOMAINS = ["All", ...new Set(QUESTIONS.map((q) => q.domain))];
+    const state = {
+      filter: "All",
+      queue: [],
+      index: 0,
+      selected: null,
+      answered: false,
+      score: 0,
+      results: []
+    };
+
+    const els = {
+      startScreen: document.getElementById("start-screen"),
+      quizScreen: document.getElementById("quiz-screen"),
+      resultsScreen: document.getElementById("results-screen"),
+      startFilters: document.getElementById("start-filters"),
+      progressText: document.getElementById("progress-text"),
+      scoreText: document.getElementById("score-text"),
+      progressFill: document.getElementById("progress-fill"),
+      qId: document.getElementById("q-id"),
+      domainBadge: document.getElementById("domain-badge"),
+      questionText: document.getElementById("question-text"),
+      options: document.getElementById("options"),
+      submitBtn: document.getElementById("submit-btn"),
+      nextBtn: document.getElementById("next-btn"),
+      quitBtn: document.getElementById("quit-btn"),
+      feedback: document.getElementById("feedback"),
+      resultsSummary: document.getElementById("results-summary"),
+      resultsStats: document.getElementById("results-stats"),
+      reviewList: document.getElementById("review-list")
+    };
+
+    function filteredQuestions() {
+      if (state.filter === "All") return [...QUESTIONS];
+      return QUESTIONS.filter((q) => q.domain === state.filter);
+    }
+
+    function renderFilters(container) {
+      container.innerHTML = "";
+      DOMAINS.forEach((domain) => {
+        const count = domain === "All"
+          ? QUESTIONS.length
+          : QUESTIONS.filter((q) => q.domain === domain).length;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `filter-btn${state.filter === domain ? " active" : ""}`;
+        const label = domain === "All" ? "All" : QUESTIONS.find((q) => q.domain === domain).domainShort;
+        btn.textContent = `${label} (${count})`;
+        btn.addEventListener("click", () => {
+          state.filter = domain;
+          renderFilters(els.startFilters);
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    function showScreen(name) {
+      [els.startScreen, els.quizScreen, els.resultsScreen].forEach((el) => el.classList.remove("active"));
+      if (name === "start") els.startScreen.classList.add("active");
+      if (name === "quiz") els.quizScreen.classList.add("active");
+      if (name === "results") els.resultsScreen.classList.add("active");
+    }
+
+    function startQuiz(queue) {
+      if (!queue.length) {
+        alert("No questions match the selected domain.");
+        return;
+      }
+      state.queue = queue;
+      state.index = 0;
+      state.score = 0;
+      state.results = [];
+      state.selected = null;
+      state.answered = false;
+      showScreen("quiz");
+      renderQuestion();
+    }
+
+    function currentQuestion() {
+      return state.queue[state.index];
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function renderQuestion() {
+      const q = currentQuestion();
+      state.selected = null;
+      state.answered = false;
+      els.qId.textContent = `Question ${state.index + 1} of ${state.queue.length}`;
+      els.domainBadge.textContent = q.domainShort;
+      els.questionText.textContent = q.question;
+      els.progressText.textContent = `Question ${state.index + 1} of ${state.queue.length}`;
+      els.scoreText.textContent = `Score: ${state.score}`;
+      els.progressFill.style.width = `${(state.index / state.queue.length) * 100}%`;
+      els.options.innerHTML = "";
+      ["A", "B", "C", "D"].forEach((key) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option";
+        btn.dataset.key = key;
+        btn.setAttribute("role", "radio");
+        btn.setAttribute("aria-checked", "false");
+        btn.innerHTML = `<span class="opt-key">${key}</span><span>${escapeHtml(q.options[key])}</span>`;
+        btn.addEventListener("click", () => selectOption(key));
+        els.options.appendChild(btn);
+      });
+      els.submitBtn.disabled = true;
+      els.submitBtn.hidden = false;
+      els.nextBtn.hidden = true;
+      els.nextBtn.textContent = state.index === state.queue.length - 1 ? "See results" : "Next question";
+      els.feedback.className = "feedback";
+      els.feedback.innerHTML = "";
+    }
+
+    function selectOption(key) {
+      if (state.answered) return;
+      state.selected = key;
+      [...els.options.children].forEach((btn) => {
+        const selected = btn.dataset.key === key;
+        btn.classList.toggle("selected", selected);
+        btn.setAttribute("aria-checked", selected ? "true" : "false");
+      });
+      els.submitBtn.disabled = false;
+    }
+
+    function checkAnswer() {
+      if (!state.selected || state.answered) return;
+      const q = currentQuestion();
+      const isCorrect = state.selected === q.correct;
+      state.answered = true;
+      if (isCorrect) state.score += 1;
+      state.results.push({
+        id: q.id,
+        domain: q.domain,
+        domainShort: q.domainShort,
+        selected: state.selected,
+        correct: q.correct,
+        isCorrect
+      });
+      [...els.options.children].forEach((btn) => {
+        btn.disabled = true;
+        const key = btn.dataset.key;
+        btn.classList.remove("selected");
+        if (key === q.correct) btn.classList.add("correct-choice");
+        if (key === state.selected && !isCorrect) btn.classList.add("incorrect-choice");
+      });
+      els.submitBtn.hidden = true;
+      els.nextBtn.hidden = false;
+      els.progressFill.style.width = `${((state.index + 1) / state.queue.length) * 100}%`;
+      els.scoreText.textContent = `Score: ${state.score}`;
+      renderFeedback(q, isCorrect);
+    }
+
+    function renderFeedback(q, isCorrect) {
+      const wrongItems = q.incorrectExplanations.map((item) => {
+        const labels = item.options.map((o) => `${o}. ${q.options[o]}`).join(" · ");
+        return `
+          <div class="wrong-item">
+            <div class="wrong-opts">Wrong option${item.options.length > 1 ? "s" : ""}: ${item.options.join(", ")}</div>
+            <p><em>${escapeHtml(labels)}</em></p>
+            <p style="margin-top:0.45rem">${escapeHtml(item.text)}</p>
+          </div>
+        `;
+      }).join("");
+      els.feedback.innerHTML = `
+        <div class="result-banner ${isCorrect ? "ok" : "bad"}">
+          ${isCorrect ? "Correct" : "Incorrect"} — Correct answer is ${q.correct}.
+        </div>
+        <div class="expl-grid">
+          <div class="expl-block correct-expl">
+            <h3 class="expl-title correct">Explanation for correct option (${q.correct})</h3>
+            <p>${escapeHtml(q.correctExplanation)}</p>
+          </div>
+          <div class="expl-block incorrect-expl">
+            <h3 class="expl-title incorrect">Explanations for incorrect options</h3>
+            ${wrongItems}
+          </div>
+        </div>
+      `;
+      els.feedback.classList.add("visible");
+    }
+
+    function nextQuestion() {
+      if (state.index >= state.queue.length - 1) {
+        showResults();
+        return;
+      }
+      state.index += 1;
+      renderQuestion();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showResults() {
+      const total = state.results.length;
+      const correct = state.results.filter((r) => r.isCorrect).length;
+      const byDomain = {};
+      state.results.forEach((r) => {
+        byDomain[r.domainShort] ||= { correct: 0, total: 0 };
+        byDomain[r.domainShort].total += 1;
+        if (r.isCorrect) byDomain[r.domainShort].correct += 1;
+      });
+      els.resultsSummary.textContent = `You answered ${correct} of ${total} correctly (${Math.round((correct / total) * 100) || 0}%). Untimed practice — not an exam score.`;
+      els.resultsStats.innerHTML = `
+        <div class="stat"><div class="stat-value">${correct}/${total}</div><div class="stat-label">Overall</div></div>
+        ${Object.entries(byDomain).map(([name, v]) => `
+          <div class="stat">
+            <div class="stat-value">${v.correct}/${v.total}</div>
+            <div class="stat-label">${name}</div>
+          </div>
+        `).join("")}
+      `;
+      els.reviewList.innerHTML = state.results.map((r) => `
+        <div class="review-item">
+          <div>
+            <strong>Q${r.id}</strong>
+            <span class="badge badge-domain" style="margin-left:0.4rem;vertical-align:middle">${r.domainShort}</span>
+            <div style="color:var(--text-muted);font-size:0.82rem;margin-top:0.25rem">
+              Your answer: ${r.selected} · Correct: ${r.correct} · ${r.isCorrect ? "Correct" : "Incorrect"}
+            </div>
+          </div>
+          <button type="button" data-review-id="${r.id}">Review</button>
+        </div>
+      `).join("");
+      els.reviewList.querySelectorAll("[data-review-id]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = Number(btn.dataset.reviewId);
+          const q = QUESTIONS.find((item) => item.id === id);
+          startQuiz([q]);
+        });
+      });
+      showScreen("results");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.getElementById("start-all").addEventListener("click", () => {
+      state.filter = "All";
+      renderFilters(els.startFilters);
+      startQuiz([...QUESTIONS]);
+    });
+    document.getElementById("start-filtered").addEventListener("click", () => startQuiz(filteredQuestions()));
+    els.submitBtn.addEventListener("click", checkAnswer);
+    els.nextBtn.addEventListener("click", nextQuestion);
+    els.quitBtn.addEventListener("click", () => showScreen("start"));
+    document.getElementById("home-btn").addEventListener("click", () => showScreen("start"));
+    document.getElementById("retry-btn").addEventListener("click", () => startQuiz(filteredQuestions()));
+    document.getElementById("review-missed-btn").addEventListener("click", () => {
+      const missedIds = state.results.filter((r) => !r.isCorrect).map((r) => r.id);
+      const missed = QUESTIONS.filter((q) => missedIds.includes(q.id));
+      if (!missed.length) {
+        alert("No missed questions to review.");
+        return;
+      }
+      startQuiz(missed);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!els.quizScreen.classList.contains("active")) return;
+      if (!state.answered && ["a", "b", "c", "d"].includes(e.key.toLowerCase())) {
+        selectOption(e.key.toUpperCase());
+      } else if (e.key === "Enter") {
+        if (!state.answered && state.selected) checkAnswer();
+        else if (state.answered) nextQuestion();
+      }
+    });
+    renderFilters(els.startFilters);
+  </script>
+</body>
+</html>
