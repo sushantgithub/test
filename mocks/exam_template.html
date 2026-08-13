@@ -143,13 +143,13 @@
       <div class="card">
         <h2>Examination rules</h2>
         <ul class="rules">
-          <li>120 multiple-choice questions. Select one answer for each item.</li>
+          <li>{{QCOUNT}} multiple-choice questions from the 270-question practice bank. Select one answer for each item.</li>
           <li>Time allowed: <strong>160 minutes</strong>. The timer starts at <strong>160:00</strong> and counts down to <strong>0:00</strong>.</li>
           <li>There are no scheduled breaks. When time reaches zero, the exam submits automatically.</li>
           <li>You may flag items, move back and forth, and change answers until you submit.</li>
           <li>Difficulty is not shown. Correct answers and explanations appear only after you finish.</li>
-          <li>This mock scores all 120 items. The real PMI-CPMAI exam includes 20 unscored pretest items mixed in; you will not know which they are.</li>
-          <li>PMI does not publish a passing score. This mock uses an unofficial 70% practice benchmark (84/120).</li>
+          <li>This mock scores all {{QCOUNT}} items. The real PMI-CPMAI exam is 120 questions in 160 minutes (including 20 unscored pretest items).</li>
+          <li>PMI does not publish a passing score. This mock uses an unofficial 70% practice benchmark ({{PASS_MARK}}/{{QCOUNT}}).</li>
         </ul>
         <div class="actions">
           <button class="btn btn-primary" id="start-btn">Begin exam</button>
@@ -164,7 +164,7 @@
       <div class="topbar">
         <div class="brand">{{TITLE}}</div>
         <div class="meta">
-          <span id="answered-meta">Answered 0/120</span>
+          <span id="answered-meta">Answered 0/{{QCOUNT}}</span>
           <span id="flagged-meta">Flagged 0</span>
           <span class="timer" id="timer" aria-live="polite">160:00</span>
         </div>
@@ -180,7 +180,7 @@
           </div>
         </aside>
         <main class="q-pane">
-          <div class="q-num" id="q-id">Question 1 of 120</div>
+          <div class="q-num" id="q-id">Question 1 of {{QCOUNT}}</div>
           <p class="question-text" id="question-text"></p>
           <div class="options" id="options" role="radiogroup" aria-label="Answer choices"></div>
         </main>
@@ -232,7 +232,7 @@
   <script>
     const QUESTIONS = {{QUESTIONS}};
     const EXAM_SECONDS = 160 * 60;
-    const PASS_MARK = 84;
+    const PASS_MARK = {{PASS_MARK}};
 
     const state = {
       index: 0,
@@ -404,7 +404,7 @@
         : (passed ? "Practice result: at or above unofficial benchmark" : "Practice result: below unofficial benchmark");
       document.getElementById("result-headline").className = passed ? "pass" : "fail";
       document.getElementById("results-summary").textContent =
-        `You scored ${correct} of ${QUESTIONS.length} (${pct}%). Unofficial practice benchmark is 84/120 (70%). Time used ${prettyTime(used)} of 160:00.`;
+        `You scored ${correct} of ${QUESTIONS.length} (${pct}%). Unofficial practice benchmark is ${PASS_MARK}/${QUESTIONS.length} (70%). Time used ${prettyTime(used)} of 160:00.`;
 
       document.getElementById("results-stats").innerHTML = `
         <div class="stat"><div class="stat-value">${correct}/${QUESTIONS.length}</div><div class="stat-label">Score</div></div>

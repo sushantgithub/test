@@ -1,24 +1,18 @@
 #!/usr/bin/env python3
-"""Build three unique 120-question CPMAI mock exams from the 270-item bank plus 90 originals."""
+"""Build two unique 135-question CPMAI mock exams from the 270-item bank."""
 import json
+import math
 import random
 import re
 from pathlib import Path
-
-from new_questions import NEW_QUESTIONS, assert_count
 
 ROOT = Path("/workspace")
 SRC = Path("/home/ubuntu/.cursor/projects/workspace/uploads")
 OUT = ROOT / "mocks"
 TEMPLATE = (OUT / "exam_template.html").read_text(encoding="utf-8")
 
-DOMAIN_MAP = {
-    "Identify_Business_Needs_and_Solutions_cursor_7069.txt": "Identify Business Needs and Solutions",
-    "Identify-Data-Needs-Quiz_cursor_d2f5.txt": "Identify Data Needs",
-    "manage-ai-model-development-evaluation-quiz_cursor_4536.txt": "Manage AI Model Development and Evaluation",
-    "Operationalize-AI-Solution-Quiz_cursor_b39d.txt": "Operationalize AI Solution",
-    "Support-Responsible-Trustworthy-AI-Quiz_2c2a.txt": "Support Responsible and Trustworthy AI",
-}
+QCOUNT = 135
+PASS_MARK = math.ceil(QCOUNT * 0.70)
 
 
 def extract_questions(html: str):
@@ -36,17 +30,14 @@ def load_bank():
     for p in sorted(SRC.glob("*.txt")):
         html = p.read_text(encoding="utf-8")
         for q in extract_questions(html):
-            item = {
+            bank.append({
                 "question": q["question"],
                 "options": q["options"],
                 "correct": q["correct"],
                 "correctExplanation": q["correctExplanation"],
                 "incorrectExplanations": q.get("incorrectExplanations") or [],
                 "source": p.name,
-                "origin": "bank",
-                "domain": DOMAIN_MAP.get(p.name, "Mixed"),
-            }
-            bank.append(item)
+            })
     return bank
 
 
@@ -61,7 +52,7 @@ def slim(q, exam_id):
     }
 
 
-def split_unique(bank, extras):
+def split_unique(bank):
     rng = random.Random(20260813)
     groups = {}
     for q in bank:
@@ -69,8 +60,7 @@ def split_unique(bank, extras):
     for items in groups.values():
         rng.shuffle(items)
 
-    buckets = [[], [], []]
-    # round-robin by source so each mock gets a mix of every file
+    buckets = [[], []]
     sources = list(groups.keys())
     idx = 0
     remaining = True
@@ -79,18 +69,13 @@ def split_unique(bank, extras):
         for src in sources:
             if groups[src]:
                 remaining = True
-                buckets[idx % 3].append(groups[src].pop())
+                buckets[idx % 2].append(groups[src].pop())
                 idx += 1
 
-    extras = list(extras)
-    rng.shuffle(extras)
-    if len(extras) != 90:
-        raise SystemExit(f"Need 90 extras, got {len(extras)}")
-    for i in range(3):
-        buckets[i].extend(extras[i * 30 : (i + 1) * 30])
-        rng.shuffle(buckets[i])
-        if len(buckets[i]) != 120:
-            raise SystemExit(f"Mock {i+1} has {len(buckets[i])} questions")
+    for i, b in enumerate(buckets, 1):
+        rng.shuffle(b)
+        if len(b) != QCOUNT:
+            raise SystemExit(f"Mock {i} has {len(b)} questions, expected {QCOUNT}")
     return buckets
 
 
@@ -99,62 +84,55 @@ def write_exam(n, questions):
     html = (
         TEMPLATE.replace("{{TITLE}}", f"PMI-CPMAI Mock Exam {n}")
         .replace("{{QUESTIONS}}", json.dumps(payload, ensure_ascii=False))
+        .replace("{{QCOUNT}}", str(QCOUNT))
+        .replace("{{PASS_MARK}}", str(PASS_MARK))
     )
     path = OUT / f"mock-exam-{n}.html"
     path.write_text(html, encoding="utf-8")
     return path
 
 
-INDEX = """<!DOCTYPE html>
+INDEX = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PMI-CPMAI Mock Exams</title>
   <style>
-    :root { --bg:#0b1419; --text:#e8f1f5; --muted:#8aa3b3; --accent:#2aa889; --border:#2c4a5a; --card:#1a2d38; }
-    body { margin:0; font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; background:#0b1419; color:var(--text); }
-    .wrap { width:min(880px, calc(100% - 2rem)); margin:0 auto; padding:2rem 0 3rem; }
-    h1 { margin:0 0 .4rem; }
-    p { color:var(--muted); line-height:1.55; }
-    .grid { display:grid; gap:1rem; margin-top:1.25rem; }
-    a.card {
+    :root {{ --bg:#0b1419; --text:#e8f1f5; --muted:#8aa3b3; --accent:#2aa889; --border:#2c4a5a; --card:#1a2d38; }}
+    body {{ margin:0; font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; background:#0b1419; color:var(--text); }}
+    .wrap {{ width:min(880px, calc(100% - 2rem)); margin:0 auto; padding:2rem 0 3rem; }}
+    h1 {{ margin:0 0 .4rem; }}
+    p {{ color:var(--muted); line-height:1.55; }}
+    .grid {{ display:grid; gap:1rem; margin-top:1.25rem; }}
+    a.card {{
       display:block; text-decoration:none; color:inherit; background:var(--card);
       border:1px solid var(--border); border-radius:14px; padding:1.2rem 1.3rem;
-    }
-    a.card:hover { border-color:var(--accent); }
-    .kicker { color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-    h2 { margin:.35rem 0 .4rem; font-size:1.25rem; }
+    }}
+    a.card:hover {{ border-color:var(--accent); }}
+    .kicker {{ color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }}
+    h2 {{ margin:.35rem 0 .4rem; font-size:1.25rem; }}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="kicker">CPMAI Study Hall</div>
-    <h1>Three unique 120-question mock exams</h1>
+    <h1>Two unique 135-question mock exams</h1>
     <p>
-      Each mock is 120 questions, 160 minutes, no difficulty labels, and no answers until you submit.
-      Together the three mocks cover all 270 questions from your practice set. Ninety additional original
-      items were added so the three papers do not share any questions.
-    </p>
-    <p>
-      Want only those 90 new items, untimed, in the original check-answer format?
-      Open <a href="../quizzes/Original-90-Practice-Quiz.html" style="color:var(--accent)">the 90-question practice quiz</a>.
+      Both mocks use only your 270 practice-bank questions. Each exam is 135 items,
+      160 minutes, no difficulty labels, and no answers until you submit.
+      The two papers do not overlap, so together they cover all 270 questions.
     </p>
     <div class="grid">
       <a class="card" href="mock-exam-1.html">
         <div class="kicker">Form A</div>
         <h2>Mock Exam 1</h2>
-        <p>120 items · 160:00 countdown · navigator, flagging, end-of-exam answer key</p>
+        <p>{QCOUNT} items · 160:00 countdown · navigator, flagging, end-of-exam answer key</p>
       </a>
       <a class="card" href="mock-exam-2.html">
         <div class="kicker">Form B</div>
         <h2>Mock Exam 2</h2>
-        <p>120 items · 160:00 countdown · navigator, flagging, end-of-exam answer key</p>
-      </a>
-      <a class="card" href="mock-exam-3.html">
-        <div class="kicker">Form C</div>
-        <h2>Mock Exam 3</h2>
-        <p>120 items · 160:00 countdown · navigator, flagging, end-of-exam answer key</p>
+        <p>{QCOUNT} items · 160:00 countdown · navigator, flagging, end-of-exam answer key</p>
       </a>
     </div>
   </div>
@@ -163,45 +141,39 @@ INDEX = """<!DOCTYPE html>
 """
 
 
-def coverage_report(bank, extras, buckets):
+def coverage_report(bank, buckets):
     bank_stems = {re.sub(r"\s+", " ", q["question"].strip().lower()) for q in bank}
-    extra_stems = {re.sub(r"\s+", " ", q["question"].strip().lower()) for q in extras}
-    if bank_stems & extra_stems:
-        raise SystemExit("New questions overlap the bank")
     all_stems = []
     for i, b in enumerate(buckets, 1):
         stems = [re.sub(r"\s+", " ", q["question"].strip().lower()) for q in b]
         if len(stems) != len(set(stems)):
             raise SystemExit(f"Duplicate inside mock {i}")
         all_stems.append(set(stems))
-    if all_stems[0] & all_stems[1] or all_stems[0] & all_stems[2] or all_stems[1] & all_stems[2]:
-        raise SystemExit("Mocks are not unique")
-    union = set().union(*all_stems)
+    if all_stems[0] & all_stems[1]:
+        raise SystemExit("Mocks overlap")
+    union = all_stems[0] | all_stems[1]
     missing = bank_stems - union
-    if missing:
-        raise SystemExit(f"Bank not fully covered: {len(missing)}")
-    print("OK: 3 unique mocks, 120 each, 270 bank questions covered, 90 originals added")
+    extra = union - bank_stems
+    if missing or extra:
+        raise SystemExit(f"Coverage error missing={len(missing)} extra={len(extra)}")
+    print(f"OK: 2 unique mocks, {QCOUNT} each, all 270 bank questions covered, no added items")
 
 
 def main():
-    assert_count()
     bank = load_bank()
     if len(bank) != 270:
         raise SystemExit(f"Expected 270 bank questions, got {len(bank)}")
-    buckets = split_unique(bank, NEW_QUESTIONS)
-    coverage_report(bank, NEW_QUESTIONS, buckets)
+    buckets = split_unique(bank)
+    coverage_report(bank, buckets)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.html").write_text(INDEX, encoding="utf-8")
     for i, bucket in enumerate(buckets, 1):
         write_exam(i, bucket)
-        origins = {}
-        for q in bucket:
-            origins[q.get("origin", "new" if q not in bank else "bank")] = origins.get(
-                q.get("origin", "extras"), 0
-            )
-        bank_n = sum(1 for q in bucket if q.get("origin") == "bank")
-        new_n = 120 - bank_n
-        print(f"  Mock {i}: {bank_n} from your set, {new_n} original")
+        print(f"  Mock {i}: {len(bucket)} bank questions")
+    old = OUT / "mock-exam-3.html"
+    if old.exists():
+        old.unlink()
+        print("  removed mock-exam-3.html")
 
 
 if __name__ == "__main__":
