@@ -1,0 +1,1848 @@
+90 original CPMAI-style items added to the three mock exams
+===========================================================
+Questions: 90
+
+QUESTION 1  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+A hospital wants an AI tool that 'makes operations better.' Executives cannot agree whether the pain point is bed turnover, staffing, or coding denials.
+
+What should the AI project manager do first?
+
+  A. Select a computer vision vendor that other hospitals have used for bed tracking.
+  B. Facilitate stakeholder interviews to define the problem, personas, and success outcomes.
+  C. Commission a proof of concept on all three pain points in parallel.
+  D. Request a data lake refresh so modeling can start while the problem is clarified.
+
+ANSWER: B
+
+Why this is correct:
+AI work starts with a validated problem and personas. Interviews convert a vague request into a specific need before vendors, POCs, or data work begin.
+
+Why other options are incorrect:
+  A, C: Vendor selection and parallel POCs lock in solutions before the organization agrees on the problem to solve.
+  D: Refreshing data infrastructure does not define the business problem and can waste effort on the wrong use case.
+
+
+QUESTION 2  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+A bank proposes an NLP model to classify complaints. Analysts already route complaints with a rules engine that meets service-level agreements.
+
+What should the AI project manager do when evaluating initial feasibility?
+
+  A. Approve the NLP model because natural language tasks are inherently AI problems.
+  B. Compare the AI approach with the existing rules-based alternative against cost, risk, and performance.
+  C. Replace the rules engine immediately to avoid maintaining two systems.
+  D. Skip feasibility and move to model selection because complaint text is available.
+
+ANSWER: B
+
+Why this is correct:
+Feasibility includes whether AI is the right approach versus traditional alternatives. A working rules engine may be sufficient.
+
+Why other options are incorrect:
+  A, C: Assuming NLP is required or replacing a working system skips the AI-versus-traditional comparison.
+  D: Data availability alone does not establish that an AI solution is warranted.
+
+
+QUESTION 3  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+A manufacturer wants a vision model for defect detection on a line that currently has no labeled defect photos and no GPU capacity on site.
+
+What should the AI project manager emphasize in the feasibility assessment?
+
+  A. That computer vision is mature, so labeling and infrastructure can be solved after kickoff.
+  B. Data availability, labeling effort, and compute constraints that could block a viable solution.
+  C. The brand value of being first in the industry to deploy visual inspection.
+  D. Selecting a transformer architecture before estimating labeling cost.
+
+ANSWER: B
+
+Why this is correct:
+Initial AI feasibility must test data availability/quality and computational constraints, not just algorithmic fashion.
+
+Why other options are incorrect:
+  A, D: Deferring labeling and infrastructure or choosing architecture first ignores the blockers that determine viability.
+  C: Competitive branding is not a substitute for technical and data feasibility.
+
+
+QUESTION 4  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+An insurer's generative assistant will draft claim letters. Legal warns that incorrect denials could trigger regulatory penalties.
+
+What should the AI project manager do as part of risk assessment?
+
+  A. Treat the assistant as low risk because a human can optionally read the draft.
+  B. Identify safety, ethics, and compliance failure modes and define mitigations such as mandatory human review for denials.
+  C. Delay risk assessment until after the model exceeds accuracy targets.
+  D. Limit the assessment to cybersecurity of the model endpoint.
+
+ANSWER: B
+
+Why this is correct:
+Risk assessment for AI must cover safety, ethics, and regulatory failure modes, with mitigations designed before build.
+
+Why other options are incorrect:
+  A, C: Optional review and post-accuracy timing leave high-impact failure modes unmanaged during design.
+  D: Security matters, but it is not the only risk class for a regulated decisioning assistant.
+
+
+QUESTION 5  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+A telecom sponsor asks the AI project manager to 'include whatever the data science team thinks is cool' in the first release.
+
+What should the AI project manager do when developing the scope statement?
+
+  A. Document in-scope deliverables, out-of-scope items, assumptions, and constraints aligned to business objectives.
+  B. Leave scope flexible so the team can follow experimental results.
+  C. Define scope as 'an AI platform' without listing features.
+  D. Copy the vendor's full product catalog into the scope to avoid missing capabilities.
+
+ANSWER: A
+
+Why this is correct:
+An AI scope statement must set boundaries, deliverables, assumptions, and constraints tied to objectives—not an open research charter.
+
+Why other options are incorrect:
+  B, C: Flexible or platform-only scope invites uncontrolled experimentation and unclear success.
+  D: A vendor catalog is not a business-aligned scope and inflates the initiative.
+
+
+QUESTION 6  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+Finance asks whether a forecasting model is worth funding. Benefits are described as 'better decisions' with no quantified impact.
+
+What should the AI project manager do to determine ROI?
+
+  A. Estimate benefits, total cost of ownership, risks, and assumptions, then present a cost-benefit case.
+  B. Use the data science team's enthusiasm as qualitative ROI.
+  C. Count only cloud training cost and ignore monitoring and retraining.
+  D. Defer ROI until after a year in production.
+
+ANSWER: A
+
+Why this is correct:
+ROI needs expected benefits, TCO (including operations), risks, and explicit assumptions—not vibes or partial costs.
+
+Why other options are incorrect:
+  B: Enthusiasm is not financial justification.
+  C, D: Ignoring operating cost or delaying any ROI view leaves leadership without a decision-quality case.
+
+
+QUESTION 7  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+A retail recommender will launch inside a checkout flow that cashiers already find crowded. Store managers predict staff will ignore the new panel.
+
+What should the AI project manager do to manage adoption risk?
+
+  A. Train the model on more SKUs so recommendations feel smarter.
+  B. Identify workflow friction, plan change management and training, and integrate the tool into existing cashier steps.
+  C. Mandate that cashiers cannot complete checkout unless they tap a recommendation.
+  D. Move the panel to a back-office portal used once a week.
+
+ANSWER: B
+
+Why this is correct:
+Adoption risk is reduced by fitting the solution to workflows, training users, and removing friction—not by model tweaks or coercion.
+
+Why other options are incorrect:
+  A: More training data does not fix a workflow that users will ignore.
+  C, D: Forcing clicks or hiding the tool in a rarely used portal either increases resistance or kills value.
+
+
+QUESTION 8  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+A city wants an AI solution for traffic signal timing. Stakeholders have agreed on congestion reduction as the outcome.
+
+What should the AI project manager include when drafting the AI solution?
+
+  A. A high-level architecture, data flows, candidate model types, integration points, and operational considerations.
+  B. Only a list of open-source libraries the team prefers.
+  C. A final production model weight file.
+  D. A marketing website for residents.
+
+ANSWER: A
+
+Why this is correct:
+Drafting the AI solution means outlining architecture, data flow, model approach, integrations, and operations—not finished artifacts or unrelated comms.
+
+Why other options are incorrect:
+  B, C: Libraries or trained weights are too narrow or too late for a solution draft.
+  D: A public website is not the solution design needed to guide build.
+
+
+QUESTION 9  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+Executives want to know if a claims triage model is successful. The team reports F1 score weekly and nothing else.
+
+What should the AI project manager do when defining success criteria?
+
+  A. Keep F1 as the only KPI because it is an industry-standard metric.
+  B. Define business impact, technical performance, and adoption measures aligned to organizational objectives.
+  C. Use employee morale as the primary success metric.
+  D. Wait until deployment to invent metrics from production anecdotes.
+
+ANSWER: B
+
+Why this is correct:
+Success criteria should include business, technical, and user/adoption measures set before build, not a single model metric.
+
+Why other options are incorrect:
+  A, C: F1-only or morale-only views miss the balanced KPI set leadership needs.
+  D: Inventing metrics after go-live prevents objective evaluation.
+
+
+QUESTION 10  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+A logistics firm needs GPU capacity and NLP talent it does not have internally for a six-month document extraction initiative.
+
+What should the AI project manager do when identifying project resources?
+
+  A. Assume existing IT staff can learn NLP after hours without changing the plan.
+  B. Assess skills, infrastructure, and gaps, then plan contractors, hardware, or procurement to close them.
+  C. Cancel the project because all AI talent must be full-time employees.
+  D. Buy the most expensive GPU cluster before confirming model approach.
+
+ANSWER: B
+
+Why this is correct:
+Resource identification includes people, hardware, and contractors, with explicit gap-closing plans.
+
+Why other options are incorrect:
+  A, D: Hoping staff self-train or buying maximum hardware before the approach is known misallocates resources.
+  C: Contractors and platforms are valid ways to fill specialized AI gaps.
+
+
+QUESTION 11  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+A sponsor wants a chatbot 'like the competitor's' without describing customer jobs-to-be-done.
+
+What should the AI project manager do to identify the problem to be solved?
+
+  A. Clone the competitor's intents and launch.
+  B. Map customer personas, pain points, and use cases, then validate the problem statement with SMEs.
+  C. Start scraping competitor transcripts for training data.
+  D. Declare the problem as 'we need generative AI' and proceed.
+
+ANSWER: B
+
+Why this is correct:
+Problem identification requires personas, pain points, and validated use cases—not copying a competitor.
+
+Why other options are incorrect:
+  A, C: Cloning or scraping a competitor skips your customers' actual needs and adds legal/data risk.
+  D: Naming a technology is not a problem statement.
+
+
+QUESTION 12  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+A proposed fraud model could freeze accounts incorrectly during holidays, harming customers and call-center load.
+
+What should be captured in the risk assessment?
+
+  A. Only the probability that the model beats a random baseline.
+  B. Safety and customer-harm failure modes, operational surge risk, and mitigations such as thresholds and appeal paths.
+  C. A statement that fraud models are inherently acceptable risk.
+  D. The color scheme of the analyst dashboard.
+
+ANSWER: B
+
+Why this is correct:
+Risk assessment must include safety/ethics impacts and operational consequences with mitigations, not just accuracy.
+
+Why other options are incorrect:
+  A, C: Baseline beating or blanket acceptance ignores customer harm and operations.
+  D: UI cosmetics are not the risk content required here.
+
+
+QUESTION 13  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+A business case lists benefits from 'AI transformation' but omits retraining, labeling, and monitoring costs.
+
+What should the AI project manager do to support business case creation?
+
+  A. Leave costs out so the case is more likely to be approved.
+  B. Work with finance to include full TCO, projected benefits, and a clear narrative of value and assumptions.
+  C. Replace financials with a demo video.
+  D. Submit the data science notebook as the business case.
+
+ANSWER: B
+
+Why this is correct:
+Supporting the business case means complete costs and benefits with a leadership-ready narrative, not hiding TCO.
+
+Why other options are incorrect:
+  A: Omitting costs produces a misleading case.
+  C, D: Demos and notebooks do not replace financial justification.
+
+
+QUESTION 14  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+Users must log into a separate portal to get AI demand forecasts they currently pull from Excel on their main desktop.
+
+What adoption barrier should the AI project manager address first?
+
+  A. Lack of integration with existing systems and workflows.
+  B. Insufficient number of hidden layers in the model.
+  C. The executive sponsor's communication style.
+  D. The choice of cloud region.
+
+ANSWER: A
+
+Why this is correct:
+Forcing users out of their primary workflow is a classic integration/adoption barrier.
+
+Why other options are incorrect:
+  B: Model depth does not explain portal friction.
+  C, D: Sponsor style and cloud region are not the barrier described.
+
+
+QUESTION 15  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+A utility wants predictive maintenance but cannot state how much unplanned downtime costs per hour.
+
+What should the AI project manager do when determining ROI?
+
+  A. Invent a round number so the spreadsheet looks complete.
+  B. Gather operational cost data and benefit assumptions with the business, including uncertainty.
+  C. Ignore benefits and fund the project as research.
+  D. Use a competitor's press release as the benefit estimate.
+
+ANSWER: B
+
+Why this is correct:
+ROI requires sourced benefit and cost inputs, with assumptions stated—not fabricated or borrowed figures.
+
+Why other options are incorrect:
+  A, D: Made-up or competitor figures are not a defensible case.
+  C: Calling it research dodges the funding question rather than answering it.
+
+
+QUESTION 16  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+Stakeholders propose both a recommendation engine and a simple scheduled report for the same inventory issue.
+
+What should the AI project manager do during feasibility?
+
+  A. Always choose the recommendation engine because it is AI.
+  B. Evaluate whether a simpler non-AI approach meets the need before committing to ML.
+  C. Build both in the first sprint.
+  D. Let the vendor decide because they sell both products.
+
+ANSWER: B
+
+Why this is correct:
+Feasibility includes comparing AI with simpler alternatives when the problem may not need learning or personalization.
+
+Why other options are incorrect:
+  A, C: Defaulting to ML or dual-building wastes resources.
+  D: Vendor preference is not an independent feasibility judgment.
+
+
+QUESTION 17  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+A public agency AI project has unclear deliverables: a model, an API, user training, and a policy playbook are all mentioned verbally.
+
+What should the AI project manager put in the scope statement?
+
+  A. Only the model file, because software is the real deliverable.
+  B. Agreed deliverables and explicit out-of-scope items so training and policy work are not accidental.
+  C. Every idea mentioned in any meeting, to be safe.
+  D. No written scope, to preserve agility.
+
+ANSWER: B
+
+Why this is correct:
+Scope must list deliverables and exclusions so verbal extras do not become unmanaged work.
+
+Why other options are incorrect:
+  A: Omitting enablement deliverables that were intended creates later conflict.
+  C, D: Kitchen-sink or unwritten scope both fail to control the initiative.
+
+
+QUESTION 18  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+A clinic's AI intake bot may mishandle emergency language. Clinicians want a hard stop to call 911 guidance.
+
+What should the AI project manager do in solution drafting and risk planning?
+
+  A. Document safety constraints, escalation paths, and out-of-scope emergency diagnosis in the solution design.
+  B. Rely on the model's general helpfulness without hard constraints.
+  C. Hide emergency disclaimers to keep the conversation short.
+  D. Train the bot on social media first-aid threads only.
+
+ANSWER: A
+
+Why this is correct:
+High-safety use cases need explicit constraints, escalations, and scope limits in the solution design.
+
+Why other options are incorrect:
+  B, C: Unconstrained helpfulness or hidden disclaimers increase harm risk.
+  D: Social media first-aid content is not a controlled safety design.
+
+
+QUESTION 19  [Identify Business Needs and Solutions]  (used in Mock Exam 2)
+------------------------------------------------------------
+Leadership wants 'AI KPIs' but lists only number of models deployed.
+
+What should the AI project manager recommend as success criteria?
+
+  A. Count of models in production, regardless of outcomes.
+  B. Outcome metrics such as cycle-time reduction, quality, cost, and responsible-use indicators tied to objectives.
+  C. Lines of Python committed per week.
+  D. Number of parameters in the largest model.
+
+ANSWER: B
+
+Why this is correct:
+Success criteria should measure business outcomes and responsible performance, not vanity counts of models or code.
+
+Why other options are incorrect:
+  A, C, D: Model count, commits, and parameter size do not show whether the initiative created value.
+
+
+QUESTION 20  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+A construction firm wants AI schedule risk prediction. Planners distrust black-box outputs and currently use Gantt software.
+
+What should the AI project manager do regarding adoption?
+
+  A. Force planners to disable Gantt tools on day one.
+  B. Plan explainability, workflow integration, and training so predictions appear in the tools planners already use.
+  C. Ship the model via email CSV only, to minimize IT work.
+  D. Avoid talking to planners until after go-live to prevent negativity.
+
+ANSWER: B
+
+Why this is correct:
+Adoption in expert workflows needs integration, training, and sufficient transparency.
+
+Why other options are incorrect:
+  A, C: Forced cutover or email CSVs create friction and distrust.
+  D: Excluding users until go-live is a predictable adoption failure.
+
+
+QUESTION 21  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+An AI project manager is asked to staff a computer vision program. The organization has analysts but no annotation leads or MLOps engineers.
+
+What should the AI project manager do?
+
+  A. Start training anyway and hope roles emerge.
+  B. Identify required roles, internal gaps, and contractor or hiring needs before committing to dates.
+  C. Assign annotation to the receptionist because it is clerical.
+  D. Use only AutoML so no specialized roles are required.
+
+ANSWER: B
+
+Why this is correct:
+Resource planning must name specialized AI roles and close gaps deliberately.
+
+Why other options are incorrect:
+  A, C: Hoping or misassigning critical skills creates quality and schedule risk.
+  D: AutoML does not remove the need for data, evaluation, and operations skills.
+
+
+QUESTION 22  [Identify Business Needs and Solutions]  (used in Mock Exam 1)
+------------------------------------------------------------
+A media company wants an AI highlight generator. Legal has not confirmed sports-clip licensing for training or output.
+
+What should the AI project manager do in feasibility and risk work?
+
+  A. Proceed with scraping broadcasts because highlights are short.
+  B. Assess legal rights, licensing constraints, and reputational risk before collecting or generating content.
+  C. Treat licensing as an operations task after launch.
+  D. Ask engineers to watermark outputs instead of checking rights.
+
+ANSWER: B
+
+Why this is correct:
+Feasibility and risk include legal rights to data and generated content, especially in media.
+
+Why other options are incorrect:
+  A, C, D: Scraping, deferring, or watermarking does not establish the right to use or produce the content.
+
+
+QUESTION 23  [Identify Business Needs and Solutions]  (used in Mock Exam 3)
+------------------------------------------------------------
+A sponsor demands a go-live date before problem definition, data assessment, or resource planning are done.
+
+What should the AI project manager do next?
+
+  A. Publish the date and compress all discovery into a weekend.
+  B. Explain that scope, feasibility, and resources must be established before a credible schedule can be committed.
+  C. Agree to the date and hide discovery as 'sprint zero coding'.
+  D. Outsource the date commitment to the vendor's sales team.
+
+ANSWER: B
+
+Why this is correct:
+A demanding deadline does not replace discovery. Credible dates follow problem, feasibility, and resource clarity.
+
+Why other options are incorrect:
+  A, C: Fake dates and hidden discovery create delivery and trust failures.
+  D: Sales commitments are not a substitute for project planning.
+
+
+QUESTION 24  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+A team is building a churn model. Business wants to predict 90-day churn, but available data only flags cancellations at month-end with no reason codes.
+
+What should the AI project manager do when defining required data?
+
+  A. Start training on month-end flags and hope the label is close enough.
+  B. Specify label definition, time windows, granularity, volume, and quality criteria mapped to the use case.
+  C. Collect every customer event in the company 'just in case'.
+  D. Define data needs as 'a CSV from marketing'.
+
+ANSWER: B
+
+Why this is correct:
+Required data must specify types, labels, time windows, volume, and quality tied to the objective.
+
+Why other options are incorrect:
+  A: Training on a mismatched label encodes the wrong problem.
+  C, D: Boilerplate dumps or vague file requests are not requirements.
+
+
+QUESTION 25  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+Data scientists cannot interpret hospital procedure codes used in a readmission model.
+
+What should the AI project manager do?
+
+  A. Guess mappings from public blogs.
+  B. Identify and engage clinical data SMEs and data stewards who understand meaning and context.
+  C. Drop all code fields to simplify the table.
+  D. Ask the CEO to explain each code in the steering meeting.
+
+ANSWER: B
+
+Why this is correct:
+Data SMEs and stewards provide meaning, context, and governance knowledge the modeling team lacks.
+
+Why other options are incorrect:
+  A, C: Guessing or dropping domain fields destroys signal and safety.
+  D: Executives are rarely the operational data experts needed.
+
+
+QUESTION 26  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+An agriculture firm thinks soil-sensor data lives 'somewhere in ops.' No inventory exists.
+
+What should the AI project manager do to identify data sources and locations?
+
+  A. Map internal systems, historians, vendors, and ownership/access for relevant sources.
+  B. Buy a national weather API and skip internal sensors.
+  C. Wait until the model is chosen, then look for data.
+  D. Use synthetic soil data only, to go faster.
+
+ANSWER: A
+
+Why this is correct:
+Source identification inventories systems, external providers, ownership, and access—not a guess or a skip.
+
+Why other options are incorrect:
+  B, D: External or synthetic-only shortcuts may ignore the actual on-farm signal required.
+  C: Model-first sequencing inverts CPMAI data-before-model logic.
+
+
+QUESTION 27  [Identify Data Needs]  (used in Mock Exam 1)
+------------------------------------------------------------
+A bank's AI team is storing production customer tables on personal laptops to 'move faster'.
+
+What should the AI project manager do when coordinating workspace and infrastructure?
+
+  A. Praise the hustle and continue.
+  B. Provision a secure, governed workspace with appropriate storage, access control, and collaboration tools.
+  C. Allow laptops if they are encrypted, with no other controls.
+  D. Move copies to a public Git repository for backup.
+
+ANSWER: B
+
+Why this is correct:
+AI workspaces must be secure, governed, and fit for sensitive data—not ad hoc laptop copies.
+
+Why other options are incorrect:
+  A, C: Speed or encryption-alone does not meet banking data control expectations.
+  D: Public repositories are a severe data exposure.
+
+
+QUESTION 28  [Identify Data Needs]  (used in Mock Exam 1)
+------------------------------------------------------------
+A data pull for a credit model is missing two of five agreed source systems and has not been validated for completeness.
+
+What should the AI project manager do while gathering data?
+
+  A. Train on the three systems and note the rest as future work without telling stakeholders.
+  B. Complete agreed extraction, validate completeness and accuracy, and record gaps before proceeding.
+  C. Duplicate rows to simulate the missing systems.
+  D. Change the business objective to match the incomplete extract.
+
+ANSWER: B
+
+Why this is correct:
+Gathering data includes executing the agreed extract and validating completeness, not silently shrinking the problem.
+
+Why other options are incorrect:
+  A, C: Hidden gaps and fake rows corrupt training and trust.
+  D: Changing the objective to fit a bad extract inverts the requirement.
+
+
+QUESTION 29  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+Marketing wants to use purchased email lists that forbid AI training in the contract.
+
+What should the AI project manager do when checking privacy, compliance, and access?
+
+  A. Use the lists anyway if they are useful.
+  B. Verify usage rights and licensing; exclude data that cannot legally be used for training.
+  C. Hash the emails and assume the clause no longer applies.
+  D. Store the lists in a 'temporary' bucket with no access logs.
+
+ANSWER: B
+
+Why this is correct:
+Usage rights and licenses are part of data compliance. Forbidden training uses must be excluded.
+
+Why other options are incorrect:
+  A, C: Usefulness or hashing does not override contract terms.
+  D: Hiding data without logs worsens accountability.
+
+
+QUESTION 30  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+Exploratory review shows 40% missing income fields, shifted product codes after a 2023 system cutover, and heavy oversampling of one region.
+
+What should the AI project manager do in data evaluation?
+
+  A. Ignore EDA because models can learn around messiness.
+  B. Assess quality dimensions, bias/gaps, freshness, and structure, then report implications for modeling.
+  C. Fill all missing income with the global mean and proceed silently.
+  D. Delete the cutover year without analysis.
+
+ANSWER: B
+
+Why this is correct:
+Data evaluation covers accuracy, completeness, bias, freshness, and schema—and communicates findings.
+
+Why other options are incorrect:
+  A, C, D: Ignoring issues, silent mean-fill, or unanalyzed deletion hides risk from decision makers.
+
+
+QUESTION 31  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+A demand model needs two years of clean weekly demand. Available history is four months of noisy promotions-only data.
+
+What should the AI project manager do when determining if data meets solution needs?
+
+  A. Declare data ready because some numbers exist.
+  B. Compare available data to requirements, identify gaps, and make a go/no-go recommendation on data readiness.
+  C. Promise leadership the model will 'figure it out' with regularization.
+  D. Start hyperparameter search to compensate.
+
+ANSWER: B
+
+Why this is correct:
+Go/no-go on data readiness is a core CPMAI control when volume, history, or quality is insufficient.
+
+Why other options are incorrect:
+  A, C, D: Hand-waving readiness or jumping to tuning does not create missing history.
+
+
+QUESTION 32  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+Executives ask why the fraud project is paused. The team talks about 'class imbalance, PSI, and schema drift.'
+
+What should the AI project manager do to convey data understanding to leadership?
+
+  A. Repeat the same technical terms more slowly.
+  B. Translate findings into business language: sparse fraud examples, changing customer mix, and unreliable fields, plus recommended actions.
+  C. Send the raw Jupyter notebook to the board.
+  D. Say data is 'fine' to protect the timeline.
+
+ANSWER: B
+
+Why this is correct:
+Leadership communication must convert data issues into business impact and actions.
+
+Why other options are incorrect:
+  A, C: Jargon and notebooks do not enable executive decisions.
+  D: Hiding unreadiness is a governance failure.
+
+
+QUESTION 33  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+A computer vision project needs images of rare defects. The line produces few defects by design.
+
+What should the AI project manager specify in data requirements?
+
+  A. Only 'lots of images' with no sampling strategy.
+  B. Volume, rare-event sampling or capture plans, labeling standards, and acceptance criteria for defect classes.
+  C. Screenshots from marketing brochures as the primary training set.
+  D. A single photo of a perfect product.
+
+ANSWER: B
+
+Why this is correct:
+Rare-event problems need explicit sampling, labeling standards, and quality bars—not vague volume.
+
+Why other options are incorrect:
+  A, C, D: Unspecified volume, brochure shots, or one good image cannot train defect detection.
+
+
+QUESTION 34  [Identify Data Needs]  (used in Mock Exam 1)
+------------------------------------------------------------
+Multiple teams claim ownership of the customer-360 table and contradict each other on field meaning.
+
+What should the AI project manager do?
+
+  A. Pick the definition that maximizes model accuracy in a weekend test.
+  B. Engage data stewards and SMEs to resolve ownership, definitions, and access before training.
+  C. Create a shadow table with unofficial names.
+  D. Drop customer-360 because disagreement is inconvenient.
+
+ANSWER: B
+
+Why this is correct:
+Conflicting meaning is a data-SME and stewardship issue that must be resolved before modeling.
+
+Why other options are incorrect:
+  A, C: Accuracy hacking or shadow tables encode the wrong business meaning.
+  D: Abandoning a core source without governance is not the first move.
+
+
+QUESTION 35  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+A healthcare AI workspace has no backup, no version control, and shared passwords.
+
+What should the AI project manager require?
+
+  A. Shared passwords for 'team spirit'.
+  B. Secure environment configuration including access control, backup, and versioning consistent with governance.
+  C. USB drives as the official backup method.
+  D. Disabling logs to save storage.
+
+ANSWER: B
+
+Why this is correct:
+Workspace coordination includes security, backup, and collaboration/version control under governance.
+
+Why other options are incorrect:
+  A, C, D: Shared passwords, USB backups, and no logs violate healthcare control expectations.
+
+
+QUESTION 36  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+During collection, a feed silently switched from daily to weekly grain.
+
+What should the AI project manager ensure as part of gathering and evaluation?
+
+  A. Nothing; grain changes are cosmetic.
+  B. Validate completeness, grain, and accuracy of collected data and document the change's impact.
+  C. Upsample weekly rows to daily with linear interpolation without review.
+  D. Average everything to monthly to hide the issue.
+
+ANSWER: B
+
+Why this is correct:
+Collection validation must catch grain/completeness breaks that invalidate time-series assumptions.
+
+Why other options are incorrect:
+  A, C, D: Ignoring or silently interpolating/aggregating conceals a structural data defect.
+
+
+QUESTION 37  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+A vendor dataset used for training may include personal data of EU residents, but no RoPA or transfer assessment exists.
+
+What should the AI project manager do?
+
+  A. Proceed if the vendor's logo looks trustworthy.
+  B. Verify privacy compliance, lawful basis/usage rights, and access controls before use.
+  C. Move the file to a US region to avoid GDPR.
+  D. Ask engineers to strip names only and keep full addresses.
+
+ANSWER: B
+
+Why this is correct:
+Privacy, compliance, and access checks are mandatory before using potentially regulated personal data.
+
+Why other options are incorrect:
+  A, C: Vendor branding or region-hopping does not create lawful use.
+  D: Partial redaction of names while keeping addresses is not a proper privacy design.
+
+
+QUESTION 38  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+EDA shows the target label was redefined halfway through the historical period.
+
+What should the AI project manager do?
+
+  A. Train anyway; the model will average the definitions.
+  B. Treat label inconsistency as a data-quality blocker until definitions are aligned or periods are separated with documentation.
+  C. Flip coins to relabel the first half.
+  D. Hide the change in an appendix no one reads.
+
+ANSWER: B
+
+Why this is correct:
+Inconsistent targets are a go/no-go data-quality issue because the model would learn mixed truths.
+
+Why other options are incorrect:
+  A, C, D: Averaging, random relabeling, or hiding the break all produce invalid models.
+
+
+QUESTION 39  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+Leadership asks if the team can start modeling next week. Data readiness is amber: key join keys are 12% unmatched.
+
+What should the AI project manager communicate?
+
+  A. A clear readiness status, business impact of unmatched keys, and a recommendation to fix joins before training.
+  B. Only a thumbs-up emoji in chat.
+  C. That unmatched keys improve regularization.
+  D. That leadership should not worry about data.
+
+ANSWER: A
+
+Why this is correct:
+Conveying data understanding means status, impact, and recommendation in business terms.
+
+Why other options are incorrect:
+  B, D: Casual or dismissive updates block informed go/no-go decisions.
+  C: Unmatched keys are quality defects, not a regularization feature.
+
+
+QUESTION 40  [Identify Data Needs]  (used in Mock Exam 3)
+------------------------------------------------------------
+A computer-vision labeling vendor delivers bounding boxes with no inter-annotator agreement metrics.
+
+What should the AI project manager do?
+
+  A. Accept the labels to protect the vendor relationship.
+  B. Require quality standards and evaluation of label consistency before treating the data as training-ready.
+  C. Have interns relabel 1% without a rubric.
+  D. Skip labels and use unsupervised learning only, without revisiting the use case.
+
+ANSWER: B
+
+Why this is correct:
+Label quality is part of data evaluation and readiness, especially for supervised vision.
+
+Why other options are incorrect:
+  A, C: Relationship-driven acceptance or rubric-free spot checks are not quality control.
+  D: Changing learning paradigm to avoid labels may invalidate the original solution.
+
+
+QUESTION 41  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+The project needs streaming features, but the organization only has a nightly warehouse batch.
+
+What should the AI project manager do when defining required data and infrastructure?
+
+  A. Ignore latency and train on nightly data while promising real-time decisions.
+  B. Specify freshness/latency requirements and assess whether infrastructure can meet them, or reset the solution pattern.
+  C. Cache yesterday's scores and call it real time.
+  D. Ask the model to predict faster instead of fixing data timing.
+
+ANSWER: B
+
+Why this is correct:
+Temporal and freshness requirements must match the use case; infrastructure gaps force a pattern change or a new data plan.
+
+Why other options are incorrect:
+  A, C: Promising real time on batch data misleads stakeholders.
+  D: Model speed does not create fresher features.
+
+
+QUESTION 42  [Identify Data Needs]  (used in Mock Exam 1)
+------------------------------------------------------------
+Two source CRMs assign different customer IDs to the same person.
+
+What should the data team do next under the project manager's oversight?
+
+  A. Train two models and average scores at random.
+  B. Resolve identity matching and consistency across sources before feature assembly.
+  C. Concatenate IDs with a hyphen and hope joins work.
+  D. Delete the larger CRM to simplify.
+
+ANSWER: B
+
+Why this is correct:
+Inconsistent identifiers are a data-quality/integration issue that must be fixed before modeling.
+
+Why other options are incorrect:
+  A, C: Averaging or hyphen hacks encode broken identity.
+  D: Dropping a major source is not the first responsible fix.
+
+
+QUESTION 43  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+A government dataset is public but its terms prohibit building identification models of individuals.
+
+What should the AI project manager do?
+
+  A. Proceed because public equals unrestricted.
+  B. Honor usage terms and exclude prohibited modeling purposes.
+  C. Fine-tune a face model 'for research' on the same files.
+  D. Share the dataset with a startup partner privately.
+
+ANSWER: B
+
+Why this is correct:
+Public availability does not override license or purpose restrictions.
+
+Why other options are incorrect:
+  A, C, D: Ignoring terms, prohibited identification, or unauthorized sharing are compliance failures.
+
+
+QUESTION 44  [Identify Data Needs]  (used in Mock Exam 1)
+------------------------------------------------------------
+After evaluation, data meets volume but not representativeness for rural customers who are 30% of the business.
+
+What should the AI project manager recommend?
+
+  A. Go live and 'monitor fairness later'.
+  B. Treat representativeness as a readiness gap and plan additional collection or a narrowed scope with leadership approval.
+  C. Upsample the few rural rows until they look like 30%.
+  D. Exclude rural customers from reports so metrics look even.
+
+ANSWER: B
+
+Why this is correct:
+Representativeness is part of determining whether data meets solution needs; gaps need collection or explicit scope change.
+
+Why other options are incorrect:
+  A, C, D: Deferred fairness, naive upsampling, or hiding a segment does not create representative data.
+
+
+QUESTION 45  [Identify Data Needs]  (used in Mock Exam 1)
+------------------------------------------------------------
+A data steward says the AI team may read a table but not copy it to an experimental cluster.
+
+What should the AI project manager do?
+
+  A. Copy it anyway after hours.
+  B. Respect access permissions and provision an approved workspace/path for legitimate processing.
+  C. Email the table to personal accounts for convenience.
+  D. Screenshot thousands of rows into slides.
+
+ANSWER: B
+
+Why this is correct:
+Access control is part of privacy/compliance. Work happens in approved environments.
+
+Why other options are incorrect:
+  A, C, D: Shadow copies and personal/email/screenshot exfiltration violate access rules.
+
+
+QUESTION 46  [Identify Data Needs]  (used in Mock Exam 2)
+------------------------------------------------------------
+Leadership wants a one-slide view of data readiness across quality, privacy, and coverage.
+
+What should the AI project manager provide?
+
+  A. A 60-page data dictionary only.
+  B. An executive summary with visual status, risks, and recommendations in business language.
+  C. Raw SQL query logs.
+  D. No update until the model ships.
+
+ANSWER: B
+
+Why this is correct:
+Conveying data understanding to leadership means concise, visual, decision-ready status—not raw artifacts.
+
+Why other options are incorrect:
+  A, C: Dictionaries and SQL logs are supporting detail, not the leadership artifact.
+  D: Silence until ship date removes the go/no-go control.
+
+
+QUESTION 47  [Manage AI Model Development and Evaluation]  (used in Mock Exam 2)
+------------------------------------------------------------
+A team defaults to a deep neural net for a 3,000-row tabular credit dataset with a need for explanations to underwriters.
+
+What should the AI project manager do when overseeing technique selection?
+
+  A. Approve the deep net because deep learning is state of the art.
+  B. Guide a trade-off among performance, complexity, and interpretability, including simpler supervised options.
+  C. Require reinforcement learning to make the problem more modern.
+  D. Forbid any model that is not a transformer.
+
+ANSWER: B
+
+Why this is correct:
+Technique selection must weigh use-case fit, data scale, and interpretability—not fashion.
+
+Why other options are incorrect:
+  A, C, D: Defaulting to deep, RL, or transformers ignores tabular scale and explanation needs.
+
+
+QUESTION 48  [Manage AI Model Development and Evaluation]  (used in Mock Exam 3)
+------------------------------------------------------------
+Two data scientists train models with undocumented library versions and overwrite the same folder named 'final_v2'.
+
+What should the AI project manager require for QA/QC?
+
+  A. More overwrite speed to reduce clutter.
+  B. Configuration management, versioning of code/parameters, and documented testing protocols.
+  C. Deleting older experiments so only one file remains.
+  D. Evaluating models only by whoever shouts highest accuracy in chat.
+
+ANSWER: B
+
+Why this is correct:
+QA/QC includes configuration management, versioning, and test protocols so results are reproducible.
+
+Why other options are incorrect:
+  A, C, D: Overwrites, deletions, and informal accuracy claims are the opposite of control.
+
+
+QUESTION 49  [Manage AI Model Development and Evaluation]  (used in Mock Exam 2)
+------------------------------------------------------------
+Training jobs keep dying when they hit quota, and nobody can reconstruct which data snapshot produced last week's metrics.
+
+What should the AI project manager do while managing training?
+
+  A. Tell scientists to train on laptops.
+  B. Plan resources, track experiments and data versions, and oversee validation/selection processes.
+  C. Disable experiment tracking to save time.
+  D. Run one epoch only so jobs finish.
+
+ANSWER: B
+
+Why this is correct:
+Managing training includes resources, experiment tracking, data versioning, and disciplined selection.
+
+Why other options are incorrect:
+  A, C, D: Laptops, no tracking, or arbitrary epoch caps do not create a managed training process.
+
+
+QUESTION 50  [Manage AI Model Development and Evaluation]  (used in Mock Exam 2)
+------------------------------------------------------------
+Raw sensor traces have different units and timestamps. Scientists want to jump to model fitting.
+
+What should the AI project manager ensure in data preparation?
+
+  A. That cleaning, alignment, normalization, and documented, reproducible transformations happen before fitting.
+  B. That each scientist applies personal undocumented scaling.
+  C. That outliers are always deleted automatically.
+  D. That preparation is skipped if GPUs are idle.
+
+ANSWER: A
+
+Why this is correct:
+Preparation must be consistent, reproducible, and documented—units and time alignment included.
+
+Why other options are incorrect:
+  B, D: Personal undocumented steps or skipping prep destroy comparability.
+  C: Blind outlier deletion can remove true rare events the model must learn.
+
+
+QUESTION 51  [Manage AI Model Development and Evaluation]  (used in Mock Exam 2)
+------------------------------------------------------------
+A go/no-go checkpoint for starting training still shows target leakage from a post-event field.
+
+What should the AI project manager do?
+
+  A. Start training to 'see if leakage matters'.
+  B. Stop and remediate data quality/leakage before authorizing training.
+  C. Leave the leaking field in as a helpful feature.
+  D. Ask marketing to rename the field so it sounds safe.
+
+ANSWER: B
+
+Why this is correct:
+Verifying data quality before preparation/training includes blocking on leakage.
+
+Why other options are incorrect:
+  A, C, D: Training through leakage or renaming a field does not remove contamination.
+
+
+QUESTION 52  [Manage AI Model Development and Evaluation]  (used in Mock Exam 3)
+------------------------------------------------------------
+A model beats a baseline in a notebook but has no robustness tests, no runbook, and fails on a shifted week of data.
+
+What should the AI project manager do at operationalization go/no-go?
+
+  A. Approve because notebook accuracy is high.
+  B. Withhold approval until performance, robustness, documentation, and operational readiness meet criteria.
+  C. Approve if the demo is visually impressive.
+  D. Approve on the condition that ops 'figures it out live'.
+
+ANSWER: B
+
+Why this is correct:
+Operationalization readiness is more than a notebook metric: robustness, docs, and ops procedures are required.
+
+Why other options are incorrect:
+  A, C, D: Notebook scores, demos, or hoping ops improvises are not a go decision.
+
+
+QUESTION 53  [Manage AI Model Development and Evaluation]  (used in Mock Exam 1)
+------------------------------------------------------------
+Stakeholders want maximum accuracy; compliance wants a glass-box model for credit decisions.
+
+What should the AI project manager do?
+
+  A. Ignore compliance because accuracy is the product.
+  B. Document selection criteria and choose an approach that meets performance and interpretability constraints.
+  C. Train both in secret and only show the accurate one.
+  D. Let a vendor pick, then claim the choice was objective.
+
+ANSWER: B
+
+Why this is correct:
+Algorithm selection includes documented trade-offs against business and compliance constraints.
+
+Why other options are incorrect:
+  A, C: Hiding the constraint or the model is a governance failure.
+  D: Outsourcing the rationale still requires documented, defensible criteria.
+
+
+QUESTION 54  [Manage AI Model Development and Evaluation]  (used in Mock Exam 3)
+------------------------------------------------------------
+Hyperparameter search is running without a held-out test set; scientists tune until the validation score looks perfect.
+
+What should the AI project manager require?
+
+  A. Continue until validation accuracy is 100%.
+  B. Proper train/validation/test discipline and documented selection to avoid overfitting the selection process.
+  C. Tune on production traffic directly.
+  D. Use the same 50 rows for train, val, and test to be consistent.
+
+ANSWER: B
+
+Why this is correct:
+Training management includes honest validation and a locked test set.
+
+Why other options are incorrect:
+  A, C, D: Endless validation hacking, production tuning, or tiny reused splits invalidate evaluation.
+
+
+QUESTION 55  [Manage AI Model Development and Evaluation]  (used in Mock Exam 1)
+------------------------------------------------------------
+Feature engineering uses a spreadsheet macro that only one analyst can run on a desktop.
+
+What should the AI project manager do?
+
+  A. Accept it as tribal knowledge.
+  B. Move transformations into a reproducible, documented pipeline others can execute.
+  C. Screenshot the spreadsheet as documentation.
+  D. Password-protect the macro and consider it controlled.
+
+ANSWER: B
+
+Why this is correct:
+Preparation must be reproducible and documented, not person-dependent macros.
+
+Why other options are incorrect:
+  A, C, D: Tribal knowledge, screenshots, and passwords are not pipeline reproducibility.
+
+
+QUESTION 56  [Manage AI Model Development and Evaluation]  (used in Mock Exam 3)
+------------------------------------------------------------
+Peer review finds that accuracy was reported on the training set only.
+
+What should the AI project manager do in QA/QC?
+
+  A. Publish the number because it is larger.
+  B. Enforce evaluation protocols on appropriate held-out or cross-validated results before any go/no-go.
+  C. Average train and test scores to compromise.
+  D. Switch metrics until a flattering number appears.
+
+ANSWER: B
+
+Why this is correct:
+QA/QC requires honest performance measurement, not training-set vanity metrics.
+
+Why other options are incorrect:
+  A, C, D: Publishing, blending, or shopping metrics misrepresents model quality.
+
+
+QUESTION 57  [Manage AI Model Development and Evaluation]  (used in Mock Exam 3)
+------------------------------------------------------------
+A ranking model is accurate overall but fails on a new product category that will be 25% of next quarter's catalog.
+
+What should the AI project manager consider before operationalization?
+
+  A. Overall accuracy is enough.
+  B. Robustness and generalization to the upcoming category mix, and whether success criteria are still met.
+  C. That marketing can avoid the new category.
+  D. Retraining only after customers complain in production.
+
+ANSWER: B
+
+Why this is correct:
+Readiness includes generalization to the conditions the business will actually face.
+
+Why other options are incorrect:
+  A, C, D: Overall averages, avoiding the business plan, or waiting for complaints are not a go review.
+
+
+QUESTION 58  [Manage AI Model Development and Evaluation]  (used in Mock Exam 3)
+------------------------------------------------------------
+Scientists propose generating synthetic minority defects with a GAN but cannot show that synthetic labels match reality.
+
+What should the AI project manager require?
+
+  A. Unlimited synthetic data because more is always better.
+  B. Validation that synthetic data is fit for purpose, documented, and does not encode artifacts as truth.
+  C. Replacing all real data with GAN output to reduce privacy worry without review.
+  D. Skipping documentation of synthetic generation.
+
+ANSWER: B
+
+Why this is correct:
+Synthetic data is a preparation technique that still needs validation and documentation.
+
+Why other options are incorrect:
+  A, C, D: Unchecked volume, full replacement, or no documentation creates hidden bias and irreproducibility.
+
+
+QUESTION 59  [Manage AI Model Development and Evaluation]  (used in Mock Exam 1)
+------------------------------------------------------------
+A classification threshold was chosen to maximize accuracy on an imbalanced fraud set, causing almost no alerts.
+
+What should the AI project manager do?
+
+  A. Celebrate high accuracy.
+  B. Align metrics and thresholds with business costs of misses versus false alerts, and re-evaluate.
+  C. Lower the threshold randomly each day.
+  D. Remove the fraud team from threshold discussions.
+
+ANSWER: B
+
+Why this is correct:
+QA and evaluation must use metrics and thresholds that match operational cost, not default accuracy on imbalance.
+
+Why other options are incorrect:
+  A: Accuracy can hide a no-alert model.
+  C, D: Random thresholds and excluding operators are not controlled evaluation.
+
+
+QUESTION 60  [Manage AI Model Development and Evaluation]  (used in Mock Exam 2)
+------------------------------------------------------------
+The intended algorithm family requires labeled outcomes, but labels will not exist for six months.
+
+What should the AI project manager do regarding technique selection?
+
+  A. Insist on supervised learning and wait silently.
+  B. Reassess learning paradigm against available labels, or change the problem framing with stakeholders.
+  C. Invent labels from employee hunches at scale without disclosure.
+  D. Use the unlabeled file as if it were labeled.
+
+ANSWER: B
+
+Why this is correct:
+Technique choice depends on label availability; otherwise the problem or approach must change.
+
+Why other options are incorrect:
+  A, C, D: Silent waiting, fake labels, or pretending unlabeled data is labeled are not valid selections.
+
+
+QUESTION 61  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+A model is ready, but there is no rollback plan, no owner for the endpoint, and no validation checklist.
+
+What should the AI project manager do when managing the deployment plan?
+
+  A. Deploy on Friday night to 'get it over with'.
+  B. Create a deployment strategy with infrastructure, integration, rollback, and validation criteria.
+  C. Let engineers SSH into production ad hoc.
+  D. Skip planning because cloud deploys are reversible by nature.
+
+ANSWER: B
+
+Why this is correct:
+Deployment planning includes strategy, resources, integration, rollback, and validation.
+
+Why other options are incorrect:
+  A, C, D: Friday dumps, ad hoc SSH, and assuming reversibility are not a plan.
+
+
+QUESTION 62  [Operationalize AI Solution]  (used in Mock Exam 2)
+------------------------------------------------------------
+During go-live, the model API works in staging but returns errors for a subset of production users.
+
+What should the AI project manager do while managing deployment?
+
+  A. Announce success based on staging.
+  B. Coordinate issue resolution, validate production behavior, and only then confirm deployment.
+  C. Disable monitoring so errors stop appearing.
+  D. Blame users for sending 'bad JSON'.
+
+ANSWER: B
+
+Why this is correct:
+Deployment management includes production validation and issue resolution, not staging theater.
+
+Why other options are incorrect:
+  A, C: Staging-only success and hiding errors are false go-lives.
+  D: Even if some payloads fail, the team must diagnose and fix the production path.
+
+
+QUESTION 63  [Operationalize AI Solution]  (used in Mock Exam 2)
+------------------------------------------------------------
+A credit model has been in production two months. Nobody owns retraining, versioning, or approval of changes.
+
+What should the AI project manager establish?
+
+  A. Ad hoc scientist access to overwrite the production file.
+  B. Model lifecycle governance: versioning, change control, monitoring, and retraining process.
+  C. A rule that models never change after launch.
+  D. Weekly untracked 'tweaks' in production notebooks.
+
+ANSWER: B
+
+Why this is correct:
+Governance covers lifecycle, versions, change control, monitoring, and retraining.
+
+Why other options are incorrect:
+  A, D: Uncontrolled overwrites and tweaks are the failure mode.
+  C: Never changing ignores drift; governance manages change, it does not ban it.
+
+
+QUESTION 64  [Operationalize AI Solution]  (used in Mock Exam 2)
+------------------------------------------------------------
+Business KPI 'loan conversion' is up, but model precision on high-risk segments is falling.
+
+What should the AI project manager do when overseeing metrics?
+
+  A. Report only conversion because it is the sponsor metric.
+  B. Track both business KPIs and model-performance metrics with alerts when thresholds breach.
+  C. Stop technical monitoring after 30 days.
+  D. Average all segments so the drop disappears.
+
+ANSWER: B
+
+Why this is correct:
+Operational metrics include business and model health, with alerting—not a single vanity KPI.
+
+Why other options are incorrect:
+  A, C, D: Hiding technical decay or averaging away segments misses risk.
+
+
+QUESTION 65  [Operationalize AI Solution]  (used in Mock Exam 3)
+------------------------------------------------------------
+The project is closing. Teams disagree about what worked in data labeling and what failed in change management.
+
+What should the AI project manager do?
+
+  A. Skip lessons learned to close on time.
+  B. Capture outcomes, lessons, and knowledge for future AI initiatives and operations.
+  C. Record only successes for the newsletter.
+  D. Store undocumented opinions in private chats.
+
+ANSWER: B
+
+Why this is correct:
+Closing includes outcomes, lessons learned, and transferable knowledge—successes and failures.
+
+Why other options are incorrect:
+  A, C, D: Skipping, sanitizing, or privatizing lessons wastes the investment.
+
+
+QUESTION 66  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+The project team is disbanding next week. Production support has not been named.
+
+What should the AI project manager do in the transition plan?
+
+  A. Leave a wiki page titled 'good luck'.
+  B. Plan handover, name operational roles, transfer knowledge, and define maintenance procedures.
+  C. Keep the intern as unofficial owner forever.
+  D. Shut off logging to reduce support tickets.
+
+ANSWER: B
+
+Why this is correct:
+Transition requires named owners, knowledge transfer, and maintenance procedures.
+
+Why other options are incorrect:
+  A, C, D: Hope, unofficial interns, and dark logging are not a handover.
+
+
+QUESTION 67  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+The contingency document exists but has never been exercised. A model outage would stop warehouse picking.
+
+What should the AI project manager do?
+
+  A. Assume a document equals readiness.
+  B. Test and validate incident, rollback, and continuity procedures under realistic conditions.
+  C. Add more adjectives to the document.
+  D. Rely on the cloud vendor's marketing SLA slide.
+
+ANSWER: B
+
+Why this is correct:
+Contingency oversight includes testing procedures, not paperwork alone.
+
+Why other options are incorrect:
+  A, C: Unread or untested documents fail in incidents.
+  D: A vendor slide is not an exercised business continuity plan.
+
+
+QUESTION 68  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+A team wants to release a new model version by replacing files on the server with no record of what changed.
+
+What should model governance require?
+
+  A. File replacement as the standard process.
+  B. Versioned releases, change control, and an auditable path to roll back.
+  C. Emailing pickle files to the on-call phone.
+  D. Using production as the only test environment.
+
+ANSWER: B
+
+Why this is correct:
+Governance requires versioning, change control, and rollback—not sneaker-net file swaps.
+
+Why other options are incorrect:
+  A, C, D: Unrecorded swaps, email artifacts, and prod-as-test violate control.
+
+
+QUESTION 69  [Operationalize AI Solution]  (used in Mock Exam 3)
+------------------------------------------------------------
+Shadow-mode scores look good, but users will see the model for the first time at full cutover tomorrow.
+
+What should the AI project manager consider in deployment?
+
+  A. Full cutover is always fastest, so proceed.
+  B. A controlled rollout (canary/phased) with production validation and rollback if user workflows fail.
+  C. Turning off the legacy process with no overlap.
+  D. Skipping user communication to avoid anxiety.
+
+ANSWER: B
+
+Why this is correct:
+Deployment should validate in production conditions with a rollback path; shadow success is not user-flow success.
+
+Why other options are incorrect:
+  A, C: Big-bang cutover without overlap is high operational risk.
+  D: Silence increases adoption and incident risk.
+
+
+QUESTION 70  [Operationalize AI Solution]  (used in Mock Exam 3)
+------------------------------------------------------------
+Drift alerts fire nightly but nobody is on-call and the dashboard is a personal notebook.
+
+What should the AI project manager do?
+
+  A. Mute the alerts.
+  B. Implement owned monitoring, thresholds, and operational response as part of metrics and governance.
+  C. Check the notebook once a quarter.
+  D. Let customers detect drift first.
+
+ANSWER: B
+
+Why this is correct:
+Metrics oversight means operational monitoring with owners and response, not personal notebooks.
+
+Why other options are incorrect:
+  A, C, D: Muting, quarterly glances, or customer-as-monitor are not control.
+
+
+QUESTION 71  [Operationalize AI Solution]  (used in Mock Exam 3)
+------------------------------------------------------------
+After six months, the champion model is stale. A challenger beats it offline.
+
+What should governance of operationalization include?
+
+  A. Replace champion immediately in all markets with no online test.
+  B. Use a controlled champion-challenger process with monitoring and approval.
+  C. Never replace champion models.
+  D. Average champion and challenger scores without tracking versions.
+
+ANSWER: B
+
+Why this is correct:
+Lifecycle management uses controlled comparison, monitoring, and change approval.
+
+Why other options are incorrect:
+  A, C, D: Blind swap, never updating, or unversioned blends are poor governance.
+
+
+QUESTION 72  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+Support staff do not know how to revert yesterday's model after a bad release.
+
+What should the transition and contingency plans include?
+
+  A. A tested rollback procedure and trained operational owners.
+  B. A reminder that 'cloud is agile'.
+  C. Re-training from scratch during the outage as the only path.
+  D. Waiting for the original project team to be rehired.
+
+ANSWER: A
+
+Why this is correct:
+Handover and contingency must make rollback executable by the people who will run the system.
+
+Why other options are incorrect:
+  B, C, D: Slogans, from-scratch retraining mid-outage, or missing owners are not rollback.
+
+
+QUESTION 73  [Operationalize AI Solution]  (used in Mock Exam 2)
+------------------------------------------------------------
+A deployment checklist exists but integration testing with the billing system was skipped.
+
+What should the AI project manager do?
+
+  A. Deploy and patch billing later if invoices break.
+  B. Complete integration validation against the checklist before go-live.
+  C. Mark the checklist item N/A to stay on schedule.
+  D. Ask finance to reconcile errors manually forever.
+
+ANSWER: B
+
+Why this is correct:
+Deployment planning and execution include integration validation, not skipping it for the date.
+
+Why other options are incorrect:
+  A, C, D: Schedule-driven skips and manual forever-fixes export defects to the business.
+
+
+QUESTION 74  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+Lessons learned mention that labeling guidelines changed three times without versioning.
+
+What should the AI project manager ensure is transferred to operations?
+
+  A. Nothing; labeling is a past project task.
+  B. Versioned data/label processes if retraining will continue in operations.
+  C. A motivational poster.
+  D. Only the final model binary.
+
+ANSWER: B
+
+Why this is correct:
+Knowledge transfer for AI must include how data and labels will be kept consistent for future retraining.
+
+Why other options are incorrect:
+  A, D: Handing over only a binary leaves operations unable to maintain quality.
+  C: Posters are not operating procedures.
+
+
+QUESTION 75  [Operationalize AI Solution]  (used in Mock Exam 1)
+------------------------------------------------------------
+An executive wants a live model demo on the public stage using production customer data.
+
+What should the AI project manager do?
+
+  A. Agree, because demos drive adoption.
+  B. Refuse unsafe use of production personal data and offer a privacy-safe demo dataset.
+  C. Blur faces but show account numbers.
+  D. Stream the production dashboard to social media with a disclaimer.
+
+ANSWER: B
+
+Why this is correct:
+Operational and responsible-use controls still apply at demo time; production PII is not a prop.
+
+Why other options are incorrect:
+  A, C, D: Adoption pressure and partial masking do not authorize public exposure of customer data.
+
+
+QUESTION 76  [Operationalize AI Solution]  (used in Mock Exam 3)
+------------------------------------------------------------
+Picking robots idle when the vision model times out. There is no fallback to manual scan.
+
+What should the contingency plan include?
+
+  A. A defined degraded mode and human fallback with tested procedures.
+  B. A hope that timeouts are rare.
+  C. Rebooting the entire warehouse network first, every time.
+  D. No plan, to encourage the model to 'try harder'.
+
+ANSWER: A
+
+Why this is correct:
+Contingency for operational AI includes degraded modes and exercised fallbacks.
+
+Why other options are incorrect:
+  B, C, D: Hope, over-broad reboots, and no plan are not continuity.
+
+
+QUESTION 77  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+Logs from an HR screening model include candidate names, national IDs, and interview notes in plain text.
+
+What should the AI project manager do when overseeing the privacy and security plan?
+
+  A. Keep logging everything for 'debuggability'.
+  B. Stop capturing unnecessary PII, apply encryption and access control, and set retention/governance for remaining data.
+  C. Share logs with a Slack channel for transparency.
+  D. Store logs forever in case of lawsuits.
+
+ANSWER: B
+
+Why this is correct:
+Privacy/security plans minimize PII in logs and enforce encryption, access, and retention.
+
+Why other options are incorrect:
+  A, C, D: Maximal logging, chat sharing, and indefinite retention increase exposure.
+
+
+QUESTION 78  [Support Responsible and Trustworthy AI]  (used in Mock Exam 3)
+------------------------------------------------------------
+A vendor cannot explain why certain loan applications are declined by their hosted model.
+
+What should the AI project manager do regarding transparency?
+
+  A. Accept 'it's a neural net' as sufficient.
+  B. Establish explainability requirements, document data/model choices, and maintain decision audit trails.
+  C. Hide the model from compliance to avoid questions.
+  D. Provide a generic blog post instead of model-specific rationale.
+
+ANSWER: B
+
+Why this is correct:
+Transparency includes documented selection, data lineage, explainability suited to stakeholders, and audit trails.
+
+Why other options are incorrect:
+  A, C, D: Hand-waving, hiding, or generic marketing copy is not transparency management.
+
+
+QUESTION 79  [Support Responsible and Trustworthy AI]  (used in Mock Exam 2)
+------------------------------------------------------------
+A hiring model trained mostly on past senior male hires scores women and career-changers systematically lower.
+
+What should the AI project manager do for bias checks?
+
+  A. Ship anyway if overall accuracy is high.
+  B. Analyze representation, test fairness across groups, review outputs, and apply mitigation before use.
+  C. Remove the gender field and assume bias is gone.
+  D. Ask the model to add 10 points to all women as a hidden hack.
+
+ANSWER: B
+
+Why this is correct:
+Bias work is systematic: data, metrics, output review, and mitigation—not a single field drop or covert hack.
+
+Why other options are incorrect:
+  A: Overall accuracy can mask disparate impact.
+  C, D: Dropping a proxy-incomplete field or secret score hacks are not proper fairness control.
+
+
+QUESTION 80  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+A new sector AI rule will take effect before the planned launch. The team has not read it.
+
+What should the AI project manager do for regulatory monitoring?
+
+  A. Launch first and retrofit if fined.
+  B. Track the requirement, engage legal/compliance, and adjust the plan and controls before launch.
+  C. Assume general GDPR knowledge covers every sector rule.
+  D. Assign the intern to 'watch Twitter for regs'.
+
+ANSWER: B
+
+Why this is correct:
+Compliance monitoring is active: track rules, coordinate with legal, implement controls, document.
+
+Why other options are incorrect:
+  A, C, D: Launch-first, over-generalizing, or informal social tracking is not a compliance process.
+
+
+QUESTION 81  [Support Responsible and Trustworthy AI]  (used in Mock Exam 2)
+------------------------------------------------------------
+Auditors ask who approved training data snapshots and why a model version was selected.
+
+What should already exist?
+
+  A. Informal chat messages only.
+  B. Accountability records: versions, approvals, go/no-go decisions, and chain of custody for data and models.
+  C. A slide that says 'we take ethics seriously'.
+  D. Deleted notebooks to reduce clutter.
+
+ANSWER: B
+
+Why this is correct:
+Accountability documentation and audit trails must reconstruct decisions and artifacts.
+
+Why other options are incorrect:
+  A, C, D: Chats, slogans, and deleted work cannot satisfy an audit.
+
+
+QUESTION 82  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+A chatbot will be trained on support tickets that include passwords customers typed by mistake.
+
+What should the privacy plan require?
+
+  A. Train on raw tickets for authenticity.
+  B. Redact secrets/PII, restrict access, and document handling throughout the lifecycle.
+  C. Fine-tune on tickets then publish the model weights publicly.
+  D. Keep passwords because they might be features.
+
+ANSWER: B
+
+Why this is correct:
+PII and secrets in training data require redaction, access control, and documented handling.
+
+Why other options are incorrect:
+  A, C, D: Raw secrets, public weights, and password-as-feature are severe failures.
+
+
+QUESTION 83  [Support Responsible and Trustworthy AI]  (used in Mock Exam 3)
+------------------------------------------------------------
+Stakeholders want a one-line reason code for every automated insurance decision.
+
+What should the AI project manager do?
+
+  A. Refuse all explainability as technically impossible.
+  B. Set explainability requirements that match the decision's impact and audience, and implement suitable methods.
+  C. Provide a random proverb as the reason code.
+  D. Show SHAP plots only to customers with no interpretation help.
+
+ANSWER: B
+
+Why this is correct:
+Explainability is a managed requirement scaled to risk and audience—not a refusal or a gimmick.
+
+Why other options are incorrect:
+  A, C: Blanket refusal or nonsense reasons fail transparency.
+  D: Raw plots without audience fit are not stakeholder communication.
+
+
+QUESTION 84  [Support Responsible and Trustworthy AI]  (used in Mock Exam 3)
+------------------------------------------------------------
+Fairness tests were run once on launch data two years ago. The user population has changed.
+
+What should the AI project manager do?
+
+  A. Rely on the original report indefinitely.
+  B. Treat bias monitoring as ongoing, with periodic tests as data and populations shift.
+  C. Run fairness tests only when a journalist calls.
+  D. Disable testing because it slows releases.
+
+ANSWER: B
+
+Why this is correct:
+Bias checks are not one-time; monitoring continues as data and context drift.
+
+Why other options are incorrect:
+  A, C, D: One-time, reactive, or disabled testing leaves new harm undetected.
+
+
+QUESTION 85  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+A model change went to production without recording who approved it or which data snapshot was used.
+
+What is the primary accountability gap?
+
+  A. Insufficient color contrast on the dashboard.
+  B. Missing audit trail for model/data versions and approval decisions.
+  C. Too many unit tests.
+  D. Using a boring repository name.
+
+ANSWER: B
+
+Why this is correct:
+Accountability requires version control and recorded approvals for models and data.
+
+Why other options are incorrect:
+  A, C, D: UI contrast, extra tests, and naming are not the audit-trail gap described.
+
+
+QUESTION 86  [Support Responsible and Trustworthy AI]  (used in Mock Exam 3)
+------------------------------------------------------------
+A credit model uses ZIP code. Fairness review shows strong proxy effects for race.
+
+What should the AI project manager do?
+
+  A. Keep ZIP because it was not named race.
+  B. Treat proxy bias as in-scope, analyze impact, and mitigate or remove the feature with documented rationale.
+  C. Hash ZIP codes and consider the issue solved.
+  D. Add more ZIP-related features to 'balance' the model.
+
+ANSWER: B
+
+Why this is correct:
+Bias checks include proxies, not only explicit sensitive attributes.
+
+Why other options are incorrect:
+  A, C, D: Literalism, hashing, or adding more geographic signal does not fix proxy discrimination.
+
+
+QUESTION 87  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+Security review finds training data in an open bucket and no encryption at rest.
+
+What should the privacy and security plan require immediately?
+
+  A. A blog post about zero trust.
+  B. Access controls, encryption, and closure of public exposure, plus a review of what leaked.
+  C. Moving the same open bucket to another region.
+  D. Waiting for the next annual pentest.
+
+ANSWER: B
+
+Why this is correct:
+Exposed training data requires immediate access control, encryption, and incident review.
+
+Why other options are incorrect:
+  A, C, D: Messaging, region moves, and annual waits do not stop an open bucket.
+
+
+QUESTION 88  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+A public-sector benefits model will deny aid automatically. Citizens must be able to contest decisions.
+
+What should be designed in?
+
+  A. A closed model with no appeal, to reduce workload.
+  B. Accountability: recorded decision rationale, human review path, and auditable logs.
+  C. A CAPTCHA as the appeal process.
+  D. Deleting logs after 24 hours for privacy theater.
+
+ANSWER: B
+
+Why this is correct:
+High-impact automated decisions need contestability, recorded rationale, and audit logs.
+
+Why other options are incorrect:
+  A, C: No appeal or CAPTCHA-as-appeal denies due process.
+  D: Ultra-short log deletion fights accountability, not just privacy.
+
+
+QUESTION 89  [Support Responsible and Trustworthy AI]  (used in Mock Exam 1)
+------------------------------------------------------------
+A third-party LLM will process internal incident reports. The vendor trains on customer prompts by default.
+
+What should the AI project manager do?
+
+  A. Accept defaults to get a discount.
+  B. Negotiate/disable training on prompts, review data handling, and ensure contractual privacy/security controls.
+  C. Paste incident reports including names to test the model.
+  D. Assume SOC2 logos mean the vendor will not train on your data.
+
+ANSWER: B
+
+Why this is correct:
+Vendor processing of sensitive data requires contractual and technical privacy controls, including opting out of training.
+
+Why other options are incorrect:
+  A, C, D: Discounts, live PII tests, and logo assumptions are not a privacy plan.
+
+
+QUESTION 90  [Support Responsible and Trustworthy AI]  (used in Mock Exam 3)
+------------------------------------------------------------
+During bias testing, a small demographic group has too few samples for a stable fairness metric.
+
+What should the AI project manager do?
+
+  A. Ignore the group because the metric is noisy.
+  B. Treat small-n as a data representation risk, report uncertainty, and seek more data or constrained deployment.
+  C. Duplicate the few rows until the p-value looks good.
+  D. Exclude the group from the product silently.
+
+ANSWER: B
+
+Why this is correct:
+Sparse groups are a representation problem. Report uncertainty and mitigate; do not fake stats or silently exclude.
+
+Why other options are incorrect:
+  A, C, D: Ignoring, duplicating, or silent exclusion are unethical or invalid.
