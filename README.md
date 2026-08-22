@@ -33,6 +33,9 @@ powershell -ExecutionPolicy Bypass -File .\laptop-speedup.ps1 -Clean
 Copy `laptop-speedup.ps1` into Downloads if you only copied the `.sh` file.
 The `.sh` file is for Linux/macOS (or Git Bash / WSL), not Command Prompt.
 
+If PowerShell shows red parse errors about `{` or `%`, you still have the old
+file. Download the latest `laptop-speedup.ps1` and replace the copy in Downloads.
+
 ### Linux / macOS (or Git Bash / WSL)
 
 ```bash
