@@ -66,15 +66,16 @@ function Get-FolderSizeBytes {
 }
 
 function Get-CleanupTargets {
-    $localAppData = $env:LOCALAPPDATA
-    $userProfile = $env:USERPROFILE
-    $targets = @(
-        $env:TEMP,
-        (Join-Path $localAppData "Temp"),
-        (Join-Path $localAppData "Microsoft\Windows\INetCache"),
-        (Join-Path $userProfile ".cache"),
-        (Join-Path $userProfile ".npm\_cacache")
-    )
+    $targets = @()
+    if ($env:TEMP) { $targets += $env:TEMP }
+    if ($env:LOCALAPPDATA) {
+        $targets += Join-Path $env:LOCALAPPDATA "Temp"
+        $targets += Join-Path $env:LOCALAPPDATA "Microsoft\Windows\INetCache"
+    }
+    if ($env:USERPROFILE) {
+        $targets += Join-Path $env:USERPROFILE ".cache"
+        $targets += Join-Path $env:USERPROFILE ".npm\_cacache"
+    }
     $targets | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Select-Object -Unique
 }
 
@@ -128,12 +129,16 @@ try {
 }
 
 Write-Section "Disk space"
-Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3" | ForEach-Object {
-    $usedPct = if ($_.Size -gt 0) { [int]((($_.Size - $_.FreeSpace) / $_.Size) * 100) } else { 0 }
-    Write-Host ('{0}  {1} free of {2} ({3} percent used)' -f $_.DeviceID, (Format-Bytes $_.FreeSpace), (Format-Bytes $_.Size), $usedPct)
-    if ($usedPct -ge 90) {
-        Write-Host ('Hint: {0} is almost full; low disk space slows Windows.' -f $_.DeviceID)
+try {
+    Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3" | ForEach-Object {
+        $usedPct = if ($_.Size -gt 0) { [int]((($_.Size - $_.FreeSpace) / $_.Size) * 100) } else { 0 }
+        Write-Host ('{0}  {1} free of {2} ({3} percent used)' -f $_.DeviceID, (Format-Bytes $_.FreeSpace), (Format-Bytes $_.Size), $usedPct)
+        if ($usedPct -ge 90) {
+            Write-Host ('Hint: {0} is almost full; low disk space slows Windows.' -f $_.DeviceID)
+        }
     }
+} catch {
+    Write-Host "Could not read disk stats."
 }
 
 Write-Section "Top CPU processes"
