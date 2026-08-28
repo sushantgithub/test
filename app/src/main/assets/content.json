@@ -1,0 +1,1302 @@
+{
+  "topics": [
+    {
+      "id": "knn",
+      "emoji": "🏘️",
+      "title": "KNN — K-Nearest Neighbor",
+      "tag": "Classification",
+      "category": "Classification",
+      "tags": "knn k-nearest neighbor lazy learning classification similarity edge device slow",
+      "analogies": [
+        "**🏡 Layman Analogy — \"Ask Your Neighbours\"**\n      You just moved to Pune and want to know which sabzi mandi is the best. You don't google it — you just ask your 5 nearest neighbours. 4 of them say \"Jangli Maharaj Road wala\" and 1 says somewhere else. You go with the majority — that's KNN.\n\n      The algorithm literally stores all past data and when a new question comes, it finds the K most similar old examples and copies their answer."
+      ],
+      "howItWorks": [
+        "**Step by step:**\n      1. During \"training\" — it just saves all the data. Does NOTHING else. (That's why it's called a lazy learner — macha homework hi nahi kiya!)\n\n      2. When a new item arrives — it calculates distance to every saved item\n\n      3. Picks the K closest ones (K is a number you choose, like 3 or 5)\n\n      4. Does majority vote → assigns that label to the new item"
+      ],
+      "uses": [
+        "Content moderation classifying posts by comparing to most similar labeled examples",
+        "Estimating a property price from comparable nearby recent sales",
+        "Anything where the key phrase is **\"similar to training examples\"**"
+      ],
+      "traps": [
+        "**Edge/IoT device?** KNN is a BAD choice — it needs to store the ENTIRE dataset in memory at prediction time. A small device doesn't have that RAM.",
+        "**Dataset grows bigger?** KNN gets SLOWER because every prediction means comparing to MORE stored examples.",
+        "**KNN ≠ K-Means** — KNN needs labels (supervised). K-Means has no labels (unsupervised). Completely different algorithms, similar-sounding names."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"A product matching feature based on KNN grows unacceptably slow as catalog expands. Which KNN disadvantage?\"",
+          "a": "A: It slows at prediction on large datasets — lazy learner pays at prediction time, not training time."
+        },
+        {
+          "q": "Q: \"KNN proposed for assembly line edge device. What should PM do?\"",
+          "a": "A: Evaluate whether KNN is suitable for device constraints (needs full dataset in memory = bad for edge)."
+        }
+      ],
+      "keywords": [
+        "lazy learner",
+        "similarity-based",
+        "supervised",
+        "slow at scale"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "naive-bayes",
+      "emoji": "📊",
+      "title": "Naive Bayes — The Word Counter",
+      "tag": "Classification",
+      "category": "Classification",
+      "tags": "naive bayes text classification word frequency spam email tickets probabilistic",
+      "analogies": [
+        "**🏥 Layman Analogy — \"Doctor's Symptom Checklist\"**\n      A doctor sees 1,000 patients. He notices: patients with fever + cough + body pain → 80% had flu. Patients with fever + rash → 90% had dengue. Now when a new patient walks in with fever + cough, the doctor thinks — \"these symptoms appeared most with flu cases\" → probably flu.\n\n      Naive Bayes does the SAME with words. Instead of symptoms, it counts words. \"Free money win prize\" → 95% of emails with these words were spam. So new email with these words → probably spam!"
+      ],
+      "howItWorks": [
+        "**How it works (ek dum simple):**\n      During training → count how often each word appears in each category.\n\n      For a new item → check which category has the highest probability given those words.\n\n      \"Naive\" = it assumes each word is independent of others (oversimplification, but works amazingly well for text!)."
+      ],
+      "uses": [
+        "\"word frequencies\" or \"which words appear and how often\"",
+        "Email classification (spam/invoice/newsletter)",
+        "News article categorisation (politics/sports/tech)",
+        "Support ticket routing (billing/technical/general)",
+        "\"Simple, fast baseline model\" for text"
+      ],
+      "traps": [
+        "SVM, KNN, Decision Tree — all wrong answers when question mentions \"word frequency\" + \"text classification\". Naive Bayes is the CPMAI-named algorithm for this."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"Online news service wants to sort articles into politics/sports/tech based on which words appear how often. Which algo?\"",
+          "a": "A: Naive Bayes — the CPMAI curriculum explicitly names it for text classification using word frequencies."
+        }
+      ],
+      "keywords": [
+        "text classification",
+        "word frequency",
+        "probabilistic",
+        "supervised",
+        "fast training"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "svm",
+      "emoji": "🛣️",
+      "title": "SVM — Support Vector Machine",
+      "tag": "Classification",
+      "category": "Classification",
+      "tags": "svm support vector machine binary classification margin hyperplane sentiment spam",
+      "analogies": [
+        "**🏏 Layman Analogy — \"The Widest Road Between Two Groups\"**\n      Imagine a cricket stadium. Left side = India fans, Right side = Pakistan fans. Security wants to put a barricade in between. The smart move? Put the barricade AS FAR AS POSSIBLE from both groups — maximise the buffer zone. The fans sitting right at the edge (nearest to the barricade) are the \"support vectors.\"\n\n      SVM does exactly this with data. It draws the widest possible boundary between two groups. The data points closest to the boundary are the support vectors."
+      ],
+      "howItWorks": [
+        "**Key terms decoded:**\n\n      **Hyperplane** = the boundary/barricade (can be a line in 2D, a plane in 3D, or higher dimensions)\n\n      **Maximum margin** = the widest possible gap between the two groups\n\n      **Support vectors** = the data points sitting right at the edge — they define where the boundary goes"
+      ],
+      "uses": [
+        "\"separates two groups with widest possible margin\"",
+        "\"boundary fixed by the hardest cases nearest the boundary\"",
+        "Binary tasks: spam/not spam, faulty/normal, positive/negative sentiment",
+        "Large history of categorised examples → supervised binary classification"
+      ],
+      "traps": [
+        "**SVM = binary (two classes only)**. If question asks to expand from binary to multiclass → that's a scope change, needs change control!",
+        "SVM is NOT for text classification (that's Naive Bayes).",
+        "SVM is NOT interpretable/explainable (Decision Tree is)."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"Recommends supervised algo that separates two groups with widest possible margin. Which algo?\"",
+          "a": "A: SVM — \"widest margin\" + \"closest points define the boundary\" = SVM signature."
+        },
+        {
+          "q": "Q: \"SVM spam detector. Customer wants to also categorise legitimate emails into subcategories. PM should?\"",
+          "a": "A: Initiate change control — it's a scope change AND SVM is designed for binary, multiclass needs a different approach."
+        }
+      ],
+      "keywords": [
+        "binary classification",
+        "maximum margin",
+        "supervised",
+        "hyperplane"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "decision-tree",
+      "emoji": "🌳",
+      "title": "Decision Tree — The KBC Flowchart",
+      "tag": "Classification",
+      "category": "Classification",
+      "tags": "decision tree white box interpretable explainable audit trace steps regulated",
+      "analogies": [
+        "**📺 Layman Analogy — \"KBC (Kaun Banega Crorepati)\"**\n      KBC asks one question at a time. Your answer leads to the next question. Eventually you reach a result. That's a Decision Tree — a series of yes/no questions arranged in a tree shape.\n\n      \"Is temperature above 38°C? → Yes → Is there cough? → Yes → Likely Flu.\" You can trace EVERY decision path from top to bottom. Zero mystery. A judge, auditor, or regulator can follow each step easily."
+      ],
+      "howItWorks": [
+        "**Why it's special:**\n\n      ✅ **White-box** = transparent. You can see exactly why it made each decision.\n\n      ✅ Works with both numbers and categories\n\n      ✅ Works even with small datasets\n\n      ✅ No need for heavy computing power\n\n      ❌ Not as accurate as complex models on large data"
+      ],
+      "uses": [
+        "\"follow the reasoning in plain steps\"",
+        "\"fully traceable and explainable for audits\"",
+        "\"regulator requires explanation for each decision\"",
+        "Limited data + limited computing",
+        "Regulated environment (banking, healthcare, legal)"
+      ],
+      "traps": [
+        "**Random Forest ≠ explainable** — Random Forest combines 500 decision trees. You CANNOT trace the path anymore. For audit/explainability → single Decision Tree, NOT Random Forest!",
+        "Neural Networks = opposite of Decision Tree (black-box, not interpretable)."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"Staff need to follow reasoning behind each flag in plain steps. Which algo?\"",
+          "a": "A: Decision Tree — if-then path is fully readable, white-box."
+        }
+      ],
+      "keywords": [
+        "white-box",
+        "interpretable",
+        "audit-friendly",
+        "if-then rules",
+        "supervised"
+      ],
+      "vs": [
+        "**Decision Tree vs Random Forest:** Decision Tree = 1 tree = you can trace every decision. Random Forest = 500 trees combined = better accuracy but you can't explain WHY. Audit/regulated = Decision Tree always wins."
+      ],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "random-forest",
+      "emoji": "🌲🌲🌲",
+      "title": "Random Forest — 500 Experts Vote",
+      "tag": "Ensemble",
+      "category": "Classification",
+      "tags": "random forest ensemble multiple trees black box accuracy audit wrong",
+      "analogies": [
+        "**📊 Layman Analogy — \"500 Doctors, Majority Vote\"**\n      Instead of asking 1 doctor (Decision Tree), you ask 500 doctors. Each doctor looks at a random subset of your symptoms. They all vote. Majority wins. This is more accurate than any single doctor — but you can't explain WHY the crowd voted the way it did. It's a collective black-box."
+      ],
+      "howItWorks": [
+        "**In ML terms:**\n\n      Builds hundreds of decision trees, each trained on a random sample of data and features. They all vote. The majority wins. More accurate but less interpretable."
+      ],
+      "uses": [],
+      "traps": [
+        "Random Forest appears mostly as a **WRONG ANSWER** in the mocks — specifically in audit/explainability questions where Decision Tree is correct.",
+        "If question says \"fully traceable\" or \"explain each decision\" → Decision Tree, NOT Random Forest."
+      ],
+      "examQs": [],
+      "keywords": [
+        "ensemble",
+        "black-box",
+        "high accuracy",
+        "not interpretable"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "linear-reg",
+      "emoji": "📈",
+      "title": "Linear Regression — Predict a Number",
+      "tag": "Regression",
+      "category": "Classification",
+      "tags": "linear regression continuous number price temperature sales forecast predict",
+      "analogies": [
+        "**🏠 Layman Analogy — \"Flat Price Calculator\"**\n      In Pune, you notice a pattern: every extra 100 sq ft → price goes up by ₹5 lakhs. Every extra year of age of the building → price drops by ₹1 lakh. You draw a \"best-fit line\" through all historical sale data. Now for any new flat, plug in the measurements → get the predicted price.\n\n      That best-fit line = Linear Regression. It predicts a **continuous number** (not yes/no, not a category — a number like price, temperature, demand units)."
+      ],
+      "howItWorks": [],
+      "uses": [
+        "Predict a price (house, car, property)",
+        "Forecast demand or sales numbers",
+        "Predict temperature in degrees",
+        "Any question where the OUTPUT is a NUMBER, not a category"
+      ],
+      "traps": [
+        "Linear Regression = predicts a NUMBER. If the question wants a category (spam/not spam) → that's classification, not regression.",
+        "Appears frequently as a WRONG ANSWER in text classification questions."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"Predict tomorrow's temperature in degrees Celsius from historical weather data. Which algo?\"",
+          "a": "A: Linear Regression — temperature is a continuous number, not a category."
+        }
+      ],
+      "keywords": [
+        "continuous output",
+        "predicts numbers",
+        "supervised",
+        "forecasting"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "logistic-reg",
+      "emoji": "🎯",
+      "title": "Logistic Regression — Yes or No Probability",
+      "tag": "Classification",
+      "category": "Classification",
+      "tags": "logistic regression binary probability yes no classification",
+      "analogies": [
+        "**🏦 Layman Analogy — \"Loan Approval Probability\"**\n      Will this customer's loan be approved? Not \"how much\" — just YES or NO. The bank model looks at salary, CIBIL score, existing loans and gives you a probability: \"85% chance of approval.\" If above 50% → Approve. Below → Reject.\n\n      That's Logistic Regression. It predicts the probability of a YES/NO outcome."
+      ],
+      "howItWorks": [
+        "Logistic Regression mostly appears as a **wrong answer distractor** — specifically in KNN questions. Know the difference: KNN classifies by finding similar examples. Logistic Regression calculates a mathematical probability boundary. They solve the same problem (binary classification) but differently."
+      ],
+      "uses": [],
+      "traps": [],
+      "examQs": [],
+      "keywords": [
+        "binary probability",
+        "yes/no",
+        "supervised"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "kmeans",
+      "emoji": "🎯",
+      "title": "K-Means — Organise Into Groups",
+      "tag": "Clustering",
+      "category": "Clustering",
+      "tags": "k-means clustering unsupervised segments groups centroid no labels categories",
+      "analogies": [
+        "**👔 Layman Analogy — \"Kapde Wardrobeमें Sort करो\"**\n      You have 200 shirts, trousers, and kurtas all mixed up. You decide to divide them into 4 piles (K=4): formal wear, casual, ethnic, gym wear. You don't have a rule book — you just look at each item and put it in the pile it \"looks most similar to.\"\n\n      K-Means does this automatically with data. You tell it K (how many groups you want). It figures out the groups on its own with NO labels, NO pre-existing categories. Pure discovery."
+      ],
+      "howItWorks": [
+        "**How it works:**\n\n      1. You pick K (e.g., K=4 means 4 clusters)\n\n      2. Algorithm randomly places 4 \"centroid\" points (group centers)\n\n      3. Every data point joins the nearest centroid's group\n\n      4. Centroids move to the average of their group\n\n      5. Repeat until stable → you have K clean groups",
+        "K-Means assigns each data point to EXACTLY ONE cluster. A customer is in segment A. Period. Cannot be in both A and B.\n\n      If question says \"customers belong to multiple groups\" or \"degree of membership\" → that's **Fuzzy C-Means**, not K-Means!"
+      ],
+      "uses": [
+        "\"no predefined categories\" + \"discover natural groupings\"",
+        "Customer segmentation where segments don't exist yet",
+        "\"Business wants exactly 4 distinct segments\""
+      ],
+      "traps": [],
+      "examQs": [],
+      "keywords": [
+        "unsupervised",
+        "no labels needed",
+        "centroid-based",
+        "hard assignment"
+      ],
+      "vs": [
+        "**KNN vs K-Means — the confusing twins:**\n\n    KNN = supervised, has labels, classifies new items. K-Means = unsupervised, no labels, discovers groups. The \"K\" in both just means \"a number you choose\" — completely different algorithms!"
+      ],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "fuzzy",
+      "emoji": "🌫️",
+      "title": "Fuzzy C-Means — \"I Belong to Multiple Groups\"",
+      "tag": "Soft Clustering",
+      "category": "Clustering",
+      "tags": "fuzzy c-means soft clustering membership weight overlap multiple groups brand loyalty",
+      "analogies": [
+        "**👨‍💻 Layman Analogy — \"Sushant's Job Profile\"**\n      Sushant is 60% Product Owner, 30% Business Analyst, 10% QA Engineer. He doesn't fit cleanly into one box. Real life is like this — people, customers, and data points often belong partially to multiple groups.\n\n      Fuzzy C-Means handles this by giving each data point a \"membership score\" (0 to 1) for EVERY cluster. A customer can be 70% \"premium shopper\" and 30% \"deal seeker\" at the same time."
+      ],
+      "howItWorks": [],
+      "uses": [
+        "\"customers belong to more than one category simultaneously\"",
+        "\"score indicating degree to which they belong to each category\"",
+        "\"loyalty to more than one brand\"",
+        "Overlapping, ambiguous group membership"
+      ],
+      "traps": [],
+      "examQs": [],
+      "keywords": [
+        "soft clustering",
+        "membership weight",
+        "overlapping groups",
+        "unsupervised"
+      ],
+      "vs": [
+        "**K-Means vs Fuzzy C-Means:** K-Means = hard (one cluster per point). Fuzzy C-Means = soft (membership weight 0-1 across multiple clusters).\nExam clue: \"belong to more than one\" or \"degree of membership\" → Fuzzy C-Means."
+      ],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "sup-unsup-rl",
+      "emoji": "📚",
+      "title": "3 Types of Machine Learning — The Big Picture",
+      "tag": "Learning Types",
+      "category": "Learning Types",
+      "tags": "supervised unsupervised reinforcement learning types labeled unlabeled trial error",
+      "analogies": [],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [],
+      "examQs": [],
+      "keywords": [
+        "supervised = labeled data",
+        "unsupervised = no labels",
+        "reinforcement = trial and error"
+      ],
+      "vs": [],
+      "tables": [
+        [
+          [
+            "Scenario",
+            "Type",
+            "Why"
+          ],
+          [
+            "Spam filter with labeled training data",
+            "Supervised",
+            "Has labeled examples"
+          ],
+          [
+            "Customer grouping, no categories exist",
+            "Unsupervised",
+            "No labels, discover on own"
+          ],
+          [
+            "Robot learns to navigate by trial and error",
+            "Reinforcement",
+            "Feedback/reward loop"
+          ],
+          [
+            "Find hidden user interest communities",
+            "Unsupervised",
+            "\"never explicitly defined\" = no labels"
+          ],
+          [
+            "Power dispatch optimised by testing configs",
+            "Reinforcement",
+            "\"improving based on outcomes\""
+          ]
+        ]
+      ],
+      "boxes": [
+        {
+          "label": "✅ Supervised Learning",
+          "value": "**Analogy:** Student studying with an answer key. Every question has a marked answer. The model learns input→output from labeled examples.\n\n          **Exam signal:** \"tagged\", \"labeled\", \"historical examples with correct answers\"\n\n          **Example:** Spam filter trained on emails already labeled spam/not spam."
+        },
+        {
+          "label": "🔍 Unsupervised Learning",
+          "value": "**Analogy:** Student gets 1000 notes with no subject labels. They organise them into groups themselves — discovers structure without being told.\n\n          **Exam signal:** \"no predefined categories\", \"discover natural groupings\", \"surface recurring themes on its own\"\n\n          **Example:** Customer segmentation where segments don't exist yet."
+        },
+        {
+          "label": "🎮 Reinforcement Learning",
+          "value": "**Analogy:** Training a dog with treats (reward) and scolding (penalty). The dog tries different actions, learns which get treats, and repeats those. No labeled dataset — learns from the OUTCOMES of its own actions.\n\n        OR: Think of Sachin Tendulkar adjusting his batting technique after each ball — he gets feedback (runs/out) and improves his actions based on that.\n\n        **Exam signal:** \"testing different configurations and improving based on outcomes\", \"trial and error\", \"learns from feedback\", \"goal-driven systems\"\n\n        **Example:** AI that optimises power grid dispatch by trying different configurations and seeing which reduces cost."
+        }
+      ]
+    },
+    {
+      "id": "semi-supervised",
+      "emoji": "🧩",
+      "title": "Semi-supervised & Self-supervised Learning",
+      "tag": "Learning Types",
+      "category": "Learning Types",
+      "tags": "semi supervised self supervised small labeled large unlabeled extend labels",
+      "analogies": [
+        "**📝 Layman Analogy — \"Teacher Marks 10, Students Mark the Rest\"**\n      Teacher has 90 essays but only marks 10 herself. Then she tells students: \"Using these 10 as examples, mark the remaining 80 in the same style.\" This is semi-supervised — small labeled set + large unlabeled pool, extend the labels using patterns from the labeled ones."
+      ],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [],
+      "examQs": [
+        {
+          "q": "Q: \"Small labeled dataset + large pool of similar unlabeled records. Want to label full pool by building on existing labels. What to do?\"",
+          "a": "A: Use a semi-supervised approach."
+        }
+      ],
+      "keywords": [
+        "semi-supervised",
+        "self-supervised",
+        "federated learning"
+      ],
+      "vs": [],
+      "tables": [
+        [
+          [
+            "Type",
+            "What it does",
+            "CPMAI exam signal"
+          ],
+          [
+            "**Semi-supervised**",
+            "Small labeled set + large unlabeled pool → automatically labels the rest using patterns",
+            "\"small labeled dataset + large pool of similar unlabeled records\""
+          ],
+          [
+            "**Self-supervised**",
+            "Generates its own labels from the input data structure. No manual labeling needed. Foundation models use this.",
+            "\"no labels, no budget for labeling\" + still need to learn something"
+          ],
+          [
+            "**Federated Learning**",
+            "Trains across multiple devices without moving raw data. Data stays local.",
+            "\"privacy-preserving\", \"data can't leave the device\""
+          ]
+        ]
+      ],
+      "boxes": []
+    },
+    {
+      "id": "deep-learning",
+      "emoji": "🧠",
+      "title": "Deep Learning / Neural Networks — The Black Box Brain",
+      "tag": "Neural Networks",
+      "category": "Special Techniques",
+      "tags": "deep learning neural network black box regulated many layers complex patterns image",
+      "analogies": [
+        "**🏭 Layman Analogy — \"Factory Quality Check Assembly Line\"**\n      Imagine a factory with 20 quality check stations in a row. A raw material enters → Station 1 checks for cracks → Station 2 checks for colour → Station 3 checks shape → ... → Station 20 gives final verdict.\n\n      Each station (layer) learns something slightly more complex than the previous. By the end, the system can detect very subtle defects no single person could spot. But if you ask \"WHY did you reject this part?\" — the 20 stations collectively can't give you a simple answer. That's a **black box**.\n\n      Neural networks = many interconnected \"neurons\" arranged in layers. \"Deep\" = many layers."
+      ],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [
+        "**\"PM raises concern about deep learning in regulated environment\"** → The concern is that decisions can't be explained/interpreted (black-box problem).",
+        "Single-layer neural network ≠ deep learning. Single layer can't detect subtle complex patterns.",
+        "Deep learning needs LARGE data. Scarce data → use Transfer Learning instead."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"PM raises concern about deep learning model in regulated environment. What concern?\"",
+          "a": "A: Model decisions are difficult to interpret (black-box = not acceptable in regulated settings)."
+        }
+      ],
+      "keywords": [
+        "many hidden layers",
+        "black-box",
+        "large data needed",
+        "not interpretable"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": [
+        {
+          "label": "✅ When to use",
+          "value": "• Subtle, non-obvious patterns across many variables\n\n          • Image recognition, speech recognition\n\n          • Large volume of unstructured data\n\n          • Complex tasks where simpler models fail"
+        },
+        {
+          "label": "❌ When NOT to use",
+          "value": "• Regulated environment requiring explanation\n\n          • Small dataset (needs large data to train)\n\n          • Audit trail required\n\n          • Limited computing budget"
+        }
+      ]
+    },
+    {
+      "id": "transfer-learning",
+      "emoji": "🎓",
+      "title": "Transfer Learning — \"Reuse What You've Already Learned\"",
+      "tag": "Transfer Learning",
+      "category": "Special Techniques",
+      "tags": "transfer learning pretrained foundation model fine-tune small data scarce labels",
+      "analogies": [
+        "**🍳 Layman Analogy — \"Chef Learning a New Cuisine\"**\n      A chef who has mastered Italian cuisine for 10 years wants to learn Indian cooking. He doesn't start from zero — he already knows knife skills, heat control, flavour balancing. He just needs to learn the new spices and techniques. He learns Indian cooking in 2 weeks instead of 5 years.\n\n      Transfer Learning = take a model already trained on millions of images/text → adapt it to your specific task using only a few thousand examples. You don't start from scratch.\n\n      **Foundation Models** (GPT, BERT) = the \"grandmaster chefs\" trained on literally everything on the internet. You just fine-tune them for your specific need."
+      ],
+      "howItWorks": [],
+      "uses": [
+        "\"very few labeled examples\" or \"labeling is slow and expensive\"",
+        "\"open-source model trained on similar imagery already available\"",
+        "Rare events, limited data, quick time-to-value",
+        "\"foundation model\" for multi-task (summarise, answer questions, generate)"
+      ],
+      "traps": [],
+      "examQs": [
+        {
+          "q": "Q: \"Conservation nonprofit has only a few thousand labeled camera-trap photos. Well-known open-source image model available. What should PM do?\"",
+          "a": "A: Adapt existing model through Transfer Learning — pretrained model + small labeled set."
+        }
+      ],
+      "keywords": [
+        "pretrained model",
+        "small labeled data",
+        "fine-tuning",
+        "foundation model"
+      ],
+      "vs": [
+        "**Transfer Learning vs Data Augmentation:**\n\n      Data Augmentation = transforms your existing data (rotate, flip images). Makes your small dataset bigger.\n\n      Transfer Learning = reuses a pretrained model. Reduces how much data you need in the first place.\n\n      Both help with scarce data but work differently!"
+      ],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "nlp",
+      "emoji": "💬",
+      "title": "NLP — Teaching Computers to Understand Language",
+      "tag": "NLP",
+      "category": "Special Techniques",
+      "tags": "nlp natural language processing text sentiment tokenization chatbot email language",
+      "analogies": [
+        "**📱 Layman Analogy — \"Computer Reading Your WhatsApp Messages\"**\n      Your phone's autocorrect reads what you're typing and suggests the next word. Google Translate reads Hindi and gives you English. Alexa understands \"Bhai, lights band karo.\" All of this is NLP — machines understanding human language.\n\n      Key NLP tasks:\n\n      • **Sentiment Analysis** = Is this review positive, negative, or neutral?\n\n      • **Entity Extraction** = Find names, dates, places in the text\n\n      • **Text Classification** = Sort emails into categories\n\n      • **Summarisation** = Give me the 3-line version of this 10-page document"
+      ],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [
+        "**Tokenization is ALWAYS the FIRST step** before any ML on raw text. Raw text → tokens (words/characters) → numbers → model. Without tokenization, the algorithm can't read the text.",
+        "NLP = text/language. Computer Vision = images/video. They are NOT interchangeable.",
+        "Mining customer emails for complaints → NLP (NOT Computer Vision, NOT Reinforcement Learning)."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"Raw text data cannot be fed directly into ML algorithm. What should team do first?\"",
+          "a": "A: Tokenize the text — break it into words/subwords that can be converted to numbers."
+        }
+      ],
+      "keywords": [
+        "human language",
+        "sentiment analysis",
+        "tokenization first",
+        "text classification"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "cv",
+      "emoji": "👁️",
+      "title": "Computer Vision — Teaching Computers to See",
+      "tag": "Computer Vision",
+      "category": "Computer Vision",
+      "tags": "computer vision image recognition object detection camera defect recognition pattern",
+      "analogies": [
+        "**👶 Layman Analogy — \"How a Baby Learns to Identify a Cat\"**\n      A baby sees thousands of cats over time — big, small, orange, black, sitting, sleeping. After enough examples, the baby instantly recognises a cat even in a cartoon or a blurry photo. Computer Vision works the same way — show it thousands of labeled images and it learns to see patterns.\n\n      The CPMAI AI pattern for this is called **Recognition** — identifying and classifying objects, images, and video."
+      ],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [
+        "**Small image dataset → Data Augmentation**: Rotate, flip, scale, crop existing images. 1,000 images can become 100,000–200,000! Not cheating — these are genuinely different views of the same thing.",
+        "**Training indoors, deploying outdoors → Distribution Shift**: The fix is to COLLECT real outdoor images, NOT augment the indoor ones. Augmenting indoor images can't fake outdoor lighting/weather.",
+        "**Function Creep risk**: Shoplifting camera getting repurposed for employee monitoring → Document approved purpose clearly and restrict scope."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"CV team has only small set of labeled defect images. Which technique to get more training data?\"",
+          "a": "A: Data Augmentation — transformations of existing images (rotation, flipping, scaling, cropping)."
+        }
+      ],
+      "keywords": [
+        "Recognition pattern",
+        "images and video",
+        "data augmentation",
+        "distribution shift"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "hmm",
+      "emoji": "🕵️",
+      "title": "HMM — Hidden Markov Model (The Detective Algorithm)",
+      "tag": "Sequential",
+      "category": "Special Techniques",
+      "tags": "hmm hidden markov model speech recognition phonemes audio sequential voice",
+      "analogies": [
+        "**🔍 Layman Analogy — \"CID Investigation\"**\n      In a CID episode, Daya finds clues: broken window, muddy footprints, missing wallet. He can't SEE the crime happening (those are hidden events). But from the visible clues (observable outputs), he infers what the criminal DID (hidden states): entered through window, walked to bedroom, stole wallet.\n\n      HMM works the same way with speech recognition:\n\n      • Hidden states = the phonemes (speech sounds) the speaker made: \"Ka-a-na-da\"\n\n      • Observable outputs = the audio waveform your microphone picks up\n\n      • HMM listens to the audio → figures out which sequence of phonemes was most likely spoken → gives you the transcription"
+      ],
+      "howItWorks": [
+        "The CPMAI curriculum EXPLICITLY names HMM as the algorithm for **\"voice generation/identification (identifying phonemes from audio signals)\"**. This is a direct quote — memorise it."
+      ],
+      "uses": [],
+      "traps": [
+        "Speech recognition → HMM. NOT KNN, NOT Naive Bayes, NOT SVM.",
+        "GMM = static probability distributions. HMM = sequential transitions over time. Very different."
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"Speech recognition software to identify phonemes from doctors' spoken words. Which ML algorithm?\"",
+          "a": "A: Hidden Markov Model (HMM) — CPMAI explicitly names it for speech/phoneme identification."
+        }
+      ],
+      "keywords": [
+        "sequential data",
+        "hidden states",
+        "speech recognition",
+        "phonemes",
+        "audio"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "gmm",
+      "emoji": "🫧",
+      "title": "GMM — Gaussian Mixture Model",
+      "tag": "Probabilistic",
+      "category": "Special Techniques",
+      "tags": "gmm gaussian mixture model static distribution probabilistic clustering soft",
+      "analogies": [
+        "**🍵 Layman Analogy — \"Chai Tasting Expert\"**\n      A chai expert sips a blend and says: \"This is 50% Assam tea, 30% Darjeeling, 20% South Indian blend.\" He knows three distinct \"flavour distributions\" and identifies how much of each is in this cup.\n\n      GMM models data as a mixture of several normal (bell curve) distributions. Each cluster has its own centre and spread."
+      ],
+      "howItWorks": [
+        "GMM in CPMAI mostly appears as a **wrong answer distractor**.\n\n      Key rule: GMM = static data distributions. HMM = sequential state transitions over time.\n\n      When exam says \"sequential\" or \"state transitions\" → HMM. Never GMM."
+      ],
+      "uses": [],
+      "traps": [],
+      "examQs": [],
+      "keywords": [
+        "static distributions",
+        "probabilistic clustering",
+        "not sequential"
+      ],
+      "vs": [],
+      "tables": [],
+      "boxes": []
+    },
+    {
+      "id": "eval-metrics",
+      "emoji": "📊",
+      "title": "Evaluation Metrics — Precision, Recall, F1, AUC, Confusion Matrix",
+      "tag": "Metrics",
+      "category": "Evaluation Metrics",
+      "tags": "evaluation metrics precision recall f1 auc roc confusion matrix accuracy imbalanced class",
+      "analogies": [
+        "**🐺 The Wolf-Shepherd Story (Memorise This Forever)**\n      A shepherd watches a field. Sometimes he shouts \"Wolf!\" and villagers run to help.\n\n      **PRECISION** = Of all the times he shouted \"Wolf!\" — how many times was there ACTUALLY a wolf? (Low precision = he's crying wolf too often = false alarms)\n\n      **RECALL** = Of all the actual wolves that came — how many times did he shout? (Low recall = he's missing real wolves = dangerous!)",
+        "**🏏 Cricket Analogy for Precision vs Recall**\n      A fielder attempts 10 run-outs in a match.\n\n      **Precision** = Of those 10 attempts, how many were ACTUALLY out? (Don't attempt if not sure = avoid false run-out appeals)\n\n      **Recall** = Of all the genuine run-out opportunities that came = how many did the fielder attempt? (Don't let any chance go!)"
+      ],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [
+        "**97% accuracy on fraud detection, only 2% fraud cases** → Accuracy is MISLEADING. The model could just say \"not fraud\" every time and get 98% accuracy!",
+        "**95% accuracy but users say spam still reaches inbox** → Recall problem. The model is missing actual spam (false negatives).",
+        "**AUC = 0.88, team recommends Go** → WRONG to accept immediately. Must evaluate against business KPIs, not just one metric.",
+        "**Two models with similar F1, which is better overall?** → Compare AUC values.",
+        "**ROI success metrics for sponsor/board** → Business outcomes (cost saved, scrap rate reduced), NOT technical metrics like AUC!"
+      ],
+      "examQs": [
+        {
+          "q": "Q: \"96% accuracy on pothole detection, but far more non-pothole images than pothole images. What should PM do?\"",
+          "a": "A: Evaluate F1 score alongside accuracy — class imbalance makes accuracy misleading."
+        },
+        {
+          "q": "Q: \"Manufacturing: Model A = higher precision, Model B = higher recall. Many warranty claims (defects reaching customers). Choose?\"",
+          "a": "A: Model B (higher recall) — warranty claims = defects slipping through = false negative = recall problem."
+        },
+        {
+          "q": "Q: \"Content moderation: majority of flagged posts are actually compliant, overwhelming reviewers. Which metric to evaluate?\"",
+          "a": "A: Precision — too many false positives (false alarms) = low precision problem."
+        }
+      ],
+      "keywords": [
+        "confusion matrix",
+        "precision",
+        "recall",
+        "f1 score",
+        "auc-roc",
+        "accuracy",
+        "overfitting"
+      ],
+      "vs": [],
+      "tables": [
+        [
+          [
+            "",
+            "Predicted: Positive",
+            "Predicted: Negative"
+          ],
+          [
+            "**Actually Positive**",
+            "✓ True Positive (TP)\nCorrectly caught the fraud",
+            "✗ False Negative (FN)\nFraud slipped through! MISSED IT"
+          ],
+          [
+            "**Actually Negative**",
+            "✗ False Positive (FP)\nFlagged innocent customer! False alarm",
+            "✓ True Negative (TN)\nCorrectly cleared innocent customer"
+          ]
+        ],
+        [
+          [
+            "Metric",
+            "Plain meaning",
+            "Formula"
+          ],
+          [
+            "Accuracy**",
+            "Overall percentage correct. Like exam marks — what % of questions did you get right?",
+            "(TP+TN) / Total"
+          ],
+          [
+            "Precision**",
+            "\"Don't cry wolf.\" Of everything I flagged as positive, how many were actually positive?",
+            "TP / (TP+FP)"
+          ],
+          [
+            "Recall**",
+            "\"Don't miss the wolf.\" Of all actual positives, how many did I catch?",
+            "TP / (TP+FN)"
+          ],
+          [
+            "F1 Score**",
+            "Balance between Precision and Recall. Best of both worlds in one number.",
+            "2 × (P×R)/(P+R)"
+          ],
+          [
+            "AUC-ROC**",
+            "Overall ability to separate positive from negative across ALL possible thresholds. 0.5 = random guess, 1.0 = perfect.",
+            "Area under the ROC curve"
+          ]
+        ],
+        [
+          [
+            "Exam scenario",
+            "Pick this metric",
+            "Why"
+          ],
+          [
+            "\"Missing a sick patient is dangerous\"\n\"Fraud slipping through\"\n\"Defects reaching customers (warranty claims)\"",
+            "RECALL",
+            "Missing actual positives (FN) is the danger. Recall = catching all real positives."
+          ],
+          [
+            "\"Too many false alarms, reviewers overwhelmed\"\n\"Customers wrongly declined\"\n\"Majority of flagged posts are actually compliant\"",
+            "PRECISION",
+            "False alarms (FP) is the problem. Precision = reduce false alerts."
+          ],
+          [
+            "\"Imbalanced classes\" (1% fraud, 99% legit)\n\"Both precision and recall matter\"\n\"Single metric for fraud detection\"",
+            "F1 SCORE",
+            "Accuracy is misleading with imbalance. F1 balances both concerns."
+          ],
+          [
+            "\"Compare two models overall\"\n\"Which model is generally better?\"\n\"Performance across all thresholds\"",
+            "AUC-ROC",
+            "Comprehensive comparison across all classification thresholds."
+          ],
+          [
+            "\"Board presentation, single intuitive number\"\n\"Balanced classes (roughly equal positives and negatives)\"",
+            "ACCURACY",
+            "Simple, intuitive. But ONLY when classes are balanced!"
+          ]
+        ],
+        [
+          [
+            "Symptom",
+            "Diagnosis",
+            "Fix"
+          ],
+          [
+            "High training accuracy, LOW test accuracy (big gap)",
+            "Overfitting — model memorised training data, can't generalise",
+            "Regularisation, more data, simpler model"
+          ],
+          [
+            "Low training AND low test accuracy (both bad)",
+            "Underfitting — model too simple",
+            "Use a more complex model"
+          ],
+          [
+            "Was good, now declining over time — model unchanged",
+            "Data Drift — real world data changed",
+            "Retrain with fresh data, MLOps pipeline"
+          ],
+          [
+            "Business process changed, model's logic is now wrong",
+            "Concept Drift — relationship between inputs and output shifted",
+            "Retrain on current data (not just retune hyperparameters!)"
+          ],
+          [
+            "GenAI gives confident but wrong answer",
+            "Hallucination",
+            "Prompt engineering, grounding, RAG"
+          ]
+        ]
+      ],
+      "boxes": []
+    },
+    {
+      "id": "cheatsheet",
+      "emoji": "⚡",
+      "title": "Master Quick Reference — Exam Day Cheat Sheet",
+      "tag": "All Algorithms",
+      "category": "Cheat Sheet",
+      "tags": "cheat sheet master reference quick all algorithms summary table",
+      "analogies": [],
+      "howItWorks": [],
+      "uses": [],
+      "traps": [],
+      "examQs": [],
+      "keywords": [],
+      "vs": [],
+      "tables": [
+        [
+          [
+            "Keyword in question",
+            "Answer"
+          ],
+          [
+            "word frequencies / text classification",
+            "Naive Bayes"
+          ],
+          [
+            "widest margin / support vectors / binary classification",
+            "SVM"
+          ],
+          [
+            "compare to most similar labeled examples",
+            "KNN"
+          ],
+          [
+            "slow at prediction as data grows / lazy learning / edge device",
+            "KNN disadvantage"
+          ],
+          [
+            "predict a number (price, temperature, sales)",
+            "Linear Regression"
+          ],
+          [
+            "follow reasoning in plain steps / audit / traceable / white-box",
+            "Decision Tree"
+          ],
+          [
+            "audit + ensemble mentioned as option",
+            "Random Forest is WRONG answer here"
+          ],
+          [
+            "no predefined categories / discover groupings / K groups",
+            "K-Means (unsupervised)"
+          ],
+          [
+            "belong to multiple groups / degree of membership / overlap",
+            "Fuzzy C-Means"
+          ],
+          [
+            "trial and error / improving based on feedback / goal-driven",
+            "Reinforcement Learning"
+          ],
+          [
+            "subtle patterns across many variables / black-box concern",
+            "Deep Learning"
+          ],
+          [
+            "regulated environment + PM raises concern",
+            "Deep Learning explainability problem"
+          ],
+          [
+            "speech recognition / phonemes / sequential hidden states",
+            "HMM"
+          ],
+          [
+            "sequential + static distributions confused",
+            "GMM = static; HMM = sequential"
+          ],
+          [
+            "few labeled images / pretrained model available",
+            "Transfer Learning"
+          ],
+          [
+            "no labels, no budget for labeling",
+            "Unsupervised or Self-supervised"
+          ],
+          [
+            "small labeled + large unlabeled pool",
+            "Semi-supervised"
+          ],
+          [
+            "96% train, 61% test",
+            "Overfitting"
+          ],
+          [
+            "52% train, 49% test (same as random)",
+            "Underfitting"
+          ],
+          [
+            "model unchanged, accuracy declined over months",
+            "Data Drift → retrain"
+          ],
+          [
+            "business process changed, model logic now wrong",
+            "Concept Drift → retrain on current data"
+          ],
+          [
+            "confident but wrong GenAI output",
+            "Hallucination"
+          ],
+          [
+            "images, detect objects, site cameras, defect detection",
+            "Computer Vision / Recognition pattern"
+          ],
+          [
+            "emails, text, sentiment, mine written reports",
+            "NLP"
+          ],
+          [
+            "raw text → ML, first step?",
+            "Tokenization"
+          ],
+          [
+            "version control + drift monitoring + retraining pipelines",
+            "MLOps"
+          ],
+          [
+            "missing patients / fraud slipping through / defects reaching customer",
+            "Recall (minimise false negatives)"
+          ],
+          [
+            "false alarms / reviewers overwhelmed / wrongly declined",
+            "Precision (minimise false positives)"
+          ],
+          [
+            "imbalanced classes / both precision and recall matter",
+            "F1 Score"
+          ],
+          [
+            "compare two models overall / which is generally better?",
+            "AUC-ROC"
+          ],
+          [
+            "board presentation, simple single number, balanced classes",
+            "Accuracy"
+          ],
+          [
+            "ROI success metrics for sponsor",
+            "Business outcomes, NOT technical metrics (AUC/accuracy)"
+          ]
+        ]
+      ],
+      "boxes": []
+    }
+  ],
+  "quiz": [
+    {
+      "topicId": "knn",
+      "topicTitle": "KNN — K-Nearest Neighbor",
+      "emoji": "🏘️",
+      "question": "Q: \"A product matching feature based on KNN grows unacceptably slow as catalog expands. Which KNN disadvantage?\"",
+      "answer": "A: It slows at prediction on large datasets — lazy learner pays at prediction time, not training time."
+    },
+    {
+      "topicId": "knn",
+      "topicTitle": "KNN — K-Nearest Neighbor",
+      "emoji": "🏘️",
+      "question": "Q: \"KNN proposed for assembly line edge device. What should PM do?\"",
+      "answer": "A: Evaluate whether KNN is suitable for device constraints (needs full dataset in memory = bad for edge)."
+    },
+    {
+      "topicId": "naive-bayes",
+      "topicTitle": "Naive Bayes — The Word Counter",
+      "emoji": "📊",
+      "question": "Q: \"Online news service wants to sort articles into politics/sports/tech based on which words appear how often. Which algo?\"",
+      "answer": "A: Naive Bayes — the CPMAI curriculum explicitly names it for text classification using word frequencies."
+    },
+    {
+      "topicId": "svm",
+      "topicTitle": "SVM — Support Vector Machine",
+      "emoji": "🛣️",
+      "question": "Q: \"Recommends supervised algo that separates two groups with widest possible margin. Which algo?\"",
+      "answer": "A: SVM — \"widest margin\" + \"closest points define the boundary\" = SVM signature."
+    },
+    {
+      "topicId": "svm",
+      "topicTitle": "SVM — Support Vector Machine",
+      "emoji": "🛣️",
+      "question": "Q: \"SVM spam detector. Customer wants to also categorise legitimate emails into subcategories. PM should?\"",
+      "answer": "A: Initiate change control — it's a scope change AND SVM is designed for binary, multiclass needs a different approach."
+    },
+    {
+      "topicId": "decision-tree",
+      "topicTitle": "Decision Tree — The KBC Flowchart",
+      "emoji": "🌳",
+      "question": "Q: \"Staff need to follow reasoning behind each flag in plain steps. Which algo?\"",
+      "answer": "A: Decision Tree — if-then path is fully readable, white-box."
+    },
+    {
+      "topicId": "linear-reg",
+      "topicTitle": "Linear Regression — Predict a Number",
+      "emoji": "📈",
+      "question": "Q: \"Predict tomorrow's temperature in degrees Celsius from historical weather data. Which algo?\"",
+      "answer": "A: Linear Regression — temperature is a continuous number, not a category."
+    },
+    {
+      "topicId": "semi-supervised",
+      "topicTitle": "Semi-supervised & Self-supervised Learning",
+      "emoji": "🧩",
+      "question": "Q: \"Small labeled dataset + large pool of similar unlabeled records. Want to label full pool by building on existing labels. What to do?\"",
+      "answer": "A: Use a semi-supervised approach."
+    },
+    {
+      "topicId": "deep-learning",
+      "topicTitle": "Deep Learning / Neural Networks — The Black Box Brain",
+      "emoji": "🧠",
+      "question": "Q: \"PM raises concern about deep learning model in regulated environment. What concern?\"",
+      "answer": "A: Model decisions are difficult to interpret (black-box = not acceptable in regulated settings)."
+    },
+    {
+      "topicId": "transfer-learning",
+      "topicTitle": "Transfer Learning — \"Reuse What You've Already Learned\"",
+      "emoji": "🎓",
+      "question": "Q: \"Conservation nonprofit has only a few thousand labeled camera-trap photos. Well-known open-source image model available. What should PM do?\"",
+      "answer": "A: Adapt existing model through Transfer Learning — pretrained model + small labeled set."
+    },
+    {
+      "topicId": "nlp",
+      "topicTitle": "NLP — Teaching Computers to Understand Language",
+      "emoji": "💬",
+      "question": "Q: \"Raw text data cannot be fed directly into ML algorithm. What should team do first?\"",
+      "answer": "A: Tokenize the text — break it into words/subwords that can be converted to numbers."
+    },
+    {
+      "topicId": "cv",
+      "topicTitle": "Computer Vision — Teaching Computers to See",
+      "emoji": "👁️",
+      "question": "Q: \"CV team has only small set of labeled defect images. Which technique to get more training data?\"",
+      "answer": "A: Data Augmentation — transformations of existing images (rotation, flipping, scaling, cropping)."
+    },
+    {
+      "topicId": "hmm",
+      "topicTitle": "HMM — Hidden Markov Model (The Detective Algorithm)",
+      "emoji": "🕵️",
+      "question": "Q: \"Speech recognition software to identify phonemes from doctors' spoken words. Which ML algorithm?\"",
+      "answer": "A: Hidden Markov Model (HMM) — CPMAI explicitly names it for speech/phoneme identification."
+    },
+    {
+      "topicId": "eval-metrics",
+      "topicTitle": "Evaluation Metrics — Precision, Recall, F1, AUC, Confusion Matrix",
+      "emoji": "📊",
+      "question": "Q: \"96% accuracy on pothole detection, but far more non-pothole images than pothole images. What should PM do?\"",
+      "answer": "A: Evaluate F1 score alongside accuracy — class imbalance makes accuracy misleading."
+    },
+    {
+      "topicId": "eval-metrics",
+      "topicTitle": "Evaluation Metrics — Precision, Recall, F1, AUC, Confusion Matrix",
+      "emoji": "📊",
+      "question": "Q: \"Manufacturing: Model A = higher precision, Model B = higher recall. Many warranty claims (defects reaching customers). Choose?\"",
+      "answer": "A: Model B (higher recall) — warranty claims = defects slipping through = false negative = recall problem."
+    },
+    {
+      "topicId": "eval-metrics",
+      "topicTitle": "Evaluation Metrics — Precision, Recall, F1, AUC, Confusion Matrix",
+      "emoji": "📊",
+      "question": "Q: \"Content moderation: majority of flagged posts are actually compliant, overwhelming reviewers. Which metric to evaluate?\"",
+      "answer": "A: Precision — too many false positives (false alarms) = low precision problem."
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“word frequencies / text classification”\n\nWhat is the CPMAI answer?",
+      "answer": "Naive Bayes"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“widest margin / support vectors / binary classification”\n\nWhat is the CPMAI answer?",
+      "answer": "SVM"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“compare to most similar labeled examples”\n\nWhat is the CPMAI answer?",
+      "answer": "KNN"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“slow at prediction as data grows / lazy learning / edge device”\n\nWhat is the CPMAI answer?",
+      "answer": "KNN disadvantage"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“predict a number (price, temperature, sales)”\n\nWhat is the CPMAI answer?",
+      "answer": "Linear Regression"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“follow reasoning in plain steps / audit / traceable / white-box”\n\nWhat is the CPMAI answer?",
+      "answer": "Decision Tree"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“audit + ensemble mentioned as option”\n\nWhat is the CPMAI answer?",
+      "answer": "Random Forest is WRONG answer here"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“no predefined categories / discover groupings / K groups”\n\nWhat is the CPMAI answer?",
+      "answer": "K-Means (unsupervised)"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“belong to multiple groups / degree of membership / overlap”\n\nWhat is the CPMAI answer?",
+      "answer": "Fuzzy C-Means"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“trial and error / improving based on feedback / goal-driven”\n\nWhat is the CPMAI answer?",
+      "answer": "Reinforcement Learning"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“subtle patterns across many variables / black-box concern”\n\nWhat is the CPMAI answer?",
+      "answer": "Deep Learning"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“regulated environment + PM raises concern”\n\nWhat is the CPMAI answer?",
+      "answer": "Deep Learning explainability problem"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“speech recognition / phonemes / sequential hidden states”\n\nWhat is the CPMAI answer?",
+      "answer": "HMM"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“sequential + static distributions confused”\n\nWhat is the CPMAI answer?",
+      "answer": "GMM = static; HMM = sequential"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“few labeled images / pretrained model available”\n\nWhat is the CPMAI answer?",
+      "answer": "Transfer Learning"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“no labels, no budget for labeling”\n\nWhat is the CPMAI answer?",
+      "answer": "Unsupervised or Self-supervised"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“small labeled + large unlabeled pool”\n\nWhat is the CPMAI answer?",
+      "answer": "Semi-supervised"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“96% train, 61% test”\n\nWhat is the CPMAI answer?",
+      "answer": "Overfitting"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“52% train, 49% test (same as random)”\n\nWhat is the CPMAI answer?",
+      "answer": "Underfitting"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“model unchanged, accuracy declined over months”\n\nWhat is the CPMAI answer?",
+      "answer": "Data Drift → retrain"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“business process changed, model logic now wrong”\n\nWhat is the CPMAI answer?",
+      "answer": "Concept Drift → retrain on current data"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“confident but wrong GenAI output”\n\nWhat is the CPMAI answer?",
+      "answer": "Hallucination"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“images, detect objects, site cameras, defect detection”\n\nWhat is the CPMAI answer?",
+      "answer": "Computer Vision / Recognition pattern"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“emails, text, sentiment, mine written reports”\n\nWhat is the CPMAI answer?",
+      "answer": "NLP"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“raw text → ML, first step?”\n\nWhat is the CPMAI answer?",
+      "answer": "Tokenization"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“version control + drift monitoring + retraining pipelines”\n\nWhat is the CPMAI answer?",
+      "answer": "MLOps"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“missing patients / fraud slipping through / defects reaching customer”\n\nWhat is the CPMAI answer?",
+      "answer": "Recall (minimise false negatives)"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“false alarms / reviewers overwhelmed / wrongly declined”\n\nWhat is the CPMAI answer?",
+      "answer": "Precision (minimise false positives)"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“imbalanced classes / both precision and recall matter”\n\nWhat is the CPMAI answer?",
+      "answer": "F1 Score"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“compare two models overall / which is generally better?”\n\nWhat is the CPMAI answer?",
+      "answer": "AUC-ROC"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“board presentation, simple single number, balanced classes”\n\nWhat is the CPMAI answer?",
+      "answer": "Accuracy"
+    },
+    {
+      "topicId": "cheatsheet",
+      "topicTitle": "Exam Day Cheat Sheet",
+      "emoji": "⚡",
+      "question": "If the question mentions:\n“ROI success metrics for sponsor”\n\nWhat is the CPMAI answer?",
+      "answer": "Business outcomes, NOT technical metrics (AUC/accuracy)"
+    }
+  ]
+}
