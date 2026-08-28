@@ -33,6 +33,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.MenuBook
@@ -128,7 +129,7 @@ private fun CpmaiApp(content: StudyContent, progress: ProgressStore) {
                     NavigationBarItem(
                         selected = tab == Tab.TOPICS,
                         onClick = { tab = Tab.TOPICS },
-                        icon = { Icon(Icons.Filled.MenuBook, contentDescription = "Topics") },
+                        icon = { Icon(Icons.AutoMirrored.Filled.MenuBook, contentDescription = "Topics") },
                         label = { Text("Topics") },
                         colors = navColors(),
                     )
