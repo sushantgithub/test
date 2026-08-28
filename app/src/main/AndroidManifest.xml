@@ -7,6 +7,8 @@
         android:label="CPMAI Study"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:extractNativeLibs="false"
+        android:enableOnBackInvokedCallback="true"
         android:theme="@style/Theme.CPMAIStudy">
         <activity
             android:name=".MainActivity"

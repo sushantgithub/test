@@ -9,3 +9,7 @@ captures/
 .DS_Store
 app/release/
 app/debug/
+keystore/
+keystore.properties
+*.jks
+*.keystore

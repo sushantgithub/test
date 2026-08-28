@@ -11,20 +11,22 @@ Offline Android app for studying CPMAI algorithm notes in plain language.
 - Exam-day cheat sheet
 - Progress tracking (studied topics + quiz stats)
 
-## Install the APK
+## Google Play
 
-1. Download `releases/CPMAI_Study.apk` from this repo (or the file attached to the agent run).
-2. On your phone: **Settings → Security → allow install from this source**.
-3. Open the APK and install. The app does not need internet.
+Play requires a signed **.aab**, not a debug APK. See **[play-listing/PLAY_STORE.md](play-listing/PLAY_STORE.md)** for listing copy, Data safety answers, and upload steps.
 
-The APK is a **debug-signed release** build (`com.cpmai.study`) so you can sideload it without Play Store.
+Package name: `com.sushantgithub.cpmaistudy`  
+Bundle: `releases/CPMAI_Study.aab`
 
-## Build from source
+## Sideload APK (not for Play)
 
-Requires JDK 17+ and Android SDK (compileSdk 35).
+`releases/CPMAI_Study.apk` is for installing without Play. Play Console must use the AAB.
+
+## Build
+
+Requires JDK 17+, Android SDK 36, and `keystore.properties` (see `keystore.properties.example`).
 
 ```bash
 echo "sdk.dir=$ANDROID_HOME" > local.properties
-./gradlew :app:assembleRelease
-# APK: app/build/outputs/apk/release/app-release.apk
+./gradlew :app:bundleRelease :app:assembleRelease
 ```
